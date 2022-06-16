@@ -1,0 +1,21 @@
+{
+  "name": "builtin.language-features-css",
+  "version": "0.0.0-dev",
+  "description": "",
+  "main": "src/languageFeaturesCssMain.js",
+  "scripts": {
+    "test": "node --unhandled-rejections=warn --experimental-vm-modules ./node_modules/jest/bin/jest.js --detectOpenHandles --forceExit",
+    "test:watch": "node --unhandled-rejections=warn --experimental-vm-modules ./node_modules/jest/bin/jest.js --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "module",
+  "devDependencies": {
+    "@types/jest": "^28.1.1",
+    "@types/node": "^18.0.0",
+    "cheerio": "^1.0.0-rc.11",
+    "got": "^12.1.0",
+    "jest": "^28.1.1",
+    "typescript": "^4.7.3"
+  }
+}
