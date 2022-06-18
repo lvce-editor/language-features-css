@@ -33,6 +33,7 @@ fs.copyFileSync(
   join(root, 'dist', 'extension.json')
 )
 fs.cpSync(join(root, 'src'), join(root, 'dist', 'src'), { recursive: true })
+fs.cpSync(join(root, 'data'), join(root, 'dist', 'data'), { recursive: true })
 
 const getAllDependencies = (obj) => {
   if (!obj || !obj.dependencies) {
