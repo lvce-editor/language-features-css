@@ -19,6 +19,11 @@
     "typescript": "^4.7.3",
     "@lvce-editor/package-extension": "git+https://github.com/lvce-editor/package-extension.git#v0.0.2"
   },
+  "jest": {
+    "testMatch": [
+      "<rootDir>/test/**/*.test.js"
+    ]
+  },
   "prettier": {
     "semi": false,
     "singleQuote": true
