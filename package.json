@@ -1,28 +1,26 @@
 {
-  "name": "builtin.language-features-css",
+  "name": "builtin.language-features-css-monorepo",
   "version": "0.0.0-dev",
   "description": "",
-  "main": "src/languageFeaturesCssMain.js",
   "scripts": {
-    "test": "node --unhandled-rejections=warn --experimental-vm-modules ./node_modules/jest/bin/jest.js --detectOpenHandles --forceExit",
+    "postinstall": "lerna bootstrap --ci",
+    "test": "lerna run test",
+    "dev": "npx @lvce-editor/server",
     "test:watch": "node --unhandled-rejections=warn --experimental-vm-modules ./node_modules/jest/bin/jest.js --watch"
   },
   "keywords": [],
   "author": "",
   "type": "module",
   "devDependencies": {
+    "@lvce-editor/package-extension": "git+https://github.com/lvce-editor/package-extension.git#v0.0.2",
+    "@lvce-editor/server": "^0.0.13",
     "@types/jest": "^28.1.1",
     "@types/node": "^18.0.0",
     "cheerio": "^1.0.0-rc.11",
     "got": "^12.1.0",
     "jest": "^28.1.1",
-    "typescript": "^4.7.3",
-    "@lvce-editor/package-extension": "git+https://github.com/lvce-editor/package-extension.git#v0.0.2"
-  },
-  "jest": {
-    "testMatch": [
-      "<rootDir>/test/**/*.test.js"
-    ]
+    "lerna": "^5.1.6",
+    "typescript": "^4.7.3"
   },
   "prettier": {
     "semi": false,
