@@ -57,6 +57,8 @@ jobs:
         uses: GabrielBB/xvfb-action@v1
         with:
           run: npm run e2e:headless
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: 0
       - run: node scripts/build.js
       - name: Build archive
         shell: bash
