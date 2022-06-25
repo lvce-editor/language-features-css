@@ -13,22 +13,24 @@ const getTestFiles = async () => {
 }
 
 const main = async () => {
-  state.runImmediately = false
-  const start = performance.now()
-  await startAll()
-  console.info('SETUP COMPLETE')
-  const testFiles = await getTestFiles()
-  for (const testFile of testFiles) {
-    state.tests = []
-    await import(testFile)
-    for (const test of state.tests) {
-      await runTest(test)
+  try {
+    state.runImmediately = false
+    await startAll()
+    console.info('SETUP COMPLETE')
+    const testFiles = await getTestFiles()
+    for (const testFile of testFiles) {
+      state.tests = []
+      await import(testFile)
+      for (const test of state.tests) {
+        await runTest(test)
+      }
     }
+    await closeAll()
+  } catch (error) {
+    console.info('tests failed')
+    console.error(error)
+    process.exit(1)
   }
-  await closeAll()
-  const end = performance.now()
-  const duration = end - start
-  console.info(`${testFiles.length} tests passed in ${duration}ms`)
 }
 
 main()
