@@ -1,4 +1,4 @@
-import { mkdtemp } from 'fs/promises'
+import { mkdir, mkdtemp, writeFile } from 'fs/promises'
 import getPort from 'get-port'
 import { join } from 'node:path'
 import { tmpdir } from 'os'
@@ -52,6 +52,18 @@ const launchServer = async ({ port, folder, env }) => {
     'server.js'
   )
   // TODO disable saving state between tests in settings
+  const configDir = await getTmpDir()
+  await mkdir(join(configDir, 'lvce-oss'), { recursive: true })
+  await writeFile(
+    join(configDir, 'lvce-oss', 'settings.json'),
+    JSON.stringify(
+      {
+        'workbench.saveStateOnVisibilityChange': false,
+      },
+      null,
+      2
+    )
+  )
   const childProcess = fork(serverPath, {
     stdio: 'inherit',
     env: {
@@ -59,6 +71,7 @@ const launchServer = async ({ port, folder, env }) => {
       PORT: port,
       FOLDER: folder,
       ONLY_EXTENSION: join(__dirname, '..', '..', 'extension'),
+      XDG_CONFIG_HOME: configDir,
       ...env,
     },
   })

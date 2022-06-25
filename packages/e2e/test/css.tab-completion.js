@@ -30,7 +30,7 @@ test('css.tab-completion', async (t) => {
   const cursor = page.locator('.EditorCursor')
   await expect(cursor).toHaveCount(1)
   await expect(cursor).toHaveCSS('top', '20px')
-  await expect(cursor).toHaveCSS('left', '19px') // TODO this should be 18px
+  await expect(cursor).toHaveCSS('left', '18px')
 
   await page.keyboard.press('End')
   await page.keyboard.press('Tab')

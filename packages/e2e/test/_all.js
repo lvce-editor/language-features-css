@@ -1,5 +1,6 @@
 import { readdirSync } from 'node:fs'
 import { dirname } from 'node:path'
+import { performance } from 'node:perf_hooks'
 import { fileURLToPath } from 'node:url'
 import { closeAll, runTest, startAll, state } from '../src/runWithExtension.js'
 
@@ -13,6 +14,7 @@ const getTestFiles = async () => {
 
 const main = async () => {
   state.runImmediately = false
+  const start = performance.now()
   await startAll()
   console.info('SETUP COMPLETE')
   const testFiles = await getTestFiles()
@@ -24,6 +26,9 @@ const main = async () => {
     }
   }
   await closeAll()
+  const end = performance.now()
+  const duration = end - start
+  console.info(`${testFiles.length} tests passed in ${duration}ms`)
 }
 
 main()

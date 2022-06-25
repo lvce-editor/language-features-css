@@ -7,6 +7,7 @@
     "test": "lerna run test",
     "dev": "npx @lvce-editor/server",
     "test:watch": "node --unhandled-rejections=warn --experimental-vm-modules ./node_modules/jest/bin/jest.js --watch",
+    "e2e": "lerna run e2e",
     "e2e:headless": "lerna run e2e:headless"
   },
   "keywords": [],
@@ -14,7 +15,7 @@
   "type": "module",
   "devDependencies": {
     "@lvce-editor/package-extension": "git+https://github.com/lvce-editor/package-extension.git#v0.0.2",
-    "@lvce-editor/server": "^0.0.14",
+    "@lvce-editor/server": "^0.0.15",
     "@types/node": "^18.0.0",
     "cheerio": "^1.0.0-rc.11",
     "got": "^12.1.0",
