@@ -29,7 +29,7 @@ jobs:
       - run: npm test
       - name: install playwright dependencies
         working-directory: ./packages/e2e
-        run: PLAYWRIGHT_BROWSERS_PATH=0 npx playwright install
+        run: PLAYWRIGHT_BROWSERS_PATH=0 npx playwright install chromium
         if: steps.npm-cache.outputs.cache-hit != 'true'
       - name: Run headless test
         uses: GabrielBB/xvfb-action@v1
