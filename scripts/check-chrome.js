@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import got from 'got'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
+const extension = join(__dirname, '../packages/extension')
 
 const getChromeData = () => {
   return got('https://chromestatus.com/data/csspopularity').json()
@@ -44,7 +45,7 @@ const getChromeProperties = async () => {
 
 const getIgnoredProperties = async () => {
   const ignoredRaw = await fs.promises.readFile(
-    join(__dirname, './ignored.json'),
+    join(__dirname, './deprecated.json'),
     'utf-8'
   )
   const ignored = JSON.parse(ignoredRaw).map((value) => value.name)
@@ -53,7 +54,7 @@ const getIgnoredProperties = async () => {
 
 const getTestedProperties = async () => {
   const text = await fs.promises.readFile(
-    join(__dirname, '../test/propertyTabCompletion.test.js'),
+    join(extension, 'test/propertyTabCompletion.test.js'),
     'utf-8'
   )
   const strings = [...text.matchAll(/test\('(.*?)'/g)].map((x) => x[1])

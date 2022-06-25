@@ -5,10 +5,11 @@ import { fileURLToPath } from 'node:url'
 // TODO could download deprecated data from https://www.cssportal.com/css-properties/
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
+const extension = join(__dirname, '../packages/extension')
 
 const getDataProperties = async () => {
   const content = await readFile(
-    join(__dirname, '../data/css-properties.json'),
+    join(extension, 'data/css-properties.json'),
     'utf-8'
   )
   const json = JSON.parse(content)
@@ -23,7 +24,7 @@ const getDeprecatedProperties = async () => {
 
 const getTestedProperties = async () => {
   const text = await readFile(
-    join(__dirname, '../test/propertyTabCompletion.test.js'),
+    join(extension, 'test/propertyTabCompletion.test.js'),
     'utf-8'
   )
   const strings = [...text.matchAll(/test\('(.*?)'/g)].map((x) => x[1])

@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url'
 import got from 'got'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
+const extension = join(__dirname, '../packages/extension')
 
 const commit = '403e30df18d10dedcdc764d50b1b3c225449b0df'
 
@@ -226,7 +227,7 @@ const combineProperties = async () => {
 
 const getTestedProperties = async () => {
   const text = await readFile(
-    join(__dirname, '../test/propertyTabCompletion.test.js'),
+    join(extension, 'test/propertyTabCompletion.test.js'),
     'utf-8'
   )
   const strings = [...text.matchAll(/test\('(.*?)'/g)].map((x) => x[1])

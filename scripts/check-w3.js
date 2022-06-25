@@ -5,6 +5,7 @@ import cheerio from 'cheerio'
 import got from 'got'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
+const extension = join(__dirname, '../packages/extension')
 
 const getW3Data = () => {
   return got('https://www.w3.org/Style/CSS/all-properties.en.html').text()
@@ -47,7 +48,7 @@ const getW3Properties = async () => {
 
 const getTestedProperties = async () => {
   const text = await fs.promises.readFile(
-    join(__dirname, '../test/propertyTabCompletion.test.js'),
+    join(extension, 'test/propertyTabCompletion.test.js'),
     'utf-8'
   )
   const strings = [...text.matchAll(/test\('(.*?)'/g)].map((x) => x[1])
@@ -56,7 +57,7 @@ const getTestedProperties = async () => {
 
 const getJsonProperties = async () => {
   const text = await fs.promises.readFile(
-    join(__dirname, '../src/css-properties.json'),
+    join(extension, 'data/css-properties.json'),
     'utf-8'
   )
   const strings = Object.keys(JSON.parse(text))
