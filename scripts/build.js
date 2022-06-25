@@ -9,13 +9,14 @@ const NOT_NEEDED = []
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const root = path.join(__dirname, '..')
+const extension = path.join(root, 'packages', 'extension')
 
 fs.rmSync(join(root, 'dist'), { recursive: true, force: true })
 
 fs.mkdirSync(path.join(root, 'dist'))
 
 const packageJson = JSON.parse(
-  readFileSync(join(root, 'package.json')).toString()
+  readFileSync(join(extension, 'package.json')).toString()
 )
 delete packageJson.xo
 delete packageJson.jest
@@ -27,13 +28,17 @@ fs.writeFileSync(
   JSON.stringify(packageJson, null, 2) + '\n'
 )
 fs.copyFileSync(join(root, 'README.md'), join(root, 'dist', 'README.md'))
-fs.copyFileSync(join(root, 'icon.png'), join(root, 'dist', 'icon.png'))
+fs.copyFileSync(join(extension, 'icon.png'), join(root, 'dist', 'icon.png'))
 fs.copyFileSync(
-  join(root, 'extension.json'),
+  join(extension, 'extension.json'),
   join(root, 'dist', 'extension.json')
 )
-fs.cpSync(join(root, 'src'), join(root, 'dist', 'src'), { recursive: true })
-fs.cpSync(join(root, 'data'), join(root, 'dist', 'data'), { recursive: true })
+fs.cpSync(join(extension, 'src'), join(root, 'dist', 'src'), {
+  recursive: true,
+})
+fs.cpSync(join(extension, 'data'), join(root, 'dist', 'data'), {
+  recursive: true,
+})
 
 const getAllDependencies = (obj) => {
   if (!obj || !obj.dependencies) {
@@ -44,7 +49,7 @@ const getAllDependencies = (obj) => {
 
 const getDependencies = () => {
   const stdout = execSync('npm list --omit=dev --parseable --all', {
-    cwd: root,
+    cwd: extension,
   }).toString()
   const lines = stdout.split('\n')
   return lines.slice(1, -1)
@@ -52,9 +57,13 @@ const getDependencies = () => {
 
 const dependencies = getDependencies()
 for (const dependency of dependencies) {
-  fs.cpSync(dependency, join(root, 'dist', dependency.slice(root.length)), {
-    recursive: true,
-  })
+  fs.cpSync(
+    dependency,
+    join(root, 'dist', dependency.slice(extension.length)),
+    {
+      recursive: true,
+    }
+  )
 }
 
 for (const notNeeded of NOT_NEEDED) {
