@@ -14,6 +14,7 @@ const getTestFiles = async () => {
 
 const main = async () => {
   try {
+    const start = performance.now()
     state.runImmediately = false
     await startAll()
     console.info('SETUP COMPLETE')
@@ -26,6 +27,9 @@ const main = async () => {
       }
     }
     await closeAll()
+    const end = performance.now()
+    const duration = end - start
+    console.info(`${testFiles.length} tests passed in ${duration}ms`)
   } catch (error) {
     console.info('tests failed')
     console.error(error)
