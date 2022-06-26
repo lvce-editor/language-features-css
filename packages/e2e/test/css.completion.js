@@ -16,7 +16,7 @@ test('css.completion', async () => {
   })
   const testCss = page.locator('text=test.css')
   await testCss.click()
-  const token = page.locator('.Token.Text')
+  const token = page.locator('.Token').first()
   await token.click()
   const cursor = page.locator('.EditorCursor')
   await expect(cursor).toHaveCount(1)
