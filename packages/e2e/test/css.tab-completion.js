@@ -38,7 +38,7 @@ test('css.tab-completion', async (t) => {
   const editor = page.locator('.Editor')
   await expect(editor).toHaveText(
     trimLines(`h1 {
-    display: none;
-  }`)
+  display: none;
+}`)
   )
 })
