@@ -25,12 +25,12 @@ test('css.tab-completion', async (t) => {
   })
   const testCss = page.locator('text=test.css')
   await testCss.click()
-  const token = page.locator('.Token.Text', { hasText: 'dn' })
+  const token = page.locator('.Token.CssPropertyName', { hasText: 'dn' })
   await token.click()
   const cursor = page.locator('.EditorCursor')
   await expect(cursor).toHaveCount(1)
   await expect(cursor).toHaveCSS('top', '20px')
-  await expect(cursor).toHaveCSS('left', '18px')
+  await expect(cursor).toHaveCSS('left', '27px')
 
   await page.keyboard.press('End')
   await page.keyboard.press('Tab')
@@ -38,7 +38,7 @@ test('css.tab-completion', async (t) => {
   const editor = page.locator('.Editor')
   await expect(editor).toHaveText(
     trimLines(`h1 {
-  display: none;
-}`)
+    display: none;
+  }`)
   )
 })
