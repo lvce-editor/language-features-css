@@ -15,7 +15,7 @@
   "type": "module",
   "devDependencies": {
     "@lvce-editor/package-extension": "git+https://github.com/lvce-editor/package-extension.git#v0.0.2",
-    "@lvce-editor/server": "^0.0.15",
+    "@lvce-editor/server": "^0.0.16",
     "@types/node": "^18.0.0",
     "cheerio": "^1.0.0-rc.11",
     "got": "^12.1.0",
