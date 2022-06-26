@@ -23,21 +23,16 @@ jobs:
         with:
           version: 7
           run_install: false
-      - name: Get pnpm store directory
-        id: pnpm_cache_dir
-        run: |
-          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
       - uses: actions/cache@v3
         name: Setup pnpm cache
         id: pnpm-cache
         with:
-          path: ${{ steps.pnpm_cache_dir.outputs.pnpm_cache_dir }}
+          path: '**/node_modules'
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
       - name: Install dependencies
-        run: pnpm install
-      - run: npm test
+        run: pnpm install --frozen-lockfile
+        if: steps.pnpm-cache.outputs.cache-hit != 'true'
+      - run: pnpm test
       - name: install playwright dependencies
         working-directory: ./packages/e2e
         run: npx playwright install chromium
