@@ -50,7 +50,7 @@ jobs:
         run: pnpm playwright install chromium
 
       - name: Test unit
-      - run: pnpm test
+        run: pnpm test
 
       - name: Run headless test
         run: pnpm run e2e:headless
