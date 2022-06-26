@@ -37,7 +37,6 @@ jobs:
             ${{ runner.os }}-pnpm-store-
       - name: Install dependencies
         run: pnpm install
-        if: steps.pnpm-cache.outputs.cache-hit != 'true'
       - run: npm test
       - name: install playwright dependencies
         working-directory: ./packages/e2e
