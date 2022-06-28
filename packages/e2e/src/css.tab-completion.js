@@ -1,15 +1,11 @@
 import {
   expect,
+  getTmpDir,
   runWithExtension,
   test,
 } from '@lvce-editor/test-with-playwright'
-import { mkdtemp, writeFile } from 'fs/promises'
-import { tmpdir } from 'node:os'
+import { writeFile } from 'fs/promises'
 import { join } from 'node:path'
-
-const getTmpDir = () => {
-  return mkdtemp(join(tmpdir(), 'css-tab-completion'))
-}
 
 const trimLines = (string) => {
   return string.split('\n').join('')
