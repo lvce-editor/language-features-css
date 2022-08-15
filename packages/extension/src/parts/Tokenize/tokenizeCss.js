@@ -19,7 +19,7 @@ export const TokenType = {
   PropertySemicolon: 9,
 }
 
-const RE_SELECTOR = /^[a-zA-Z\d]+/
+const RE_SELECTOR = /^[\.a-zA-Z\d]+/
 const RE_WHITESPACE = /^\s+/
 const RE_CURLY_OPEN = /^{/
 const RE_CURLY_CLOSE = /^}/
@@ -144,7 +144,3 @@ export const getTokenAtOffset = (tokens, offset) => {
   }
   return tokens[tokens.length - 1]
 }
-
-tokenizeCss(`h1 {
-  color: red;
-}`) // ?
