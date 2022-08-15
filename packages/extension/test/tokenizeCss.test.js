@@ -77,3 +77,12 @@ test('partial', () => {
     TokenType.CurlyClose
   )
 })
+
+test('class selector', () => {
+  expectTokenize(`.Editor {}`).toEqual(
+    TokenType.Selector,
+    TokenType.Whitespace,
+    TokenType.CurlyOpen,
+    TokenType.CurlyClose
+  )
+})
