@@ -1,14 +1,14 @@
-import fs, { existsSync } from 'node:fs'
-import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import got from 'got'
+import fs, { existsSync, readFileSync } from 'node:fs'
+import { mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { pipeline } from 'node:stream/promises'
 import { fileURLToPath } from 'node:url'
-import got from 'got'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const extension = join(__dirname, '../packages/extension')
 
-const commit = '403e30df18d10dedcdc764d50b1b3c225449b0df'
+const commit = 'eed426368e871c96223f8d45b22805e3020eb1e7'
 
 const sources = [
   'css-align-3/Overview.bs',
@@ -98,8 +98,10 @@ const getCode = (error) => {
   return `${error.response.statusCode}`
 }
 
+const root = join(__dirname, '..')
+
 const downloadFile = async ({ url, to }) => {
-  const absoluteTo = join(__dirname, '..', to)
+  const absoluteTo = join(root, to)
   if (existsSync(absoluteTo)) {
     console.info(`[download skipped] ${url}`)
     return
@@ -116,12 +118,22 @@ const downloadFile = async ({ url, to }) => {
 }
 
 const downloadData = async () => {
+  if (existsSync(join(root, '.tmp', 'w3c-commitHash'))) {
+    const existingCommitHash = readFileSync(
+      join(root, '.tmp', 'w3c-commitHash'),
+      'utf8'
+    )
+    if (existingCommitHash !== commit) {
+      await rm(join(root, '.tmp'), { recursive: true })
+    }
+  }
   for (const source of sources) {
     await downloadFile({
       url: `https://raw.githubusercontent.com/w3c/csswg-drafts/${commit}/${source}`,
       to: `.tmp/w3c/${source}.txt`,
     })
   }
+  await writeFile(join(root, '.tmp', 'w3c-commitHash'), commit)
 }
 
 const PROPDEF_1 = '<pre class="propdef shorthand">'
