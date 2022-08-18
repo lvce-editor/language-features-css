@@ -61,6 +61,10 @@ const getTestedProperties = async () => {
   return new Set(strings)
 }
 
+const isWebkit = (propertyName) => {
+  return propertyName.startsWith('webkit')
+}
+
 const checkNormalProperties = async () => {
   const chromeProperties = await getChromeProperties()
   const ignoredProperties = await getIgnoredProperties()
@@ -68,7 +72,8 @@ const checkNormalProperties = async () => {
   for (const property of chromeProperties) {
     if (
       !testedProperties.has(property.name) &&
-      !ignoredProperties.has(property.name)
+      !ignoredProperties.has(property.name) &&
+      !isWebkit(property.name)
     ) {
       console.warn(`missing property: ${property.name}`)
     }

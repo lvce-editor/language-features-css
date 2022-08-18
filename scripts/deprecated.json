@@ -183,5 +183,101 @@
     "name": "volume",
     "use-instead": "voice-volume",
     "additional-info": "https://www.cssportal.com/css-properties/volume.php"
+  },
+  {
+    "name": "snap-height"
+  },
+  {
+    "name": "subtree-visibility",
+    "reason": "was renamed to content-visibility",
+    "additional-info": "https://github.com/w3c/csswg-drafts/issues/4843"
+  },
+  {
+    "name": "min-zoom",
+    "reason": "unsure"
+  },
+  {
+    "name": "max-zoom",
+    "reason": "unsure"
+  },
+  {
+    "name": "user-zoom",
+    "reason": "unsure"
+  },
+  {
+    "name": "touch-action-delay",
+    "reason": "unsure"
+  },
+  {
+    "name": "text-overline"
+  },
+  {
+    "name": "text-overline-color"
+  },
+  {
+    "name": "text-overline-mode"
+  },
+  {
+    "name": "text-overline-style"
+  },
+  {
+    "name": "text-overline-width"
+  },
+  {
+    "name": "text-underline"
+  },
+  {
+    "name": "text-underline-color"
+  },
+  {
+    "name": "text-underline-width"
+  },
+  {
+    "name": "text-underline-mode"
+  },
+  {
+    "name": "text-underline-style"
+  },
+  {
+    "name": "kerning",
+    "additional-info": "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/kerning"
+  },
+  {
+    "name": "grid-gap",
+    "use-instead": "gap"
+  },
+  {
+    "name": "grid-row-gap",
+    "use-instead": "row-gap"
+  },
+  {
+    "name": "scroll-snap-margin",
+    "use-instead": "scroll-margin"
+  },
+  {
+    "name": "scroll-snap-margin-bottom",
+    "use-instead": "scroll-margin-bottom"
+  },
+  {
+    "name": "scroll-snap-margin-inline",
+    "use-instead": "scroll-margin-inline"
+  },
+  {
+    "name": "scroll-snap-margin-block",
+    "use-instead": "scroll-margin-block"
+  },
+  {
+    "name": "scroll-snap-margin-top",
+    "use-instead": "scroll-margin-top"
+  },
+  {
+    "name": "origin-trial-test-property",
+    "reason": "not a real property"
+  },
+  {
+    "name": "zoom"
+  },
+  {
+    "name": "text-line-through-color"
   }
 ]
