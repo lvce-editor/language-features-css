@@ -1,5 +1,3 @@
-/// <reference path="./types.d.ts" />
-
 const trimLines = (string) => {
   return string.split('\n').join('')
 }
