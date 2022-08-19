@@ -1,5 +1,3 @@
-/// <reference path="./types.d.ts" />
-
 test('css.completion', async () => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
