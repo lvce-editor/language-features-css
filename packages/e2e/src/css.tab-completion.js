@@ -14,9 +14,7 @@ test('css.tab-completion', async () => {
 }`
   )
   await Workspace.setPath(tmpDir)
-  await Extension.addWebExtension(
-    new URL(`../fixtures/${name}`, import.meta.url).toString()
-  )
+  // await Extension.addNodeExtension('packages/extension')
 
   // act
   await Main.openUri(`${tmpDir}/test.css`)
@@ -25,7 +23,6 @@ test('css.tab-completion', async () => {
 
   // assert
   const editor = Locator('.Viewlet.Editor')
-  await expect(editor).toHaveText(`test`)
   await expect(editor).toHaveText(
     trimLines(`h1 {
   display: none;

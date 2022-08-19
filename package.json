@@ -5,7 +5,7 @@
   "scripts": {
     "postinstall": "lerna bootstrap --ci",
     "test": "lerna run test",
-    "dev": "npx @lvce-editor/server",
+    "dev": "ONLY_EXTENSION=packages/extension TEST_PATH=packages/e2e npx @lvce-editor/server",
     "test:watch": "node --unhandled-rejections=warn --experimental-vm-modules ./node_modules/jest/bin/jest.js --watch",
     "e2e": "cd packages/e2e && npm run e2e",
     "e2e:headless": "cd packages/e2e && npm run e2e:headless"
@@ -15,7 +15,7 @@
   "type": "module",
   "devDependencies": {
     "@lvce-editor/package-extension": "^0.0.4",
-    "@lvce-editor/server": "^0.0.31",
+    "@lvce-editor/server": "^0.0.33",
     "@types/node": "^18.7.6",
     "cheerio": "^1.0.0-rc.12",
     "got": "^12.3.1",
