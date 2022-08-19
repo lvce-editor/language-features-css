@@ -1,31 +1,20 @@
-import {
-  expect,
-  getTmpDir,
-  runWithExtension,
-  test,
-} from '@lvce-editor/test-with-playwright'
-import { writeFile } from 'fs/promises'
-import { join } from 'node:path'
+/// <reference path="./types.d.ts" />
 
 test('css.completion', async () => {
-  const tmpDir = await getTmpDir()
-  await writeFile(join(tmpDir, 'test.css'), ' ')
-  const page = await runWithExtension({
-    folder: tmpDir,
-  })
-  const testCss = page.locator('text=test.css')
-  await testCss.click()
-  const token = page.locator('.Token').first()
-  await token.click()
-  const cursor = page.locator('.EditorCursor')
-  await expect(cursor).toHaveCount(1)
-  await expect(cursor).toHaveCSS('top', '0px')
-  await page.keyboard.press('Control+Space')
+  // arrange
+  const tmpDir = await FileSystem.getTmpDir()
+  await FileSystem.writeFile(`${tmpDir}/test.css`, ` `)
+  await Workspace.setPath(tmpDir)
+  // await Extension.addNodeExtension('packages/extension')
 
-  const completions = page.locator('#Completions')
+  // act
+  await Main.openUri(`${tmpDir}/test.css`)
+  await Editor.setCursor(0, 0)
+  await Editor.openCompletion()
+
+  // assert
+  const completions = Locator('#Completions')
   await expect(completions).toBeVisible()
-
   const completionItems = completions.locator('.EditorCompletionItem')
-  const completionItemOne = completionItems.nth(0)
-  await expect(completionItemOne).toHaveText('text-decoration')
+  await expect(completionItems.nth(0)).toHaveText('text-decoration')
 })
