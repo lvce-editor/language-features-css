@@ -2,7 +2,7 @@
   "name": "language-service",
   "version": "0.0.0-dev",
   "description": "",
-  "main": "index.js",
+  "main": "src/languageServiceMain.js",
   "type": "module",
   "scripts": {
     "test": "node --unhandled-rejections=warn --experimental-vm-modules ./node_modules/jest/bin/jest.js --detectOpenHandles --forceExit",
