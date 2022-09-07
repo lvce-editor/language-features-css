@@ -1,5 +1,5 @@
 import { tokenizeCss, TokenType } from '../Tokenize/tokenizeCss.js'
-import { propertyData } from '../../../data/propertyData.js'
+import { propertyData } from 'language-service-data'
 // {
 //   none: {},
 //   overline: {},

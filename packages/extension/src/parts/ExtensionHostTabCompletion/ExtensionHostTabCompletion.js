@@ -1,4 +1,4 @@
-import * as TabCompletion from '../TabCompletion/TabCompletion.js'
+import { TabCompletion } from 'language-service'
 
 export const languageId = 'css'
 

@@ -1,5 +1,9 @@
-import { tokenizeCss, getTokenAtOffset, TokenType } from '../Tokenize/tokenizeCss.js'
-import { getMatchingCompletion } from '../getMatchingCompletion.js'
+import {
+  tokenizeCss,
+  getTokenAtOffset,
+  TokenType,
+} from '../Tokenize/tokenizeCss.js'
+import { getMatchingCompletion } from '../GetMatchingCompletion/GetMatchingCompletion.js'
 
 const RE_WORD = /[a-zA-Z\d\-]+$/
 

@@ -1,4 +1,3 @@
-import { getMatchingCompletion } from '../src/parts/getMatchingCompletion.js'
 import { cssTabCompletion } from '../src/parts/TabCompletion/TabCompletion.js'
 
 const expectTabCompletion = (text) => ({
