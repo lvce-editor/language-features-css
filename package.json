@@ -3,7 +3,7 @@
   "version": "0.0.0-dev",
   "description": "",
   "scripts": {
-    "postinstall": "lerna bootstrap --ci",
+    "postinstall": "lerna bootstrap --ci && node scripts/postinstall.js",
     "test": "lerna run test",
     "dev": "node ./node_modules/@lvce-editor/server/bin/server.js --only-extension=packages/extension --test-path=packages/e2e",
     "test:watch": "node --unhandled-rejections=warn --experimental-vm-modules ./node_modules/jest/bin/jest.js --watch",
