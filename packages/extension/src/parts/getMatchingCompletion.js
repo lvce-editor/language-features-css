@@ -1,11 +1,6 @@
-import { readFileSync } from 'node:fs'
-import { join } from 'node:path'
-import * as Root from './Root/Root.js'
-
+import * as ImportJson from '../parts/ImportJson/ImportJson.js'
 // TODO use import json once supported
-const cssProperties = JSON.parse(
-  readFileSync(join(Root.root, 'data/css-properties.json')).toString()
-)
+const cssProperties = await ImportJson.importJson('data/css-properties.json')
 
 const merge = (objectA, objectB) => ({ ...objectA, ...objectB })
 

@@ -3,7 +3,7 @@
   "name": "Language Features CSS",
   "description": "Provides rich language support for CSS files",
   "activation": ["onLanguage:css", "onCompletion:css", "onTabCompletion:css"],
-  "main": "src/languageFeaturesCssMain.js",
+  "browser": "src/languageFeaturesCssMain.js",
   "icon": "./icon.png",
   "commands": [],
   "languages": [
