@@ -676,6 +676,7 @@
   "position": {
     "ps": "position: $0;",
     "pos": "position: $0;",
+    "poa": "position: absolute;",
     "psa": "position: absolute;",
     "posa": "position: absolute;",
     "posrel": "position: relative;",

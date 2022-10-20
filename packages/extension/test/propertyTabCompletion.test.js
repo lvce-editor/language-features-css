@@ -1878,6 +1878,7 @@ test('position', () => {
   expect(expandProperty('ps')).toBe('position: $0;')
   expect(expandProperty('pos')).toBe('position: $0;')
   expect(expandProperty('posa')).toBe('position: absolute;')
+  expect(expandProperty('poa')).toBe('position: absolute;')
   expect(expandProperty('posrel')).toBe('position: relative;')
   expect(expandProperty('position')).toBe('position: $0;')
 })
