@@ -229,14 +229,14 @@
   "contain-intrinsic-size": {},
   "contain-intrinsic-width": {},
   "container": {},
-  "container-name": {},
+  "container-name": {
+    "cn": "container-name: $0;"
+  },
   "container-type": {
     "ct": "container-type: $0;",
     "ctis": "container-type: inline-size;"
   },
-  "content": {
-    "cn": "content: '';"
-  },
+  "content": {},
   "content-increment": {},
   "content-reset": {},
   "content-set": {},
