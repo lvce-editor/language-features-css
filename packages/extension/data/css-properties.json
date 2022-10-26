@@ -230,7 +230,10 @@
   "contain-intrinsic-width": {},
   "container": {},
   "container-name": {},
-  "container-type": {},
+  "container-type": {
+    "ct": "container-type: $0;",
+    "ctis": "container-type: inline-size;"
+  },
   "content": {
     "cn": "content: '';"
   },

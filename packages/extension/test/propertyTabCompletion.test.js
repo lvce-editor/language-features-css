@@ -701,6 +701,12 @@ test('contain', () => {
   expect(expandProperty('contain')).toBe('contain: $0;')
 })
 
+test('container-type', () => {
+  expect(expandProperty('ct')).toBe('container-type: $0;')
+  expect(expandProperty('ctis')).toBe('container-type: inline-size;')
+  expect(expandProperty('container-type')).toBe('container-type: $0;')
+})
+
 test('contain-intrinsic-block-size', () => {
   expect(expandProperty('contain-intrinsic-block-size')).toBe(
     'contain-intrinsic-block-size: $0;'
