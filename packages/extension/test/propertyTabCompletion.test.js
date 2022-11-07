@@ -372,6 +372,7 @@ test('border-color', () => {
 
 test('border-collapse', () => {
   expect(expandProperty('border-collapse')).toBe('border-collapse: $0;')
+  expect(expandProperty('bcc')).toBe('border-collapse: collapse;')
 })
 
 test('border-end-end-radius', () => {
