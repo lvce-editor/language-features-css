@@ -15,7 +15,7 @@
   "type": "module",
   "devDependencies": {
     "@lvce-editor/package-extension": "^0.0.5",
-    "@lvce-editor/server": "^0.11.0",
+    "@lvce-editor/server": "^0.11.1",
     "@types/node": "^18.11.9",
     "cheerio": "^1.0.0-rc.12",
     "got": "^12.5.3",
