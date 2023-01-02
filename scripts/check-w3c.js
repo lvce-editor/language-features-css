@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const extension = join(__dirname, '../packages/extension')
 
-const commit = 'eed426368e871c96223f8d45b22805e3020eb1e7'
+const commit = 'da7956e9c95c43b7b6d4f059210ddf364e4ad201'
 
 const sources = [
   'css-align-3/Overview.bs',
