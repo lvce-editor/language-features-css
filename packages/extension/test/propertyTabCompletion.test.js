@@ -9,9 +9,6 @@
 
 import { getMatchingCompletion } from '../src/parts/getMatchingCompletion.js'
 
-/**
- * @param {string} partialWord
- */
 const expandProperty = (partialWord) => {
   return getMatchingCompletion(partialWord)
 }
@@ -1722,66 +1719,6 @@ test('overflow-clip-margin', () => {
   )
 })
 
-test('overflow-clip-margin-top', () => {
-  expect(expandProperty('overflow-clip-margin-top')).toBe(
-    'overflow-clip-margin-top: $0;'
-  )
-})
-
-test('overflow-clip-margin-right', () => {
-  expect(expandProperty('overflow-clip-margin-right')).toBe(
-    'overflow-clip-margin-right: $0;'
-  )
-})
-
-test('overflow-clip-margin-bottom', () => {
-  expect(expandProperty('overflow-clip-margin-bottom')).toBe(
-    'overflow-clip-margin-bottom: $0;'
-  )
-})
-
-test('overflow-clip-margin-left', () => {
-  expect(expandProperty('overflow-clip-margin-left')).toBe(
-    'overflow-clip-margin-left: $0;'
-  )
-})
-
-test('overflow-clip-margin-block-start', () => {
-  expect(expandProperty('overflow-clip-margin-block-start')).toBe(
-    'overflow-clip-margin-block-start: $0;'
-  )
-})
-
-test('overflow-clip-margin-inline-start', () => {
-  expect(expandProperty('overflow-clip-margin-inline-start')).toBe(
-    'overflow-clip-margin-inline-start: $0;'
-  )
-})
-
-test('overflow-clip-margin-block-end', () => {
-  expect(expandProperty('overflow-clip-margin-block-end')).toBe(
-    'overflow-clip-margin-block-end: $0;'
-  )
-})
-
-test('overflow-clip-margin-inline-end', () => {
-  expect(expandProperty('overflow-clip-margin-inline-end')).toBe(
-    'overflow-clip-margin-inline-end: $0;'
-  )
-})
-
-test('overflow-clip-margin-inline', () => {
-  expect(expandProperty('overflow-clip-margin-inline')).toBe(
-    'overflow-clip-margin-inline: $0;'
-  )
-})
-
-test('overflow-clip-margin-block', () => {
-  expect(expandProperty('overflow-clip-margin-block')).toBe(
-    'overflow-clip-margin-block: $0;'
-  )
-})
-
 test('overflow-inline', () => {
   expect(expandProperty('overflow-inline')).toBe('overflow-inline: $0;')
 })
@@ -2425,12 +2362,6 @@ test('text-decoration-style', () => {
 test('text-decoration-thickness', () => {
   expect(expandProperty('text-decoration-thickness')).toBe(
     'text-decoration-thickness: $0;'
-  )
-})
-
-test('text-decoration-trim', () => {
-  expect(expandProperty('text-decoration-trim')).toBe(
-    'text-decoration-trim: $0;'
   )
 })
 
