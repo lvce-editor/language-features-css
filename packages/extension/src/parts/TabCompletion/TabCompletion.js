@@ -1,40 +1,7 @@
-import { tokenizeCss, getTokenAtOffset, TokenType } from '../Tokenize/tokenizeCss.js'
-import { getMatchingCompletion } from '../getMatchingCompletion.js'
+import * as CssWorker from '../CssWorker/CssWorker.js'
 
-const RE_WORD = /[a-zA-Z\d\-]+$/
-
-/**
- * @param {string} text
- * @param {number} offset
- */
-export const cssTabCompletion = (text, offset) => {
-  // console.time('tokenize')
-  const tokens = tokenizeCss(text)
-  // console.timeEnd('tokenize')
-  // console.time('getTokenAtOffset')
-  const tokenAtOffset = getTokenAtOffset(tokens, offset)
-  // console.timeEnd('getTokenAtOffset')
-  if (tokenAtOffset.type !== TokenType.PropertyName) {
-    return undefined
-  }
-  // console.time('wordMatch')
-  const wordMatch = text.slice(0, offset).match(RE_WORD)
-  if (!wordMatch) {
-    return undefined
-  }
-  // console.timeEnd('wordMatch')
-  const word = wordMatch[0]
-  // console.time('getMatchingCompletion')
-  const matchingCompletion = getMatchingCompletion(word)
-  // console.timeEnd('getMatchingCompletion')
-  if (!matchingCompletion) {
-    return undefined
-  }
-  const edit = {
-    offset: offset - word.length,
-    inserted: matchingCompletion,
-    deleted: word.length,
-    type: /* Snippet */ 2,
-  }
-  return edit
+export const getTabCompletion = async (uri, text, offset) => {
+  const rpc = await CssWorker.getInstance()
+  const result = await rpc.invoke('Css.getTabCompletion', uri, text, offset)
+  return result
 }
