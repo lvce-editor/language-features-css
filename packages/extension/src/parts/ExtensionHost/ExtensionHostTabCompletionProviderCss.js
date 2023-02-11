@@ -9,7 +9,7 @@ export const provideTabCompletion = (textDocument, offset) => {
   // console.time('get-text')
   const text = vscode.getTextFromTextDocument(textDocument)
   // console.timeEnd('get-text')
-  const tabCompletion = TabCompletion.cssTabCompletion(text, offset)
+  const tabCompletion = TabCompletion.getTabCompletion(text, offset)
   // console.timeEnd('actual-provider')
   return tabCompletion
 }
