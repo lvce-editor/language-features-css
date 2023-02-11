@@ -2,7 +2,16 @@ const trimLines = (string) => {
   return string.split('\n').join('')
 }
 
-test('css.tab-completion', async () => {
+export const name = 'css.tab-completion'
+
+export const test = async ({
+  FileSystem,
+  Workspace,
+  Main,
+  Locator,
+  Editor,
+  expect,
+}) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
   await FileSystem.writeFile(
@@ -26,4 +35,4 @@ test('css.tab-completion', async () => {
   display: none;
 }`)
   )
-})
+}
