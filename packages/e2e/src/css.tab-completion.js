@@ -9,6 +9,7 @@ export const test = async ({
   Workspace,
   Main,
   Locator,
+  Editor,
   expect,
 }) => {
   // arrange
