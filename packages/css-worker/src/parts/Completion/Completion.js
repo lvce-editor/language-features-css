@@ -1,6 +1,8 @@
-import { propertyData } from '../../../data/propertyData.js'
 import * as TokenType from '../CssTokenType/CssTokenType.js'
+import * as GetPropertyNameCompletions from '../GetPropertyNameCompletions/GetPropertyNameCompletions.js'
+import * as GetPropertyValueCompletions from '../GetPropertyValueCompletions/GetPropertyValueCompletions.js'
 import { tokenizeCss } from '../TokenizeCss/TokenizeCss.js'
+
 // {
 //   none: {},
 //   overline: {},
@@ -15,8 +17,6 @@ const toSnippet = (propertyName) => {
     kind: /* Property */ 1,
   }
 }
-
-const COMPLETIONS_CSS_PROPERTY_NAME = Object.keys(propertyData).map(toSnippet)
 
 /**
  * @type{vscode.Completion[]}
@@ -39,12 +39,13 @@ export const cssCompletion = (text, offset) => {
   switch (nodeAtOffset.type) {
     case TokenType.Whitespace:
     case TokenType.PropertyName:
-      return COMPLETIONS_CSS_PROPERTY_NAME
+      return GetPropertyNameCompletions.getPropertyNameCompletions()
     case TokenType.PropertyValue:
-      const propertyNameStart = parsed[nodeIndex - 3].offset
-      const propertyNameEnd = parsed[nodeIndex - 2].offset
-      const propertyName = text.slice(propertyNameStart, propertyNameEnd)
-      return propertyData[propertyName] || NULL_COMPLETIONS
+      return GetPropertyValueCompletions.getPropertyValueCompletions(
+        text,
+        parsed,
+        nodeIndex
+      )
     default:
       return NULL_COMPLETIONS
   }
