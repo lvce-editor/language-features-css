@@ -1,4 +1,7 @@
-import { tokenizeCss, TokenType } from '../Tokenize/tokenizeCss.js'
+import {
+  tokenizeCss,
+  TokenType,
+} from '../TokenizeCss/TokenizeCss.js/index.js.js'
 import { propertyData } from '../../../data/propertyData.js'
 // {
 //   none: {},

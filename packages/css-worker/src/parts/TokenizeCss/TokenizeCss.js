@@ -1,3 +1,5 @@
+import * as TokenType from '../CssTokenType/CssTokenType.js'
+
 const State = {
   TopLevelContent: 1,
   AfterSelector: 2,
@@ -5,18 +7,6 @@ const State = {
   AfterPropertyName: 4,
   AfterPropertyNameAfterColon: 5,
   AfterPropertyValue: 6,
-}
-
-export const TokenType = {
-  Selector: 1,
-  Whitespace: 2,
-  Punctuation: 3,
-  PropertyName: 4,
-  PropertyValue: 5,
-  CurlyOpen: 6,
-  CurlyClose: 7,
-  PropertyColon: 8,
-  PropertySemicolon: 9,
 }
 
 const RE_SELECTOR = /^[\.a-zA-Z\d]+/
