@@ -1,5 +1,6 @@
 import * as TokenType from '../CssTokenType/CssTokenType.js'
 import { getMatchingCompletion } from '../getMatchingCompletion.js'
+import * as GetTokenAtOffset from '../GetTokenAtOffset/GetTokenAtOffset.js'
 import { tokenizeCss } from '../TokenizeCss/TokenizeCss.js'
 
 const RE_WORD = /[a-zA-Z\d\-]+$/
@@ -13,7 +14,7 @@ export const cssTabCompletion = (text, offset) => {
   const tokens = tokenizeCss(text)
   // console.timeEnd('tokenize')
   // console.time('getTokenAtOffset')
-  const tokenAtOffset = getTokenAtOffset(tokens, offset)
+  const tokenAtOffset = GetTokenAtOffset.getTokenAtOffset(tokens, offset)
   // console.timeEnd('getTokenAtOffset')
   if (tokenAtOffset.type !== TokenType.PropertyName) {
     return undefined
