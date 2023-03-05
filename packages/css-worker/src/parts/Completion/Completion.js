@@ -1,8 +1,6 @@
-import {
-  tokenizeCss,
-  TokenType,
-} from '../TokenizeCss/TokenizeCss.js/index.js.js'
 import { propertyData } from '../../../data/propertyData.js'
+import * as TokenType from '../CssTokenType/CssTokenType.js'
+import { tokenizeCss } from '../TokenizeCss/TokenizeCss.js'
 // {
 //   none: {},
 //   overline: {},
