@@ -1,11 +1,10 @@
-import { getMatchingCompletion } from '../src/parts/getMatchingCompletion.js'
-import { cssTabCompletion } from '../src/parts/TabCompletion/TabCompletion.js'
+import * as CssTabCompletion from '../src/parts/CssTabCompletion/CssTabCompletion.js'
 
 const expectTabCompletion = (text) => ({
   toEqual: (expectedText) => {
     const cursorIndex = text.indexOf('|')
     text = text.replace('|', '')
-    const result = cssTabCompletion(text, cursorIndex)
+    const result = CssTabCompletion.cssTabCompletion(text, cursorIndex)
     const resultText =
       result === undefined
         ? result
