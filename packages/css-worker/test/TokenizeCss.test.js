@@ -114,3 +114,7 @@ test('id selector', () => {
 test('curly bracket directly after selector', () => {
   expectTokenize(`.box{`).toEqual(TokenType.Selector, TokenType.CurlyOpen)
 })
+
+test('id and class selector', () => {
+  expectTokenize(`#id.class`).toEqual(TokenType.Selector, TokenType.Selector)
+})
