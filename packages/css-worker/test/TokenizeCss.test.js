@@ -39,6 +39,15 @@ test('unfinished property name', () => {
   )
 })
 
+test('multiple class selectors', () => {
+  expectTokenize(`.class.class.class {}`).toEqual(
+    TokenType.Selector,
+    TokenType.Whitespace,
+    TokenType.CurlyOpen,
+    TokenType.CurlyClose
+  )
+})
+
 test('unfinished second property name', () => {
   expectTokenize(`h1 {\n  font-size: 24px;\n  f \n}
 `).toEqual(

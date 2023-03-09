@@ -54,7 +54,7 @@ export const tokenizeCss = (text) => {
           token = TokenType.CurlyOpen
           state = State.InsideSelector
         } else {
-          text.slice(index) // ?
+          part // ?
           throw new Error('no')
         }
         break
@@ -86,7 +86,7 @@ export const tokenizeCss = (text) => {
           token = TokenType.Whitespace
           state = State.AfterPropertyName
         } else {
-          text.slice(index) // ?
+          part // ?
           throw new Error('no')
         }
         break
