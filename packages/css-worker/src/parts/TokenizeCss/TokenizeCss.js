@@ -18,6 +18,7 @@ const RE_COLON = /^:/
 const RE_PROPERTY_VALUE = /^[^\n;]+/
 const RE_SEMICOLON = /^;/
 const RE_WHITESPACE_NEWLINE = /^\n/
+const RE_SELECTOR_ID = /^#[\w\-\_]+/
 
 /**
  * @param {string} text
@@ -33,6 +34,9 @@ export const tokenizeCss = (text) => {
     switch (state) {
       case State.TopLevelContent:
         if ((next = text.slice(index).match(RE_SELECTOR))) {
+          token = TokenType.Selector
+          state = State.AfterSelector
+        } else if ((next = text.slice(index).match(RE_SELECTOR_ID))) {
           token = TokenType.Selector
           state = State.AfterSelector
         } else if ((next = text.slice(index).match(RE_WHITESPACE))) {

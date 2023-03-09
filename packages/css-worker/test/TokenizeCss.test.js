@@ -87,3 +87,26 @@ test('class selector', () => {
     TokenType.CurlyClose
   )
 })
+
+test('class selector and abbreviation', () => {
+  expectTokenize(`.box {
+  h100
+}`).toEqual(
+    TokenType.Selector,
+    TokenType.Whitespace,
+    TokenType.CurlyOpen,
+    TokenType.Whitespace,
+    TokenType.PropertyName,
+    TokenType.Whitespace,
+    TokenType.CurlyClose
+  )
+})
+
+test('id selector', () => {
+  expectTokenize(`#a {}`).toEqual(
+    TokenType.Selector,
+    TokenType.Whitespace,
+    TokenType.CurlyOpen,
+    TokenType.CurlyClose
+  )
+})
