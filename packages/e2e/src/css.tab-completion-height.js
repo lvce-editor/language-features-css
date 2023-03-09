@@ -4,8 +4,6 @@ const trimLines = (string) => {
 
 export const name = 'css.tab-completion'
 
-export const skip = true
-
 export const test = async ({
   FileSystem,
   Workspace,
