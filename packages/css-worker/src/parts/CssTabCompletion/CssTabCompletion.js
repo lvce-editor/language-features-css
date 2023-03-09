@@ -16,7 +16,7 @@ export const cssTabCompletion = (text, offset) => {
   // console.timeEnd('getTokenAtOffset')
   switch (tokenAtOffset.type) {
     case TokenType.PropertyName:
-      return CssTabCompletionProperty.getTabcompletion(text, offset)
+      return CssTabCompletionProperty.getTabCompletion(text, offset)
     default:
       return undefined
   }
