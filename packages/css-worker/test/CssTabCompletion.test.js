@@ -15,10 +15,10 @@ const expectTabCompletion = (text) => ({
   },
 })
 
-test.skip('basic', () => {
+test('basic', () => {
   expectTabCompletion(`h1 {
   m|
 }`).toEqual(`h1 {
-  margin: |
+  margin: |;
 }`)
 })
