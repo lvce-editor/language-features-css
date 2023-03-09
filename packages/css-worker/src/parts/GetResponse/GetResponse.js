@@ -1,19 +1,12 @@
-import * as CssCompletion from '../CssCompletion/CssCompletion.js'
-import * as CssTabCompletion from '../CssTabCompletion/CssTabCompletion.js'
-import * as CssWorkerCommandType from '../CssWorkerCommandType/CssWorkerCommandType.js'
+import * as Command from '../Command/Command.js'
+import * as GetErrorResponse from '../GetErrorResponse/GetErrorResponse.js'
+import * as GetSuccessResponse from '../GetSuccessResponse/GetSuccessResponse.js'
 
-export const getResponse = async (method, params) => {
-  if (method === CssWorkerCommandType.GetTabCompletion) {
-    const content = params[0]
-    const offset = params[1]
-    const result = await CssTabCompletion.cssTabCompletion(content, offset)
-    return result
+export const getResponse = async (message) => {
+  try {
+    const result = await Command.execute(message.method, ...message.params)
+    return GetSuccessResponse.getSuccessResponse(message, result)
+  } catch (error) {
+    return GetErrorResponse.getErrorResponse(message, error)
   }
-  if (method === CssWorkerCommandType.GetCompletion) {
-    const content = params[0]
-    const offset = params[1]
-    const result = CssCompletion.cssCompletion(content, offset)
-    return result
-  }
-  return undefined
 }
