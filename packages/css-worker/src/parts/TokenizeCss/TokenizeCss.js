@@ -30,16 +30,16 @@ export const tokenizeCss = (text) => {
   let state = State.TopLevelContent
   const tokens = []
   while (index < text.length) {
-    state
+    const part = text.slice(index)
     switch (state) {
       case State.TopLevelContent:
-        if ((next = text.slice(index).match(RE_SELECTOR))) {
+        if ((next = part.match(RE_SELECTOR))) {
           token = TokenType.Selector
           state = State.AfterSelector
-        } else if ((next = text.slice(index).match(RE_SELECTOR_ID))) {
+        } else if ((next = part.match(RE_SELECTOR_ID))) {
           token = TokenType.Selector
           state = State.AfterSelector
-        } else if ((next = text.slice(index).match(RE_WHITESPACE))) {
+        } else if ((next = part.match(RE_WHITESPACE))) {
           token = TokenType.Whitespace
           state = State.TopLevelContent
         } else {
@@ -47,10 +47,10 @@ export const tokenizeCss = (text) => {
         }
         break
       case State.AfterSelector:
-        if ((next = text.slice(index).match(RE_WHITESPACE))) {
+        if ((next = part.match(RE_WHITESPACE))) {
           token = TokenType.Whitespace
           state = State.AfterSelector
-        } else if ((next = text.slice(index).match(RE_CURLY_OPEN))) {
+        } else if ((next = part.match(RE_CURLY_OPEN))) {
           token = TokenType.CurlyOpen
           state = State.InsideSelector
         } else {
@@ -59,13 +59,13 @@ export const tokenizeCss = (text) => {
         }
         break
       case State.InsideSelector:
-        if ((next = text.slice(index).match(RE_WHITESPACE))) {
+        if ((next = part.match(RE_WHITESPACE))) {
           token = TokenType.Whitespace
           state = State.InsideSelector
-        } else if ((next = text.slice(index).match(RE_PROPERTY_NAME))) {
+        } else if ((next = part.match(RE_PROPERTY_NAME))) {
           token = TokenType.PropertyName
           state = State.AfterPropertyName
-        } else if ((next = text.slice(index).match(RE_CURLY_CLOSE))) {
+        } else if ((next = part.match(RE_CURLY_CLOSE))) {
           token = TokenType.CurlyClose
           state = State.TopLevelContent
         } else {
@@ -73,16 +73,16 @@ export const tokenizeCss = (text) => {
         }
         break
       case State.AfterPropertyName:
-        if ((next = text.slice(index).match(RE_COLON))) {
+        if ((next = part.match(RE_COLON))) {
           token = TokenType.PropertyColon
           state = State.AfterPropertyNameAfterColon
-        } else if ((next = text.slice(index).match(RE_WHITESPACE_NEWLINE))) {
+        } else if ((next = part.match(RE_WHITESPACE_NEWLINE))) {
           token = TokenType.Whitespace
           state = State.InsideSelector
-        } else if ((next = text.slice(index).match(RE_CURLY_CLOSE))) {
+        } else if ((next = part.match(RE_CURLY_CLOSE))) {
           token = TokenType.CurlyClose
           state = State.TopLevelContent
-        } else if ((next = text.slice(index).match(RE_WHITESPACE))) {
+        } else if ((next = part.match(RE_WHITESPACE))) {
           token = TokenType.Whitespace
           state = State.AfterPropertyName
         } else {
@@ -92,7 +92,7 @@ export const tokenizeCss = (text) => {
         break
 
       case State.AfterPropertyNameAfterColon:
-        if ((next = text.slice(index).match(RE_PROPERTY_VALUE))) {
+        if ((next = part.match(RE_PROPERTY_VALUE))) {
           token = TokenType.PropertyValue
           state = State.AfterPropertyValue
         } else {
@@ -100,10 +100,10 @@ export const tokenizeCss = (text) => {
         }
         break
       case State.AfterPropertyValue:
-        if ((next = text.slice(index).match(RE_SEMICOLON))) {
+        if ((next = part.match(RE_SEMICOLON))) {
           token = TokenType.PropertySemicolon
           state = State.InsideSelector
-        } else if ((next = text.slice(index).match(RE_WHITESPACE_NEWLINE))) {
+        } else if ((next = part.match(RE_WHITESPACE_NEWLINE))) {
           token = TokenType.Whitespace
           state = State.InsideSelector
         } else {
