@@ -53,6 +53,12 @@ export const tokenizeCss = (text) => {
         } else if ((next = part.match(RE_CURLY_OPEN))) {
           token = TokenType.CurlyOpen
           state = State.InsideSelector
+        } else if ((next = part.match(RE_SELECTOR))) {
+          token = TokenType.Selector
+          state = State.AfterSelector
+        } else if ((next = part.match(RE_SELECTOR_ID))) {
+          token = TokenType.Selector
+          state = State.AfterSelector
         } else {
           part // ?
           throw new Error('no')
