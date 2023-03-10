@@ -15,8 +15,8 @@
   "type": "module",
   "devDependencies": {
     "@lvce-editor/package-extension": "^0.0.5",
-    "@lvce-editor/server": "^0.13.0",
-    "@types/node": "^18.14.6",
+    "@lvce-editor/server": "^0.14.0",
+    "@types/node": "^18.15.0",
     "cheerio": "^1.0.0-rc.12",
     "got": "^12.6.0",
     "lerna": "^6.5.1",
