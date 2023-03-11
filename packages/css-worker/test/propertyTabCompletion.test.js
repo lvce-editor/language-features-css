@@ -58,6 +58,15 @@ test('animation-composition', () => {
 test('animation-delay', () => {
   expect(expandProperty('animation-delay')).toBe('animation-delay: $0;')
 })
+test('anchor-scroll', () => {
+  expect(expandProperty('anchor-scroll')).toBe('anchor-scroll: $0;')
+})
+test('anchor-name', () => {
+  expect(expandProperty('anchor-name')).toBe('anchor-name: $0;')
+})
+test('anchor-default', () => {
+  expect(expandProperty('anchor-default')).toBe('anchor-default: $0;')
+})
 
 test('animation-direction', () => {
   expect(expandProperty('animation-direction')).toBe('animation-direction: $0;')
@@ -1360,12 +1369,19 @@ test('left', () => {
   expect(expandProperty('left')).toBe('left: $0;')
 })
 
+test('layout-order', () => {
+  expect(expandProperty('layout-order')).toBe('layout-order: $0;')
+})
+
 test('letter-spacing', () => {
   expect(expandProperty('letter-spacing')).toBe('letter-spacing: $0;')
 })
 
 test('lighting-color', () => {
   expect(expandProperty('lighting-color')).toBe('lighting-color: $0;')
+})
+test('link-parameters', () => {
+  expect(expandProperty('link-parameters')).toBe('link-parameters: $0;')
 })
 
 test('line-break', () => {
@@ -1969,6 +1985,10 @@ test('position', () => {
   expect(expandProperty('position')).toBe('position: $0;')
 })
 
+test('position-fallback', () => {
+  expect(expandProperty('position-fallback')).toBe('position-fallback: $0;')
+})
+
 test('print-color-adjust', () => {
   expect(expandProperty('print-color-adjust')).toBe('print-color-adjust: $0;')
 })
@@ -1983,6 +2003,10 @@ test('quotes', () => {
 
 test('region-fragment', () => {
   expect(expandProperty('region-fragment')).toBe('region-fragment: $0;')
+})
+
+test('reading-order', () => {
+  expect(expandProperty('reading-order')).toBe('reading-order: $0;')
 })
 
 test('resize', () => {
@@ -2047,6 +2071,24 @@ test('scale', () => {
 test('scroll-behavior', () => {
   expect(expandProperty('sbs')).toBe('scroll-behavior: smooth;')
   expect(expandProperty('scroll-behavior')).toBe('scroll-behavior: $0;')
+})
+test('scroll-start', () => {
+  expect(expandProperty('scroll-start')).toBe('scroll-start: $0;')
+})
+test('scroll-start-target', () => {
+  expect(expandProperty('scroll-start-target')).toBe('scroll-start-target: $0;')
+})
+test('scroll-start-x', () => {
+  expect(expandProperty('scroll-start-x')).toBe('scroll-start-x: $0;')
+})
+test('scroll-start-y', () => {
+  expect(expandProperty('scroll-start-y')).toBe('scroll-start-y: $0;')
+})
+test('scroll-start-inline', () => {
+  expect(expandProperty('scroll-start-inline')).toBe('scroll-start-inline: $0;')
+})
+test('scroll-start-block', () => {
+  expect(expandProperty('scroll-start-block')).toBe('scroll-start-block: $0;')
 })
 
 test('scroll-margin', () => {
@@ -2216,6 +2258,10 @@ test('shape-padding', () => {
   expect(expandProperty('shape-padding')).toBe('shape-padding: $0;')
 })
 
+test('size-adjust', () => {
+  expect(expandProperty('size-adjust')).toBe('size-adjust: $0;')
+})
+
 test('spatial-navigation-action', () => {
   expect(expandProperty('spatial-navigation-action')).toBe(
     'spatial-navigation-action: $0;'
@@ -2348,6 +2394,18 @@ test('stroke-linejoin', () => {
 
 test('stroke-width', () => {
   expect(expandProperty('stroke-width')).toBe('stroke-width: $0;')
+})
+
+test('superscript-position-override', () => {
+  expect(expandProperty('superscript-position-override')).toBe(
+    'superscript-position-override: $0;'
+  )
+})
+
+test('subscript-position-override', () => {
+  expect(expandProperty('subscript-position-override')).toBe(
+    'subscript-position-override: $0;'
+  )
 })
 
 test('tab-size', () => {
