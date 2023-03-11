@@ -32,6 +32,9 @@
   "animation-play-state": {},
   "animation-timing-function": {},
   "animation-timeline": {},
+  "anchor-default": {},
+  "anchor-name": {},
+  "anchor-scroll": {},
   "appearance": {
     "ap": "appearance: $0;",
     "an": "appearance: none;",
@@ -476,6 +479,7 @@
   "justify-self": {},
   "justify-tracks": {},
   "leading-trim": {},
+  "layout-order": {},
   "left": {
     "l": "left: $0;"
   },
@@ -495,6 +499,7 @@
   "line-grid": {},
   "line-padding": {},
   "line-snap": {},
+  "link-parameters": {},
   "list-style": {
     "lsn": "list-style: none;",
     "list-style": "list-style: $0;"
@@ -710,6 +715,7 @@
     "psr": "position: relative;",
     "pss": "position: static;"
   },
+  "position-fallback": {},
   "print-color-adjust": {},
   "property-name": {},
   "quotes": {},
@@ -721,6 +727,7 @@
   "rest": {},
   "rest-after": {},
   "rest-before": {},
+  "reading-order": {},
   "right": {
     "r": "right: $0;"
   },
@@ -806,6 +813,15 @@
   "stroke-repeat": {},
   "stroke-size": {},
   "stroke-width": {},
+  "size-adjust": {},
+  "scroll-start": {},
+  "scroll-start-target": {},
+  "scroll-start-x": {},
+  "scroll-start-y": {},
+  "scroll-start-inline": {},
+  "scroll-start-block": {},
+  "subscript-position-override": {},
+  "superscript-position-override": {},
   "tab-size": {
     "ts": "tab-size: "
   },

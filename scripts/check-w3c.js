@@ -6,7 +6,6 @@ import { pipeline } from 'node:stream/promises'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const extension = join(__dirname, '../packages/extension')
 const cssWorker = join(__dirname, '../packages/css-worker')
 
 const repo = `w3c/csswg-drafts`
@@ -14,6 +13,7 @@ const commit = '43b12e47663cff4cead0d187086dcf9ea8f33626'
 
 const sources = [
   'css-align-3/Overview.bs',
+  'css-anchor-position-1/Overview.bs',
   'css-animations-1/Overview.bs', // animations-2 extends this
   'css-animations-2/Overview.bs',
   'css-backgrounds-3/Overview.bs', // backgrounds-4 extends this
@@ -25,15 +25,19 @@ const sources = [
   'css-cascade-6/Overview.bs',
   'css-color-4/Overview.bs', // color-5 extends this
   'css-color-5/Overview.bs',
+  'css-color-6/Overview.bs',
   'css-color-adjust-1/Overview.bs',
   'css-color-hdr/Overview.bs',
   'css-conditional-4/Overview.bs',
+  'css-conditional-5/Overview.bs',
+  'css-conditional-values-1/Overview.bs',
   'css-contain-2/Overview.bs', // contain-3 extends this
   'css-contain-3/Overview.bs',
   'css-content-3/Overview.bs',
-  'css-device-adapt-1/Overview.bs',
   'css-display-3/Overview.bs',
+  'css-display-4/Overview.bs',
   'css-easing-1/Overview.bs',
+  'css-easing-2/Overview.bs',
   'css-egg-1/Overview.bs',
   'css-env-1/Overview.bs',
   'css-exclusions-1/Overview.bs',
@@ -41,6 +45,8 @@ const sources = [
   // 'css-floats-3/Overview.bs',
   'css-font-loading-3/Overview.bs',
   'css-fonts-4/Overview.bs',
+  'css-fonts-5/Overview.bs',
+  'css-forms-1/Overview.bs',
   'css-gcpm-3/Overview.bs', // gcpm-4 extends this
   'css-gcpm-4/Overview.bs',
   'css-grid-2/Overview.bs', // grid-3 extends this
@@ -48,13 +54,16 @@ const sources = [
   'css-highlight-api-1/Overview.bs',
   'css-images-3/Overview.bs', // images-4 extends this
   'css-images-4/Overview.bs',
+  'css-images-5/Overview.bs',
   'css-inline-3/Overview.bs',
   'css-line-grid-1/Overview.bs',
+  'css-link-params-1/Overview.bs',
   'css-lists-3/Overview.bs',
   'css-logical-1/Overview.bs',
   'css-multicol-1/Overview.bs', // multicol-2 extends this
   'css-multicol-2/Overview.bs',
   'css-nav-1/Overview.bs',
+  'css-nesting-1/Overview.bs',
   'css-overflow-3/Overview.bs', // overflow-4 extends this
   'css-overflow-4/Overview.bs',
   'css-overscroll-1/Overview.bs',
@@ -69,7 +78,9 @@ const sources = [
   'css-ruby-1/Overview.bs',
   'css-scoping-2/Overview.bs',
   'css-scroll-snap-1/Overview.bs',
+  'css-scroll-snap-2/Overview.bs',
   'css-scrollbars-1/Overview.bs',
+  'css-shadow-parts-1/Overview.bs',
   'css-shapes-1/Overview.bs', // shapes-2 extends this
   'css-shapes-2/Overview.bs',
   'css-size-adjust-1/Overview.bs',
