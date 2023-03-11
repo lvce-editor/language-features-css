@@ -535,6 +535,21 @@ test('border-top', () => {
   expect(expandProperty('border-top')).toBe('border-top: $0;')
 })
 
+test('border-top-radius', () => {
+  expect(expandProperty('border-top-radius')).toBe('border-top-radius: $0;')
+})
+test('border-bottom-radius', () => {
+  expect(expandProperty('border-bottom-radius')).toBe(
+    'border-bottom-radius: $0;'
+  )
+})
+test('border-right-radius', () => {
+  expect(expandProperty('border-right-radius')).toBe('border-right-radius: $0;')
+})
+test('border-left-radius', () => {
+  expect(expandProperty('border-left-radius')).toBe('border-left-radius: $0;')
+})
+
 test('border-top-color', () => {
   expect(expandProperty('border-top-color')).toBe('border-top-color: $0;')
 })
@@ -575,6 +590,23 @@ test('box-decoration-break', () => {
 
 test('box-shadow', () => {
   expect(expandProperty('box-shadow')).toBe('box-shadow: $0;')
+})
+
+test('box-shadow-color', () => {
+  expect(expandProperty('box-shadow-color')).toBe('box-shadow-color: $0;')
+})
+
+test('box-shadow-offset', () => {
+  expect(expandProperty('box-shadow-offset')).toBe('box-shadow-offset: $0;')
+})
+test('box-shadow-blur', () => {
+  expect(expandProperty('box-shadow-blur')).toBe('box-shadow-blur: $0;')
+})
+test('box-shadow-spread', () => {
+  expect(expandProperty('box-shadow-spread')).toBe('box-shadow-spread: $0;')
+})
+test('box-shadow-position', () => {
+  expect(expandProperty('box-shadow-position')).toBe('box-shadow-position: $0;')
 })
 
 test('box-sizing', () => {
@@ -1718,6 +1750,56 @@ test('overflow-clip-margin', () => {
     'overflow-clip-margin: $0;'
   )
 })
+test('overflow-clip-margin-top', () => {
+  expect(expandProperty('overflow-clip-margin-top')).toBe(
+    'overflow-clip-margin-top: $0;'
+  )
+})
+test('overflow-clip-margin-right', () => {
+  expect(expandProperty('overflow-clip-margin-right')).toBe(
+    'overflow-clip-margin-right: $0;'
+  )
+})
+test('overflow-clip-margin-bottom', () => {
+  expect(expandProperty('overflow-clip-margin-bottom')).toBe(
+    'overflow-clip-margin-bottom: $0;'
+  )
+})
+test('overflow-clip-margin-left', () => {
+  expect(expandProperty('overflow-clip-margin-left')).toBe(
+    'overflow-clip-margin-left: $0;'
+  )
+})
+test('overflow-clip-margin-block', () => {
+  expect(expandProperty('overflow-clip-margin-block')).toBe(
+    'overflow-clip-margin-block: $0;'
+  )
+})
+test('overflow-clip-margin-block-start', () => {
+  expect(expandProperty('overflow-clip-margin-block-start')).toBe(
+    'overflow-clip-margin-block-start: $0;'
+  )
+})
+test('overflow-clip-margin-block-end', () => {
+  expect(expandProperty('overflow-clip-margin-block-end')).toBe(
+    'overflow-clip-margin-block-end: $0;'
+  )
+})
+test('overflow-clip-margin-inline-start', () => {
+  expect(expandProperty('overflow-clip-margin-inline-start')).toBe(
+    'overflow-clip-margin-inline-start: $0;'
+  )
+})
+test('overflow-clip-margin-inline-end', () => {
+  expect(expandProperty('overflow-clip-margin-inline-end')).toBe(
+    'overflow-clip-margin-inline-end: $0;'
+  )
+})
+test('overflow-clip-margin-inline', () => {
+  expect(expandProperty('overflow-clip-margin-inline')).toBe(
+    'overflow-clip-margin-inline: $0;'
+  )
+})
 
 test('overflow-inline', () => {
   expect(expandProperty('overflow-inline')).toBe('overflow-inline: $0;')
@@ -2284,6 +2366,10 @@ test('text-align', () => {
   expect(expandProperty('text-align')).toBe('text-align: $0;')
 })
 
+test('text-autospace', () => {
+  expect(expandProperty('text-autospace')).toBe('text-autospace: $0;')
+})
+
 test('text-align-all', () => {
   expect(expandProperty('text-align-all')).toBe('text-align-all: $0;')
 })
@@ -2320,6 +2406,11 @@ test('text-decoration-line', () => {
 test('text-decoration-skip', () => {
   expect(expandProperty('text-decoration-skip')).toBe(
     'text-decoration-skip: $0;'
+  )
+})
+test('text-decoration-trim', () => {
+  expect(expandProperty('text-decoration-trim')).toBe(
+    'text-decoration-trim: $0;'
   )
 })
 
@@ -2435,6 +2526,9 @@ test('text-space-trim', () => {
 
 test('text-spacing', () => {
   expect(expandProperty('text-spacing')).toBe('text-spacing: $0;')
+})
+test('text-spacing-trim', () => {
+  expect(expandProperty('text-spacing-trim')).toBe('text-spacing-trim: $0;')
 })
 
 test('text-stroke', () => {
@@ -2575,6 +2669,12 @@ test('voice-volume', () => {
 
 test('white-space', () => {
   expect(expandProperty('white-space')).toBe('white-space: $0;')
+})
+
+test('white-space-collapse', () => {
+  expect(expandProperty('white-space-collapse')).toBe(
+    'white-space-collapse: $0;'
+  )
 })
 
 test('will-change', () => {
