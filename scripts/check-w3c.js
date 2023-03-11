@@ -7,8 +7,10 @@ import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const extension = join(__dirname, '../packages/extension')
+const cssWorker = join(__dirname, '../packages/css-worker')
 
-const commit = 'eed426368e871c96223f8d45b22805e3020eb1e7'
+const repo = `w3c/csswg-drafts`
+const commit = '43b12e47663cff4cead0d187086dcf9ea8f33626'
 
 const sources = [
   'css-align-3/Overview.bs',
@@ -129,7 +131,7 @@ const downloadData = async () => {
   }
   for (const source of sources) {
     await downloadFile({
-      url: `https://raw.githubusercontent.com/w3c/csswg-drafts/${commit}/${source}`,
+      url: `https://raw.githubusercontent.com/${repo}/${commit}/${source}`,
       to: `.tmp/w3c/${source}.txt`,
     })
   }
@@ -239,7 +241,7 @@ const combineProperties = async () => {
 
 const getTestedProperties = async () => {
   const text = await readFile(
-    join(extension, 'test/propertyTabCompletion.test.js'),
+    join(cssWorker, 'test/propertyTabCompletion.test.js'),
     'utf-8'
   )
   const strings = [...text.matchAll(/test\('(.*?)'/g)].map((x) => x[1])

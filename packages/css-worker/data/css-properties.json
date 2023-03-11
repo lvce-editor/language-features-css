@@ -112,6 +112,7 @@
   "border-bottom-right-radius": {},
   "border-bottom-style": {},
   "border-bottom-width": {},
+  "border-bottom-radius": {},
   "border-boundary": {},
   "border-clip": {},
   "border-clip-left": {},
@@ -149,6 +150,7 @@
   "border-left-color": {},
   "border-left-style": {},
   "border-left-width": {},
+  "border-left-radius": {},
   "border-radius": {
     "br": "border-radius: "
   },
@@ -156,12 +158,16 @@
   "border-right-color": {},
   "border-right-style": {},
   "border-right-width": {},
+  "border-right-radius": {},
   "border-spacing": {},
   "border-start-end-radius": {},
   "border-start-start-radius": {},
   "border-style": {},
   "border-top": {
     "bt": "border-top: $0;"
+  },
+  "border-top-radius": {
+    "btr": "border-top-radius: $0;"
   },
   "border-top-color": {},
   "border-top-left-radius": {},
@@ -181,6 +187,13 @@
     "bsn": "box-shadow: none;",
     "bs": "box-shadow: "
   },
+  "box-shadow-color": {
+    "bsc": "box-shadow-color: "
+  },
+  "box-shadow-offset": {},
+  "box-shadow-blur": {},
+  "box-shadow-spread": {},
+  "box-shadow-position": {},
   "box-sizing": {
     "bsbb": "box-sizing: border-box;"
   },
@@ -618,6 +631,16 @@
   "overflow-anchor": {},
   "overflow-block": {},
   "overflow-clip-margin": {},
+  "overflow-clip-margin-top": {},
+  "overflow-clip-margin-right": {},
+  "overflow-clip-margin-bottom": {},
+  "overflow-clip-margin-left": {},
+  "overflow-clip-margin-block-start": {},
+  "overflow-clip-margin-block-end": {},
+  "overflow-clip-margin-inline-start": {},
+  "overflow-clip-margin-inline-end": {},
+  "overflow-clip-margin-inline": {},
+  "overflow-clip-margin-block": {},
   "overflow-inline": {},
   "overflow-x": {
     "oxh": "overflow-x: hidden;"
@@ -794,6 +817,9 @@
     "tar": "text-align: right;",
     "tal": "text-align: left;"
   },
+  "text-autospace": {},
+  "text-spacing-trim": {},
+  "text-decoration-trim": {},
   "text-align-all": {},
   "text-align-last": {},
   "text-combine-upright": {},
@@ -891,6 +917,9 @@
   "voice-volume": {},
   "white-space": {
     "wsn": "white-space: nowrap"
+  },
+  "white-space-collapse": {
+    "wsc": "white-space-collapse: "
   },
   "widows": {},
   "width": {
