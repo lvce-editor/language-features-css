@@ -15,12 +15,13 @@ test('selector and single property', () => {
     TokenType.Selector,
     TokenType.Whitespace,
     TokenType.CurlyOpen,
+    TokenType.NewLine,
     TokenType.Whitespace,
     TokenType.PropertyName,
     TokenType.PropertyColon,
     TokenType.PropertyValue,
     TokenType.PropertySemicolon,
-    TokenType.Whitespace,
+    TokenType.NewLine,
     TokenType.CurlyClose
   )
 })
@@ -32,9 +33,10 @@ test('unfinished property name', () => {
     TokenType.Selector,
     TokenType.Whitespace,
     TokenType.CurlyOpen,
+    TokenType.NewLine,
     TokenType.Whitespace,
     TokenType.PropertyName,
-    TokenType.Whitespace,
+    TokenType.NewLine,
     TokenType.CurlyClose
   )
 })
@@ -49,21 +51,24 @@ test('multiple class selectors', () => {
 })
 
 test('unfinished second property name', () => {
-  expectTokenize(`h1 {\n  font-size: 24px;\n  f \n}
-`).toEqual(
+  expectTokenize(`h1 {
+  font-size: 24px;
+  f
+}`).toEqual(
     TokenType.Selector,
     TokenType.Whitespace,
     TokenType.CurlyOpen,
+    TokenType.NewLine,
     TokenType.Whitespace,
     TokenType.PropertyName,
     TokenType.PropertyColon,
     TokenType.PropertyValue,
     TokenType.PropertySemicolon,
+    TokenType.NewLine,
     TokenType.Whitespace,
     TokenType.PropertyName,
-    TokenType.Whitespace,
-    TokenType.CurlyClose,
-    TokenType.Whitespace
+    TokenType.NewLine,
+    TokenType.CurlyClose
   )
 })
 
@@ -75,15 +80,17 @@ test('partial', () => {
     TokenType.Selector,
     TokenType.Whitespace,
     TokenType.CurlyOpen,
+    TokenType.NewLine,
     TokenType.Whitespace,
     TokenType.PropertyName,
     TokenType.PropertyColon,
     // TokenType.Whitespace,
     TokenType.PropertyValue,
     TokenType.PropertySemicolon,
+    TokenType.NewLine,
     TokenType.Whitespace,
     TokenType.PropertyName,
-    TokenType.Whitespace,
+    TokenType.NewLine,
     TokenType.CurlyClose
   )
 })
@@ -104,9 +111,10 @@ test('class selector and abbreviation', () => {
     TokenType.Selector,
     TokenType.Whitespace,
     TokenType.CurlyOpen,
+    TokenType.NewLine,
     TokenType.Whitespace,
     TokenType.PropertyName,
-    TokenType.Whitespace,
+    TokenType.NewLine,
     TokenType.CurlyClose
   )
 })
@@ -126,4 +134,49 @@ test('curly bracket directly after selector', () => {
 
 test('id and class selector', () => {
   expectTokenize(`#id.class`).toEqual(TokenType.Selector, TokenType.Selector)
+})
+
+test('unfinished property', () => {
+  expectTokenize(`h1 {
+  display
+  font-size: 20px;
+}`).toEqual(
+    TokenType.Selector,
+    TokenType.Whitespace,
+    TokenType.CurlyOpen,
+    TokenType.NewLine,
+    TokenType.Whitespace,
+    TokenType.PropertyName,
+    TokenType.NewLine,
+    TokenType.Whitespace,
+    TokenType.PropertyName,
+    TokenType.PropertyColon,
+    TokenType.PropertyValue,
+    TokenType.PropertySemicolon,
+    TokenType.NewLine,
+    TokenType.CurlyClose
+  )
+})
+
+test('unfinished property with colon', () => {
+  expectTokenize(`h1 {
+  display:
+  font-size: 20px;
+}`).toEqual(
+    TokenType.Selector,
+    TokenType.Whitespace,
+    TokenType.CurlyOpen,
+    TokenType.NewLine,
+    TokenType.Whitespace,
+    TokenType.PropertyName,
+    TokenType.PropertyColon,
+    TokenType.NewLine,
+    TokenType.Whitespace,
+    TokenType.PropertyName,
+    TokenType.PropertyColon,
+    TokenType.PropertyValue,
+    TokenType.PropertySemicolon,
+    TokenType.NewLine,
+    TokenType.CurlyClose
+  )
 })

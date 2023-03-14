@@ -10,15 +10,15 @@ const State = {
 }
 
 const RE_SELECTOR = /^[\.a-zA-Z\d]+/
-const RE_WHITESPACE = /^\s+/
+const RE_WHITESPACE = /^[ \t]+/
 const RE_CURLY_OPEN = /^{/
 const RE_CURLY_CLOSE = /^}/
 const RE_PROPERTY_NAME = /^[a-zA-Z\-\d]+/
 const RE_COLON = /^:/
 const RE_PROPERTY_VALUE = /^[^\n;]+/
 const RE_SEMICOLON = /^;/
-const RE_WHITESPACE_NEWLINE = /^\n/
 const RE_SELECTOR_ID = /^#[\w\-\_]+/
+const RE_NEW_LINE = /^\n/
 
 /**
  * @param {string} text
@@ -41,6 +41,9 @@ export const tokenizeCss = (text) => {
           state = State.AfterSelector
         } else if ((next = part.match(RE_WHITESPACE))) {
           token = TokenType.Whitespace
+          state = State.TopLevelContent
+        } else if ((next = part.match(RE_NEW_LINE))) {
+          token = TokenType.NewLine
           state = State.TopLevelContent
         } else {
           throw new Error('no')
@@ -74,6 +77,8 @@ export const tokenizeCss = (text) => {
         } else if ((next = part.match(RE_CURLY_CLOSE))) {
           token = TokenType.CurlyClose
           state = State.TopLevelContent
+        } else if ((next = part.match(RE_NEW_LINE))) {
+          token = TokenType.NewLine
         } else {
           throw new Error('no')
         }
@@ -82,8 +87,8 @@ export const tokenizeCss = (text) => {
         if ((next = part.match(RE_COLON))) {
           token = TokenType.PropertyColon
           state = State.AfterPropertyNameAfterColon
-        } else if ((next = part.match(RE_WHITESPACE_NEWLINE))) {
-          token = TokenType.Whitespace
+        } else if ((next = part.match(RE_NEW_LINE))) {
+          token = TokenType.NewLine
           state = State.InsideSelector
         } else if ((next = part.match(RE_CURLY_CLOSE))) {
           token = TokenType.CurlyClose
@@ -96,11 +101,13 @@ export const tokenizeCss = (text) => {
           throw new Error('no')
         }
         break
-
       case State.AfterPropertyNameAfterColon:
         if ((next = part.match(RE_PROPERTY_VALUE))) {
           token = TokenType.PropertyValue
           state = State.AfterPropertyValue
+        } else if ((next = part.match(RE_NEW_LINE))) {
+          token = TokenType.NewLine
+          state = State.InsideSelector
         } else {
           throw new Error('no')
         }
@@ -109,8 +116,8 @@ export const tokenizeCss = (text) => {
         if ((next = part.match(RE_SEMICOLON))) {
           token = TokenType.PropertySemicolon
           state = State.InsideSelector
-        } else if ((next = part.match(RE_WHITESPACE_NEWLINE))) {
-          token = TokenType.Whitespace
+        } else if ((next = part.match(RE_NEW_LINE))) {
+          token = TokenType.NewLine
           state = State.InsideSelector
         } else {
           throw new Error('no')
