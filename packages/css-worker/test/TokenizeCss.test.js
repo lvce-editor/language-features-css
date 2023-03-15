@@ -180,3 +180,11 @@ test('unfinished property with colon', () => {
     TokenType.CurlyClose
   )
 })
+
+test('stray closing curly bracket', () => {
+  expectTokenize(`h1 }`).toEqual(
+    TokenType.Selector,
+    TokenType.Whitespace,
+    TokenType.Text
+  )
+})
