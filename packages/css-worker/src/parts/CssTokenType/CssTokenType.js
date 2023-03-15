@@ -8,3 +8,4 @@ export const CurlyClose = 7
 export const PropertyColon = 8
 export const PropertySemicolon = 9
 export const NewLine = 10
+export const Text = 11
