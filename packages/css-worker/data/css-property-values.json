@@ -256,7 +256,24 @@
   "filter": [],
   "flex": [],
   "flex-basis": [],
-  "flex-direction": [],
+  "flex-direction": [
+    {
+      "label": "column",
+      "snippet": "column"
+    },
+    {
+      "label": "column-reverse",
+      "snippet": "column-reverse"
+    },
+    {
+      "label": "row",
+      "snippet": "row"
+    },
+    {
+      "label": "row-reverse",
+      "snippet": "row-reverse"
+    }
+  ],
   "flex-flow": [],
   "flex-grow": [],
   "flex-shrink": [],
