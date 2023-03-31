@@ -2401,10 +2401,21 @@ test('superscript-position-override', () => {
     'superscript-position-override: $0;'
   )
 })
+test('superscript-size-override', () => {
+  expect(expandProperty('superscript-size-override')).toBe(
+    'superscript-size-override: $0;'
+  )
+})
 
 test('subscript-position-override', () => {
   expect(expandProperty('subscript-position-override')).toBe(
     'subscript-position-override: $0;'
+  )
+})
+
+test('subscript-size-override', () => {
+  expect(expandProperty('subscript-size-override')).toBe(
+    'subscript-size-override: $0;'
   )
 })
 
@@ -2727,6 +2738,10 @@ test('voice-volume', () => {
 
 test('white-space', () => {
   expect(expandProperty('white-space')).toBe('white-space: $0;')
+})
+
+test('white-space-trim', () => {
+  expect(expandProperty('white-space-trim')).toBe('white-space-trim: $0;')
 })
 
 test('white-space-collapse', () => {
