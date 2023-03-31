@@ -1,6 +1,4 @@
-import * as ImportJson from '../parts/ImportJson/ImportJson.js'
-// TODO use import json once supported
-const cssProperties = await ImportJson.importJson('data/css-properties.json')
+import { cssProperties } from './CssProperties/CssProperties.js'
 
 const merge = (objectA, objectB) => ({ ...objectA, ...objectB })
 
