@@ -1,6 +1,4 @@
-import { propertyData } from '../../../data/propertyData.js'
-import * as TokenType from '../CssTokenType/CssTokenType.js'
-import { tokenizeCss } from '../TokenizeCss/TokenizeCss.js'
+import { cssPropertyValues } from '../CssPropertyValues/CssPropertyValues.js'
 // {
 //   none: {},
 //   overline: {},
@@ -16,7 +14,8 @@ const toSnippet = (propertyName) => {
   }
 }
 
-const COMPLETIONS_CSS_PROPERTY_NAME = Object.keys(propertyData).map(toSnippet)
+const COMPLETIONS_CSS_PROPERTY_NAME =
+  Object.keys(cssPropertyValues).map(toSnippet)
 
 export const getPropertyNameCompletions = () => {
   return COMPLETIONS_CSS_PROPERTY_NAME
