@@ -1,4 +1,6 @@
 import { cssPropertyValues } from '../CssPropertyValues/CssPropertyValues.js'
+import * as CompletionType from '../CompletionType/CompletionType.js'
+
 // {
 //   none: {},
 //   overline: {},
@@ -10,7 +12,7 @@ const toSnippet = (propertyName) => {
   return {
     label: propertyName,
     snippet: `${propertyName}: `,
-    kind: /* Property */ 1,
+    kind: CompletionType.Property,
   }
 }
 
