@@ -821,7 +821,9 @@
   "scroll-start-inline": {},
   "scroll-start-block": {},
   "subscript-position-override": {},
+  "subscript-size-override": {},
   "superscript-position-override": {},
+  "superscript-size-override": {},
   "tab-size": {
     "ts": "tab-size: "
   },
@@ -936,6 +938,9 @@
   },
   "white-space-collapse": {
     "wsc": "white-space-collapse: "
+  },
+  "white-space-trim": {
+    "wst": "white-space-trim: "
   },
   "widows": {},
   "width": {
