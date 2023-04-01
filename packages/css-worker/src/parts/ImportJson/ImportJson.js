@@ -5,7 +5,6 @@ const importJsonNode = async (path) => {
 }
 
 const importJsonBrowser = async (path) => {
-  console.log(import.meta.url)
   const absolutePath = import.meta.resolve(`../../../${path}`)
   const response = await fetch(absolutePath)
   if (!response.ok) {

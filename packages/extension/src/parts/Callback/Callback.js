@@ -24,7 +24,6 @@ export const unregister = (id) => {
 export const resolve = (id, args) => {
   Assert.number(id)
   if (!(id in state.callbacks)) {
-    console.log(args)
     Logger.warn(`callback ${id} may already be disposed`)
     return
   }
@@ -51,5 +50,7 @@ export const reject = (id, error) => {
 }
 
 export const isAllEmpty = () => {
-  return Object.keys(state.callbacks).length === 0 && state.onceListeners.size === 0
+  return (
+    Object.keys(state.callbacks).length === 0 && state.onceListeners.size === 0
+  )
 }
