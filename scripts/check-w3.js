@@ -82,7 +82,6 @@ const checkNormalProperties = async () => {
 
 const checkDeprecatedProperties = async () => {
   const deprecatedProperties = await getW3DeprecatedProperties()
-  // console.log([...deprecatedProperties])
   const testedProperties = await getJsonProperties()
   for (const property of deprecatedProperties) {
     if (testedProperties.has(property)) {
