@@ -1,5 +1,3 @@
-import { getMatchingCompletion } from '../src/parts/getMatchingCompletion.js'
-
 test('', () => {})
 // const expectSnippet = (partialWord, expected) => {
 //   expect(getMatchingCompletion(partialWord)).toBe(expected)
