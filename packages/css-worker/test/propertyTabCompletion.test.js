@@ -7,7 +7,7 @@
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference
  */
 
-import { getMatchingCompletion } from '../src/parts/getMatchingCompletion.js'
+import { getMatchingCompletion } from '../src/parts/GetMatchingCompletion/GetMatchingCompletion.js'
 
 const expandProperty = (partialWord) => {
   return getMatchingCompletion(partialWord)
