@@ -1,45 +1,20 @@
-import * as Callback from '../Callback/Callback.js'
 import * as CssWorkerUrl from '../CssWorkerUrl/CssWorkerUrl.js'
-import * as IpcParent from '../IpcParent/IpcParent.js'
-import * as IpcParentType from '../IpcParentType/IpcParentType.js'
-import * as JsonRpc from '../JsonRpc/JsonRpc.js'
 
 export const state = {
-  ipc: undefined,
   /**
    * @type {any}
    */
   rpcPromise: undefined,
 }
 
-const handleMessage = (event) => {
-  const message = event.data
-  if (message.id) {
-    Callback.resolve(message.id, message)
-  } else {
-    console.log(message)
-  }
-}
-
-const createIpc = async ({ url, name }) => {
-  const ipc = await IpcParent.create({
-    method: IpcParentType.ModuleWorker,
-    url,
-    name,
-  })
-  ipc.onmessage = handleMessage
-  return ipc
-}
-
 const createRpc = async () => {
   const workerUrl = CssWorkerUrl.getCssWorkerUrl()
-  const ipc = await createIpc({ url: workerUrl, name: 'Html Worker' })
-  return {
-    ipc,
-    invoke(method, ...params) {
-      return JsonRpc.invoke(this.ipc, method, ...params)
-    },
-  }
+  const rpc = await vscode.createRpc({
+    type: 'worker',
+    url: workerUrl,
+    name: 'Css Worker',
+  })
+  return rpc
 }
 
 const getOrCreateRpc = async () => {
