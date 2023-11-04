@@ -14,13 +14,13 @@
   "author": "",
   "type": "module",
   "devDependencies": {
-    "@lerna/legacy-package-management": "^7.3.0",
+    "@lerna/legacy-package-management": "^7.4.2",
     "@lvce-editor/package-extension": "^0.1.0",
-    "@lvce-editor/server": "^0.18.2",
-    "@types/node": "^20.8.0",
+    "@lvce-editor/server": "^0.19.4",
+    "@types/node": "^20.8.10",
     "cheerio": "^1.0.0-rc.12",
     "got": "^13.0.0",
-    "lerna": "^7.3.0",
+    "lerna": "^7.4.2",
     "typescript": "^5.2.2"
   },
   "prettier": {
