@@ -49,6 +49,18 @@
     {
       "label": "fixed",
       "snippet": "fixed;"
+    },
+    {
+      "label": "relative",
+      "snippet": "relative;"
+    },
+    {
+      "label": "static",
+      "snippet": "static;"
+    },
+    {
+      "label": "sticky",
+      "snippet": "sticky;"
     }
   ],
   "height": [],
