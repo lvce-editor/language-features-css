@@ -54,7 +54,7 @@ const getIgnoredProperties = async () => {
 
 const getTestedProperties = async () => {
   const text = await fs.promises.readFile(
-    join(extension, 'test/propertyTabCompletion.test.js'),
+    join(extension, '..', 'css-worker/test/propertyTabCompletion.test.js'),
     'utf-8'
   )
   const strings = [...text.matchAll(/test\('(.*?)'/g)].map((x) => x[1])
