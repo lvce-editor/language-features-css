@@ -16,8 +16,8 @@
   "devDependencies": {
     "@lerna/legacy-package-management": "^7.4.2",
     "@lvce-editor/package-extension": "^0.1.0",
-    "@lvce-editor/server": "^0.19.4",
-    "@types/node": "^20.8.10",
+    "@lvce-editor/server": "^0.20.7",
+    "@types/node": "^20.9.2",
     "cheerio": "^1.0.0-rc.12",
     "got": "^13.0.0",
     "lerna": "^7.4.2",
