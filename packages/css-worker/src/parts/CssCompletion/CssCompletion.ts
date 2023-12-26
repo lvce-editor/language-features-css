@@ -3,6 +3,8 @@ import * as GetPropertyNameCompletions from '../GetPropertyNameCompletions/GetPr
 import * as GetPropertyValueCompletions from '../GetPropertyValueCompletions/GetPropertyValueCompletions.js'
 import { tokenizeCss } from '../TokenizeCss/TokenizeCss.js'
 
+let x: string = 22
+
 // {
 //   none: {},
 //   overline: {},

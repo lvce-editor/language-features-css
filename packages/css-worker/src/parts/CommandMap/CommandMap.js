@@ -1,4 +1,4 @@
-import * as CssCompletion from '../CssCompletion/CssCompletion.js'
+import * as CssCompletion from '../CssCompletion/CssCompletion.ts'
 import * as CssTabCompletion from '../CssTabCompletion/CssTabCompletion.js'
 import * as CssWorkerCommandType from '../CssWorkerCommandType/CssWorkerCommandType.js'
 
