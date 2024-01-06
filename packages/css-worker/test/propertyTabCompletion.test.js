@@ -883,6 +883,10 @@ test('elevation', () => {
   expect(expandProperty('elevation')).toBe('elevation: $0;')
 })
 
+test('field-sizing', () => {
+  expect(expandProperty('field-sizing')).toBe('field-sizing: $0;')
+})
+
 test('fill', () => {
   expect(expandProperty('fill')).toBe('fill: $0;')
 })
@@ -1058,6 +1062,13 @@ test('font-style', () => {
 
 test('font-synthesis', () => {
   expect(expandProperty('font-synthesis')).toBe('font-synthesis: $0;')
+})
+
+test('font-synthesis-position', () => {
+  expect(expandProperty('fsp')).toBe('font-synthesis-position: $0;')
+  expect(expandProperty('font-synthesis-position')).toBe(
+    'font-synthesis-position: $0;'
+  )
 })
 
 test('font-synthesis-small-caps', () => {
@@ -1304,6 +1315,11 @@ test('inset', () => {
   expect(expandProperty('i')).toBe('inset: $0;')
   expect(expandProperty('i0')).toBe('inset: 0;')
   expect(expandProperty('inset')).toBe('inset: $0;')
+})
+
+test('inset-area', () => {
+  expect(expandProperty('ia')).toBe('inset-area: $0;')
+  expect(expandProperty('inset-area')).toBe('inset-area: $0;')
 })
 
 test('inset-block', () => {
@@ -1986,10 +2002,18 @@ test('position', () => {
 })
 
 test('position-fallback', () => {
+  expect(expandProperty('pf')).toBe('position-fallback: $0;')
   expect(expandProperty('position-fallback')).toBe('position-fallback: $0;')
 })
 
+test('position-fallback-bounds', () => {
+  expect(expandProperty('position-fallback-bounds')).toBe(
+    'position-fallback-bounds: $0;'
+  )
+})
+
 test('print-color-adjust', () => {
+  expect(expandProperty('pca')).toBe('print-color-adjust: $0;')
   expect(expandProperty('print-color-adjust')).toBe('print-color-adjust: $0;')
 })
 
@@ -2072,23 +2096,53 @@ test('scroll-behavior', () => {
   expect(expandProperty('sbs')).toBe('scroll-behavior: smooth;')
   expect(expandProperty('scroll-behavior')).toBe('scroll-behavior: $0;')
 })
+
 test('scroll-start', () => {
   expect(expandProperty('scroll-start')).toBe('scroll-start: $0;')
 })
+
 test('scroll-start-target', () => {
   expect(expandProperty('scroll-start-target')).toBe('scroll-start-target: $0;')
 })
+
 test('scroll-start-x', () => {
   expect(expandProperty('scroll-start-x')).toBe('scroll-start-x: $0;')
 })
+
 test('scroll-start-y', () => {
   expect(expandProperty('scroll-start-y')).toBe('scroll-start-y: $0;')
 })
+
 test('scroll-start-inline', () => {
   expect(expandProperty('scroll-start-inline')).toBe('scroll-start-inline: $0;')
 })
+
 test('scroll-start-block', () => {
   expect(expandProperty('scroll-start-block')).toBe('scroll-start-block: $0;')
+})
+
+test('scroll-start-target-block', () => {
+  expect(expandProperty('scroll-start-target-block')).toBe(
+    'scroll-start-target-block: $0;'
+  )
+})
+
+test('scroll-start-target-inline', () => {
+  expect(expandProperty('scroll-start-target-inline')).toBe(
+    'scroll-start-target-inline: $0;'
+  )
+})
+
+test('scroll-start-target-x', () => {
+  expect(expandProperty('scroll-start-target-x')).toBe(
+    'scroll-start-target-x: $0;'
+  )
+})
+
+test('scroll-start-target-y', () => {
+  expect(expandProperty('scroll-start-target-y')).toBe(
+    'scroll-start-target-y: $0;'
+  )
 })
 
 test('scroll-margin', () => {
@@ -2447,6 +2501,14 @@ test('text-align-last', () => {
   expect(expandProperty('text-align-last')).toBe('text-align-last: $0;')
 })
 
+test('text-box-edge', () => {
+  expect(expandProperty('text-box-edge')).toBe('text-box-edge: $0;')
+})
+
+test('text-box-trim', () => {
+  expect(expandProperty('text-box-trim')).toBe('text-box-trim: $0;')
+})
+
 test('text-combine-upright', () => {
   expect(expandProperty('text-combine-upright')).toBe(
     'text-combine-upright: $0;'
@@ -2624,6 +2686,14 @@ test('text-underline-position', () => {
 
 test('text-wrap', () => {
   expect(expandProperty('text-wrap')).toBe('text-wrap: $0;')
+})
+
+test('text-wrap-mode', () => {
+  expect(expandProperty('text-wrap-mode')).toBe('text-wrap-mode: $0;')
+})
+
+test('text-wrap-style', () => {
+  expect(expandProperty('text-wrap-style')).toBe('text-wrap-style: $0;')
 })
 
 test('top', () => {

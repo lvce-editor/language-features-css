@@ -290,6 +290,7 @@
   "dominant-baseline": {},
   "elevation": {},
   "empty-cells": {},
+  "field-sizing": {},
   "fill": {},
   "fill-break": {},
   "fill-color": {},
@@ -365,6 +366,9 @@
   "font-synthesis": {},
   "font-synthesis-small-caps": {},
   "font-synthesis-style": {},
+  "font-synthesis-position": {
+    "fsp": "font-synthesis-position: $0;"
+  },
   "font-synthesis-weight": {},
   "font-variant": {},
   "font-variant-alternates": {},
@@ -448,6 +452,9 @@
   "inset": {
     "i": "inset: $0;",
     "i0": "inset: 0;"
+  },
+  "inset-area": {
+    "ia": "inset-area: $0;"
   },
   "inset-block": {
     "ib": "inset-block: $0;"
@@ -715,8 +722,13 @@
     "psr": "position: relative;",
     "pss": "position: static;"
   },
-  "position-fallback": {},
-  "print-color-adjust": {},
+  "position-fallback": {
+    "pf": "position-fallback: $0;"
+  },
+  "position-fallback-bounds": {},
+  "print-color-adjust": {
+    "pca": "print-color-adjust: $0;"
+  },
   "property-name": {},
   "quotes": {},
   "region-fragment": {},
@@ -772,6 +784,10 @@
   "scroll-snap-align": {},
   "scroll-snap-stop": {},
   "scroll-snap-type": {},
+  "scroll-start-target-x": {},
+  "scroll-start-target-y": {},
+  "scroll-start-target-inline": {},
+  "scroll-start-target-block": {},
   "scrollbar": {},
   "scrollbar-color": {},
   "scrollbar-gutter": {},
@@ -836,6 +852,8 @@
     "tal": "text-align: left;"
   },
   "text-autospace": {},
+  "text-box-edge": {},
+  "text-box-trim": {},
   "text-spacing-trim": {},
   "text-decoration-trim": {},
   "text-align-all": {},
@@ -887,6 +905,8 @@
   "text-underline-offset": {},
   "text-underline-position": {},
   "text-wrap": {},
+  "text-wrap-style": {},
+  "text-wrap-mode": {},
   "top": {
     "t": "top: ",
     "t0": "top: 0;"
