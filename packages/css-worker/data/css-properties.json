@@ -237,7 +237,8 @@
   "column-width": {},
   "columns": {},
   "contain": {
-    "cs": "contain: strict;"
+    "cs": "contain: strict;",
+    "con": "contain: $0;"
   },
   "contain-intrinsic-block-size": {},
   "contain-intrinsic-height": {},
