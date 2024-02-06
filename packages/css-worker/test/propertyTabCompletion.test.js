@@ -741,6 +741,7 @@ test('columns', () => {
 test('contain', () => {
   expect(expandProperty('cs')).toBe('contain: strict;')
   expect(expandProperty('contain')).toBe('contain: $0;')
+  expect(expandProperty('con')).toBe('contain: $0;')
 })
 
 test('contain-intrinsic-block-size', () => {
