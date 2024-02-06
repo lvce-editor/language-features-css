@@ -1143,6 +1143,10 @@ test('font-weight', () => {
   expect(expandProperty('font-weight')).toBe('font-weight: $0;')
 })
 
+test('font-width', () => {
+  expect(expandProperty('font-width')).toBe('font-width: $0;')
+})
+
 test('footnote-display', () => {
   expect(expandProperty('footnote-display')).toBe('footnote-display: $0;')
 })
@@ -2011,6 +2015,19 @@ test('position-fallback-bounds', () => {
   expect(expandProperty('position-fallback-bounds')).toBe(
     'position-fallback-bounds: $0;'
   )
+})
+test('position-try-options', () => {
+  expect(expandProperty('position-try-options')).toBe(
+    'position-try-options: $0;'
+  )
+})
+
+test('position-try-order', () => {
+  expect(expandProperty('position-try-order')).toBe('position-try-order: $0;')
+})
+
+test('position-try-final', () => {
+  expect(expandProperty('position-try-final')).toBe('position-try-final: $0;')
 })
 
 test('print-color-adjust', () => {

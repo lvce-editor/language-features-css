@@ -388,6 +388,7 @@
     "fwn": "font-weight: normal;",
     "fwb": "font-weight: bold;"
   },
+  "font-width": {},
   "footnote-display": {},
   "footnote-policy": {},
   "forced-color-adjust": {},
@@ -730,6 +731,9 @@
   "print-color-adjust": {
     "pca": "print-color-adjust: $0;"
   },
+  "position-try-options": {},
+  "position-try-order": {},
+  "position-try-final": {},
   "property-name": {},
   "quotes": {},
   "region-fragment": {},
