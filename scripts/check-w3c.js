@@ -9,7 +9,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const cssWorker = join(__dirname, '../packages/css-worker')
 
 const repo = `w3c/csswg-drafts`
-const commit = '7875737d2178c85e8d51a47bec7d4da296b0e132'
+const commit = 'ca9df4e3b73948182e5d5f7306a8ba7e026c8d74'
 
 const sources = [
   'css-align-3/Overview.bs',
