@@ -279,6 +279,7 @@
     "dir": "direction: rtl;",
     "dil": "direction: ltr;"
   },
+  "dynamic-range-limit": {},
   "display": {
     "d": "display: ",
     "dn": "display: none;",
@@ -727,10 +728,12 @@
   "position-fallback": {
     "pf": "position-fallback: $0;"
   },
+  "position-animation": {},
   "position-fallback-bounds": {},
   "print-color-adjust": {
     "pca": "print-color-adjust: $0;"
   },
+  "position-try": {},
   "position-try-options": {},
   "position-try-order": {},
   "position-try-final": {},
@@ -745,6 +748,7 @@
   "rest-after": {},
   "rest-before": {},
   "reading-order": {},
+  "reading-order-items": {},
   "right": {
     "r": "right: $0;"
   },

@@ -858,6 +858,10 @@ test('descent-override', () => {
   expect(expandProperty('descent-override')).toBe('descent-override: $0;')
 })
 
+test('dynamic-range-limit', () => {
+  expect(expandProperty('dynamic-range-limit')).toBe('dynamic-range-limit: $0;')
+})
+
 test('direction', () => {
   expect(expandProperty('direction')).toBe('direction: $0;')
 })
@@ -2016,6 +2020,15 @@ test('position-fallback-bounds', () => {
     'position-fallback-bounds: $0;'
   )
 })
+
+test('position-animation', () => {
+  expect(expandProperty('position-animation')).toBe('position-animation: $0;')
+})
+
+test('position-try', () => {
+  expect(expandProperty('position-try')).toBe('position-try: $0;')
+})
+
 test('position-try-options', () => {
   expect(expandProperty('position-try-options')).toBe(
     'position-try-options: $0;'
@@ -2049,6 +2062,10 @@ test('region-fragment', () => {
 
 test('reading-order', () => {
   expect(expandProperty('reading-order')).toBe('reading-order: $0;')
+})
+
+test('reading-order-items', () => {
+  expect(expandProperty('reading-order-items')).toBe('reading-order-items: $0;')
 })
 
 test('resize', () => {
