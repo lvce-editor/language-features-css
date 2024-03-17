@@ -934,6 +934,7 @@
   "transition": {},
   "transition-delay": {},
   "transition-duration": {},
+  "transition-behaviour": {},
   "transition-property": {},
   "transition-timing-function": {
     "ttf": "transition-timing-function: $0;"
@@ -984,6 +985,9 @@
   "word-break": {},
   "word-spacing": {
     "ws": "word-spacing: $0;"
+  },
+  "word-space-transform": {
+    "ws": "word-space-transform: $0;"
   },
   "word-wrap": {
     "ww": "word-wrap: $0;"
