@@ -1,6 +1,10 @@
+import { fileURLToPath } from 'url'
+
 const importJsonNode = async (path) => {
   const fs = await import('fs/promises')
-  const data = await fs.readFile(path, 'utf8')
+  const absoluteUri = new URL(`../../../${path}`, import.meta.url).toString()
+  const absolutePath = fileURLToPath(absoluteUri)
+  const data = await fs.readFile(absolutePath, 'utf8')
   return JSON.parse(data)
 }
 
