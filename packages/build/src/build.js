@@ -51,7 +51,7 @@ const workerUrlFilePath = path.join(
 
 replace({
   path: workerUrlFilePath,
-  occurrence: '../../../../css-worker/src/cssWorkerMain.js',
+  occurrence: '../../../../css-worker/src/cssWorkerMain.ts',
   replacement: '../css-worker/src/cssWorkerMain.js',
 })
 
@@ -70,7 +70,7 @@ replace({
 })
 
 await bundleJs(
-  join(root, 'dist', 'css-worker', 'src', 'cssWorkerMain.js'),
+  join(root, 'dist', 'css-worker', 'src', 'cssWorkerMain.ts'),
   join(root, 'dist', 'css-worker', 'dist', 'cssWorkerMain.js')
 )
 
