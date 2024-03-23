@@ -7,6 +7,7 @@ export const languageId = 'css'
 export const provideTabCompletion = (textDocument, offset) => {
   // console.time('actual-provider')
   // console.time('get-text')
+  // @ts-ignore
   const text = vscode.getTextFromTextDocument(textDocument)
   // console.timeEnd('get-text')
   const tabCompletion = TabCompletion.getTabCompletion(text, offset)
