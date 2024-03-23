@@ -1,4 +1,4 @@
-import { getMatchingCompletion } from '../GetMatchingCompletion/GetMatchingCompletion.js'
+import { getMatchingCompletion } from '../GetMatchingCompletion/GetMatchingCompletion.ts'
 
 const RE_WORD = /[a-zA-Z\d\-]+$/
 const RE_NUMERIC = /([a-zA-Z]+)(\d+)$/

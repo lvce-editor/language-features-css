@@ -1,4 +1,4 @@
-import * as TokenType from '../CssTokenType/CssTokenType.js'
+import * as TokenType from '../CssTokenType/CssTokenType.ts'
 
 const State = {
   TopLevelContent: 1,

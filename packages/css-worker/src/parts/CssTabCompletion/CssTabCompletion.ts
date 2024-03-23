@@ -1,7 +1,7 @@
-import * as CssTabCompletionProperty from '../CssTabCompletionProperty/CssTabCompletionProperty.js'
-import * as TokenType from '../CssTokenType/CssTokenType.js'
-import * as GetTokenAtOffset from '../GetTokenAtOffset/GetTokenAtOffset.js'
-import { tokenizeCss } from '../TokenizeCss/TokenizeCss.js'
+import * as CssTabCompletionProperty from '../CssTabCompletionProperty/CssTabCompletionProperty.ts'
+import * as TokenType from '../CssTokenType/CssTokenType.ts'
+import * as GetTokenAtOffset from '../GetTokenAtOffset/GetTokenAtOffset.ts'
+import { tokenizeCss } from '../TokenizeCss/TokenizeCss.ts'
 
 /**
  * @param {string} text

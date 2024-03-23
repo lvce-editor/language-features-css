@@ -1,4 +1,4 @@
-import { cssProperties } from '../CssProperties/CssProperties.js'
+import { cssProperties } from '../CssProperties/CssProperties.ts'
 
 const merge = (objectA, objectB) => ({ ...objectA, ...objectB })
 

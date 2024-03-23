@@ -1,5 +1,5 @@
-import { tokenizeCss } from '../src/parts/TokenizeCss/TokenizeCss.js'
-import * as TokenType from '../src/parts/CssTokenType/CssTokenType.js'
+import { tokenizeCss } from '../src/parts/TokenizeCss/TokenizeCss.ts'
+import * as TokenType from '../src/parts/CssTokenType/CssTokenType.ts'
 
 const expectTokenize = (text) => ({
   toEqual: (...tokens) => {
