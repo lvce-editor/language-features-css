@@ -2,7 +2,7 @@
   "name": "builtin.language-features-css",
   "version": "0.0.0-dev",
   "description": "",
-  "main": "src/languageFeaturesCssMain.js",
+  "main": "src/languageFeaturesCssMain.ts",
   "scripts": {},
   "keywords": [],
   "author": "",
