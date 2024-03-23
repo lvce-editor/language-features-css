@@ -46,7 +46,7 @@ const workerUrlFilePath = path.join(
   'src',
   'parts',
   'CssWorkerUrl',
-  'CssWorkerUrl.js'
+  'CssWorkerUrl.ts'
 )
 
 replace({
