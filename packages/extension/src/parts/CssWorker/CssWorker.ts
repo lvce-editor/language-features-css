@@ -1,9 +1,6 @@
 import * as CssWorkerUrl from '../CssWorkerUrl/CssWorkerUrl.ts'
 
-export const state = {
-  /**
-   * @type {any}
-   */
+export const state: any = {
   rpcPromise: undefined,
 }
 
