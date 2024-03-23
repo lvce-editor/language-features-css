@@ -27,7 +27,13 @@ const commitHash = dirents.find(isCommitHash) || ''
 
 await cp(
   path.join(root, 'dist2'),
-  path.join(root, 'dist', commitHash, 'extensions', 'builtin.prettier'),
+  path.join(
+    root,
+    'dist',
+    commitHash,
+    'extensions',
+    'builtin.language-features-css'
+  ),
   { recursive: true, force: true }
 )
 
