@@ -1,9 +1,8 @@
-import { packageExtension } from '@lvce-editor/package-extension'
+import { packageExtension, bundleJs } from '@lvce-editor/package-extension'
 import fs, { readFileSync } from 'fs'
 import path, { join } from 'path'
 import { replace } from './replace.js'
 import { root } from './root.js'
-import { bundleJs } from './bundle-js.js'
 
 const extension = path.join(root, 'packages', 'extension')
 const cssWorker = path.join(root, 'packages', 'css-worker')
