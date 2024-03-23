@@ -52,7 +52,7 @@ const workerUrlFilePath = path.join(
 replace({
   path: workerUrlFilePath,
   occurrence: '../../../../css-worker/src/cssWorkerMain.ts',
-  replacement: '../css-worker/src/cssWorkerMain.js',
+  replacement: '../css-worker/dist/cssWorkerMain.js',
 })
 
 replace({
