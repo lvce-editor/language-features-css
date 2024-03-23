@@ -1,6 +1,7 @@
 import { packageExtension } from '@lvce-editor/package-extension'
-import fs, { readFileSync, writeFileSync } from 'fs'
+import fs, { readFileSync } from 'fs'
 import path, { join } from 'path'
+import { replace } from './replace.js'
 import { root } from './root.js'
 
 const extension = path.join(root, 'packages', 'extension')
@@ -46,12 +47,12 @@ const workerUrlFilePath = path.join(
   'CssWorkerUrl',
   'CssWorkerUrl.js'
 )
-const oldContent = readFileSync(workerUrlFilePath, 'utf8')
-const newContent = oldContent.replace(
-  '../../../../css-worker/src/cssWorkerMain.js',
-  '../../../css-worker/src/cssWorkerMain.js'
-)
-writeFileSync(workerUrlFilePath, newContent)
+
+replace({
+  path: workerUrlFilePath,
+  occurrence: '../../../../css-worker/src/cssWorkerMain.js',
+  replacement: '../../../css-worker/src/cssWorkerMain.js',
+})
 
 await packageExtension({
   highestCompression: true,
