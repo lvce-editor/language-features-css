@@ -5,6 +5,8 @@ import * as ExtensionHostTabCompletionProviderCss from './parts/ExtensionHost/Ex
 
 export const activate = () => {
   // TODO could also define completionProvider = { languageId: 'html', providerCompletions(){} }
+  // @ts-ignore
   vscode.registerCompletionProvider(ExtensionHostCompletionProviderCss)
+  // @ts-ignore
   vscode.registerTabCompletionProvider(ExtensionHostTabCompletionProviderCss)
 }

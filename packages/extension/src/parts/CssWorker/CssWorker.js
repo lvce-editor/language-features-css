@@ -9,6 +9,7 @@ export const state = {
 
 const createRpc = async () => {
   const workerUrl = CssWorkerUrl.getCssWorkerUrl()
+  // @ts-ignore
   const rpc = await vscode.createRpc({
     type: 'worker',
     url: workerUrl,
