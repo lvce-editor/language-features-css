@@ -797,6 +797,8 @@
   "scroll-start-target-y": {},
   "scroll-start-target-inline": {},
   "scroll-start-target-block": {},
+  "scroll-timeline-axis": {},
+  "scroll-timeline-name": {},
   "scrollbar": {},
   "scrollbar-color": {},
   "scrollbar-gutter": {},

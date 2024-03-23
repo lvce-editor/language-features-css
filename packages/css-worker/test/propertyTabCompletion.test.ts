@@ -2309,6 +2309,18 @@ test('scroll-snap-type', () => {
   expect(expandProperty('scroll-snap-type')).toBe('scroll-snap-type: $0;')
 })
 
+test('scroll-timeline-axis', () => {
+  expect(expandProperty('scroll-timeline-axis')).toBe(
+    'scroll-timeline-axis: $0;'
+  )
+})
+
+test('scroll-timeline-name', () => {
+  expect(expandProperty('scroll-timeline-name')).toBe(
+    'scroll-timeline-name: $0;'
+  )
+})
+
 test('scrollbar', () => {
   expect(expandProperty('scrollbar')).toBe('scrollbar: $0;')
 })
