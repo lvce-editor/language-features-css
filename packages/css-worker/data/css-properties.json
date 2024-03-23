@@ -934,7 +934,7 @@
   "transition": {},
   "transition-delay": {},
   "transition-duration": {},
-  "transition-behaviour": {},
+  "transition-behavior": {},
   "transition-property": {},
   "transition-timing-function": {
     "ttf": "transition-timing-function: $0;"
