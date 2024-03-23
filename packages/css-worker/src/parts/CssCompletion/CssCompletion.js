@@ -18,16 +18,13 @@ const toSnippet = (propertyName) => {
   }
 }
 
-/**
- * @type{vscode.Completion[]}
- */
 const NULL_COMPLETIONS = []
 
 /**
  *
  * @param {string} text
  * @param {number} offset
- * @returns {vscode.Completion[]}
+ * @returns {any[]}
  */
 export const cssCompletion = (text, offset) => {
   const parsed = tokenizeCss(text)

@@ -1,17 +1,7 @@
 import { exportStatic } from '@lvce-editor/shared-process'
-import { cp, readdir } from 'node:fs/promises'
-import path, { dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
-
-const __dirname = dirname(fileURLToPath(import.meta.url))
-const root = path.join(__dirname, '..', '..', '..')
-
-await import('./build.js')
-
-await cp(path.join(root, 'dist'), path.join(root, 'dist2'), {
-  recursive: true,
-  force: true,
-})
+import { cp, readdir, readFile, writeFile } from 'node:fs/promises'
+import path from 'node:path'
+import { root } from './root.js'
 
 await exportStatic({
   extensionPath: 'packages/extension',
@@ -27,8 +17,36 @@ const isCommitHash = (dirent) => {
 const dirents = await readdir(path.join(root, 'dist'))
 const commitHash = dirents.find(isCommitHash) || ''
 
-await cp(
-  path.join(root, 'dist2'),
-  path.join(root, 'dist', commitHash, 'extensions', 'builtin.prettier'),
-  { recursive: true, force: true },
+for (const dirent of ['src', 'data']) {
+  await cp(
+    path.join(root, 'packages', 'css-worker', dirent),
+    path.join(
+      root,
+      'dist',
+      commitHash,
+      'extensions',
+      'builtin.language-features-css',
+      'css-worker',
+      dirent
+    ),
+    { recursive: true, force: true }
+  )
+}
+
+const workerUrlFilePath = path.join(
+  root,
+  'dist',
+  commitHash,
+  'extensions',
+  'builtin.language-features-css',
+  'src',
+  'parts',
+  'CssWorkerUrl',
+  'CssWorkerUrl.js'
 )
+const oldContent = await readFile(workerUrlFilePath, 'utf8')
+const newContent = oldContent.replace(
+  '../../../../css-worker/src/cssWorkerMain.js',
+  '../../../css-worker/src/cssWorkerMain.js'
+)
+await writeFile(workerUrlFilePath, newContent)
