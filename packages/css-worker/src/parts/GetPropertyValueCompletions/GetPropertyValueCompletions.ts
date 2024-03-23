@@ -1,5 +1,5 @@
-import * as CompletionType from '../CompletionType/CompletionType.js'
-import { cssPropertyValues } from '../CssPropertyValues/CssPropertyValues.js'
+import * as CompletionType from '../CompletionType/CompletionType.ts'
+import { cssPropertyValues } from '../CssPropertyValues/CssPropertyValues.ts'
 
 const NULL_COMPLETIONS = []
 

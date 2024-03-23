@@ -1,5 +1,5 @@
-import { cssPropertyValues } from '../CssPropertyValues/CssPropertyValues.js'
-import * as CompletionType from '../CompletionType/CompletionType.js'
+import { cssPropertyValues } from '../CssPropertyValues/CssPropertyValues.ts'
+import * as CompletionType from '../CompletionType/CompletionType.ts'
 
 // {
 //   none: {},

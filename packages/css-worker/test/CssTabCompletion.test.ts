@@ -1,4 +1,4 @@
-import * as CssTabCompletion from '../src/parts/CssTabCompletion/CssTabCompletion.js'
+import * as CssTabCompletion from '../src/parts/CssTabCompletion/CssTabCompletion.ts'
 
 const expectTabCompletion = (text) => ({
   toEqual: (expectedText) => {

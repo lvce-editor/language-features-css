@@ -63,7 +63,7 @@ replace({
     'src',
     'parts',
     'ImportJson',
-    'ImportJson.js'
+    'ImportJson.ts'
   ),
   occurrence: `../../../${path}`,
   replacement: `../${path}`,

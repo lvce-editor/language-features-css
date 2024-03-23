@@ -1,7 +1,7 @@
-import * as TokenType from '../CssTokenType/CssTokenType.js'
-import * as GetPropertyNameCompletions from '../GetPropertyNameCompletions/GetPropertyNameCompletions.js'
-import * as GetPropertyValueCompletions from '../GetPropertyValueCompletions/GetPropertyValueCompletions.js'
-import { tokenizeCss } from '../TokenizeCss/TokenizeCss.js'
+import * as TokenType from '../CssTokenType/CssTokenType.ts'
+import * as GetPropertyNameCompletions from '../GetPropertyNameCompletions/GetPropertyNameCompletions.ts'
+import * as GetPropertyValueCompletions from '../GetPropertyValueCompletions/GetPropertyValueCompletions.ts'
+import { tokenizeCss } from '../TokenizeCss/TokenizeCss.ts'
 
 // {
 //   none: {},
@@ -28,8 +28,8 @@ const NULL_COMPLETIONS = []
  */
 export const cssCompletion = (text, offset) => {
   const parsed = tokenizeCss(text)
-  const nodeIndex = parsed.findIndex((node) => node.offset >= offset)
-  const nodeAtOffset = parsed[nodeIndex]
+  const nodeIndex = parsed.findIndex((node: any) => node.offset >= offset)
+  const nodeAtOffset: any = parsed[nodeIndex]
   if (!nodeAtOffset) {
     return NULL_COMPLETIONS
   }

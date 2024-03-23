@@ -1,9 +1,12 @@
-import { cssProperties } from '../CssProperties/CssProperties.js'
+import { cssProperties } from '../CssProperties/CssProperties.ts'
 
 const merge = (objectA, objectB) => ({ ...objectA, ...objectB })
 
 const keys = new Set(Object.keys(cssProperties))
-const snippets = Object.values(cssProperties).reduce(merge, Object.create(null))
+const snippets: any = Object.values(cssProperties).reduce(
+  merge,
+  Object.create(null)
+)
 
 /**
  * @param {string} partialWord

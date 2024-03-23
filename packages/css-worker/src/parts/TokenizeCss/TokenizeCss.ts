@@ -1,4 +1,4 @@
-import * as TokenType from '../CssTokenType/CssTokenType.js'
+import * as TokenType from '../CssTokenType/CssTokenType.ts'
 
 const State = {
   TopLevelContent: 1,
@@ -28,7 +28,7 @@ export const tokenizeCss = (text) => {
   let index = 0
   let token
   let state = State.TopLevelContent
-  const tokens = []
+  const tokens: any[] = []
   while (index < text.length) {
     const part = text.slice(index)
     switch (state) {

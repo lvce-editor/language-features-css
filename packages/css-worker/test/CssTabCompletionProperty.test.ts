@@ -1,4 +1,4 @@
-import * as CssTabCompletionProperty from '../src/parts/CssTabCompletionProperty/CssTabCompletionProperty.js'
+import * as CssTabCompletionProperty from '../src/parts/CssTabCompletionProperty/CssTabCompletionProperty.ts'
 
 test('getTabCompletion - width', () => {
   expect(
