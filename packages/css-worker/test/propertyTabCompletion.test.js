@@ -2775,6 +2775,12 @@ test('transition-duration', () => {
   expect(expandProperty('transition-duration')).toBe('transition-duration: $0;')
 })
 
+test('transition-behaviour', () => {
+  expect(expandProperty('transition-behaviour')).toBe(
+    'transition-behaviour: $0;'
+  )
+})
+
 test('transition-property', () => {
   expect(expandProperty('transition-property')).toBe('transition-property: $0;')
 })
@@ -2889,6 +2895,12 @@ test('word-break', () => {
 test('word-spacing', () => {
   expect(expandProperty('ws')).toBe('word-spacing: $0;')
   expect(expandProperty('word-spacing')).toBe('word-spacing: $0;')
+})
+
+test('word-space-transform', () => {
+  expect(expandProperty('word-space-transform')).toBe(
+    'word-space-transform: $0;'
+  )
 })
 
 test('word-wrap', () => {
