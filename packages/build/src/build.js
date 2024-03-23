@@ -65,8 +65,8 @@ replace({
     'ImportJson',
     'ImportJson.ts'
   ),
-  occurrence: `../../../${path}`,
-  replacement: `../${path}`,
+  occurrence: `../../../\${path}`,
+  replacement: `../\${path}`,
 })
 
 replace({
