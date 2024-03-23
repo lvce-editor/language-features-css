@@ -987,7 +987,7 @@
     "ws": "word-spacing: $0;"
   },
   "word-space-transform": {
-    "ws": "word-space-transform: $0;"
+    "wst": "word-space-transform: $0;"
   },
   "word-wrap": {
     "ww": "word-wrap: $0;"
