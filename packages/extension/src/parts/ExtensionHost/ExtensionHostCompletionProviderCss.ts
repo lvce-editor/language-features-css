@@ -9,6 +9,7 @@ export const languageId = 'css'
 export const provideCompletions = async (textDocument, offset) => {
   // @ts-ignore
   const text = vscode.getTextFromTextDocument(textDocument)
+  // @ts-ignore
   const completions = Completion.cssCompletion(text, offset)
   return completions
 }
