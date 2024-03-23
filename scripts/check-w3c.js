@@ -252,7 +252,7 @@ const combineProperties = async () => {
 
 const getTestedProperties = async () => {
   const text = await readFile(
-    join(cssWorker, 'test/propertyTabCompletion.test.js'),
+    join(cssWorker, 'test/propertyTabCompletion.test.ts'),
     'utf-8'
   )
   const strings = [...text.matchAll(/test\('(.*?)'/g)].map((x) => x[1])

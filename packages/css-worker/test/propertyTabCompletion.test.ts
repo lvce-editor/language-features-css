@@ -2775,10 +2775,8 @@ test('transition-duration', () => {
   expect(expandProperty('transition-duration')).toBe('transition-duration: $0;')
 })
 
-test('transition-behaviour', () => {
-  expect(expandProperty('transition-behaviour')).toBe(
-    'transition-behaviour: $0;'
-  )
+test('transition-behavior', () => {
+  expect(expandProperty('transition-behavior')).toBe('transition-behavior: $0;')
 })
 
 test('transition-property', () => {
