@@ -1,6 +1,6 @@
 // TODO would be nice to have typescript for all extensions
 // but is it worth the compile time?
-import * as Completion from '../Completion/Completion.js'
+import * as Completion from '../Completion/Completion.ts'
 
 export const languageId = 'css'
 

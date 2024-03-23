@@ -1,4 +1,4 @@
-import * as CssWorkerUrl from '../CssWorkerUrl/CssWorkerUrl.js'
+import * as CssWorkerUrl from '../CssWorkerUrl/CssWorkerUrl.ts'
 
 export const state = {
   /**
