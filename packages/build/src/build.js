@@ -69,13 +69,19 @@ replace({
   replacement: `../${path}`,
 })
 
+replace({
+  path: join(root, 'dist', 'extension.json'),
+  occurrence: 'src/languageFeaturesCssMain.ts',
+  replacement: 'dist/languageFeaturesCssMain.js',
+})
+
 await bundleJs(
   join(root, 'dist', 'css-worker', 'src', 'cssWorkerMain.ts'),
   join(root, 'dist', 'css-worker', 'dist', 'cssWorkerMain.js')
 )
 
 await bundleJs(
-  join(root, 'dist', 'src', 'languageFeaturesCssMain.js'),
+  join(root, 'dist', 'src', 'languageFeaturesCssMain.ts'),
   join(root, 'dist', 'dist', 'languageFeaturesCssMain.js')
 )
 
