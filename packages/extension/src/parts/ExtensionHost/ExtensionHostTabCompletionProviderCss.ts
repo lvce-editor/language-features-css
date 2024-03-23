@@ -1,4 +1,4 @@
-import * as TabCompletion from '../TabCompletion/TabCompletion.js'
+import * as TabCompletion from '../TabCompletion/TabCompletion.ts'
 
 export const languageId = 'css'
 
@@ -10,6 +10,7 @@ export const provideTabCompletion = (textDocument, offset) => {
   // @ts-ignore
   const text = vscode.getTextFromTextDocument(textDocument)
   // console.timeEnd('get-text')
+  // @ts-ignore
   const tabCompletion = TabCompletion.getTabCompletion(text, offset)
   // console.timeEnd('actual-provider')
   return tabCompletion
