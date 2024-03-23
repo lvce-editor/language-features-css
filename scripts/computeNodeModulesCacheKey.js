@@ -13,6 +13,7 @@ const locations = [
   'packages/e2e/package-lock.json',
   'packages/extension/package-lock.json',
   'packages/integration/package-lock.json',
+  'packages/build/package-lock.json',
   'packages/css-worker/package-lock.json',
   '.github/workflows/ci.yml',
   '.github/workflows/release.yml',
