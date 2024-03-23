@@ -4,7 +4,7 @@ import * as TokenType from '../src/parts/CssTokenType/CssTokenType.ts'
 const expectTokenize = (text) => ({
   toEqual: (...tokens) => {
     const result = tokenizeCss(text)
-    expect(result.map((token) => token.type)).toEqual(tokens)
+    expect(result.map((token: any) => token.type)).toEqual(tokens)
   },
 })
 
