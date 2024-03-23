@@ -3,6 +3,7 @@ import fs, { readFileSync } from 'fs'
 import path, { join } from 'path'
 import { replace } from './replace.js'
 import { root } from './root.js'
+import { bundleJs } from './bundle-js.js'
 
 const extension = path.join(root, 'packages', 'extension')
 const cssWorker = path.join(root, 'packages', 'css-worker')
@@ -51,8 +52,32 @@ const workerUrlFilePath = path.join(
 replace({
   path: workerUrlFilePath,
   occurrence: '../../../../css-worker/src/cssWorkerMain.js',
-  replacement: '../../../css-worker/src/cssWorkerMain.js',
+  replacement: '../css-worker/src/cssWorkerMain.js',
 })
+
+replace({
+  path: join(
+    root,
+    'dist',
+    'css-worker',
+    'src',
+    'parts',
+    'ImportJson',
+    'ImportJson.js'
+  ),
+  occurrence: `../../../${path}`,
+  replacement: `../${path}`,
+})
+
+await bundleJs(
+  join(root, 'dist', 'css-worker', 'src', 'cssWorkerMain.js'),
+  join(root, 'dist', 'css-worker', 'dist', 'cssWorkerMain.js')
+)
+
+await bundleJs(
+  join(root, 'dist', 'src', 'languageFeaturesCssMain.js'),
+  join(root, 'dist', 'dist', 'languageFeaturesCssMain.js')
+)
 
 await packageExtension({
   highestCompression: true,
