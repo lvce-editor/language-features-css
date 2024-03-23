@@ -5,7 +5,13 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export const root = `${__dirname}/../../..`
 
-const workerPath = join(root, 'packages', 'css-worker', 'src', 'cssWorkerMain.js')
+const workerPath = join(
+  root,
+  'packages',
+  'css-worker',
+  'src',
+  'cssWorkerMain.ts'
+)
 
 export const startWorker = async (rpc) => {
   const workerUrl = pathToFileURL(workerPath).toString()
