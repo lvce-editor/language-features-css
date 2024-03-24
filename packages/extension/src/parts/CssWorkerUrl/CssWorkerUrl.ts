@@ -1,6 +1,3 @@
-export const getCssWorkerUrl = () => {
-  return new URL(
-    '../../../../css-worker/src/cssWorkerMain.ts',
-    import.meta.url
-  ).toString()
-}
+import * as AssetDir from '../AssetDir/AssetDir.ts'
+
+export const cssWorkerUrl = `${AssetDir.assetDir}css-worker/src/cssWorkerMain.ts`
