@@ -1,13 +1,5 @@
 import * as TokenType from '../CssTokenType/CssTokenType.ts'
-
-const State = {
-  TopLevelContent: 1,
-  AfterSelector: 2,
-  InsideSelector: 3,
-  AfterPropertyName: 4,
-  AfterPropertyNameAfterColon: 5,
-  AfterPropertyValue: 6,
-}
+import * as TokenizerState from '../TokenizerState/TokenizerState.ts'
 
 const RE_SELECTOR = /^[\.a-zA-Z\d]+/
 const RE_WHITESPACE = /^[ \t]+/
@@ -27,101 +19,101 @@ export const tokenizeCss = (text) => {
   let next
   let index = 0
   let token
-  let state = State.TopLevelContent
+  let state = TokenizerState.TopLevelContent
   const tokens: any[] = []
   while (index < text.length) {
     const part = text.slice(index)
     switch (state) {
-      case State.TopLevelContent:
+      case TokenizerState.TopLevelContent:
         if ((next = part.match(RE_SELECTOR))) {
           token = TokenType.Selector
-          state = State.AfterSelector
+          state = TokenizerState.AfterSelector
         } else if ((next = part.match(RE_SELECTOR_ID))) {
           token = TokenType.Selector
-          state = State.AfterSelector
+          state = TokenizerState.AfterSelector
         } else if ((next = part.match(RE_WHITESPACE))) {
           token = TokenType.Whitespace
-          state = State.TopLevelContent
+          state = TokenizerState.TopLevelContent
         } else if ((next = part.match(RE_NEW_LINE))) {
           token = TokenType.NewLine
-          state = State.TopLevelContent
+          state = TokenizerState.TopLevelContent
         } else {
           throw new Error('no')
         }
         break
-      case State.AfterSelector:
+      case TokenizerState.AfterSelector:
         if ((next = part.match(RE_WHITESPACE))) {
           token = TokenType.Whitespace
-          state = State.AfterSelector
+          state = TokenizerState.AfterSelector
         } else if ((next = part.match(RE_CURLY_OPEN))) {
           token = TokenType.CurlyOpen
-          state = State.InsideSelector
+          state = TokenizerState.InsideSelector
         } else if ((next = part.match(RE_SELECTOR))) {
           token = TokenType.Selector
-          state = State.AfterSelector
+          state = TokenizerState.AfterSelector
         } else if ((next = part.match(RE_SELECTOR_ID))) {
           token = TokenType.Selector
-          state = State.AfterSelector
+          state = TokenizerState.AfterSelector
         } else if ((next = part.match(RE_CURLY_CLOSE))) {
           token = TokenType.Text
-          state = State.AfterSelector
+          state = TokenizerState.AfterSelector
         } else {
           part // ?
           throw new Error('no')
         }
         break
-      case State.InsideSelector:
+      case TokenizerState.InsideSelector:
         if ((next = part.match(RE_WHITESPACE))) {
           token = TokenType.Whitespace
-          state = State.InsideSelector
+          state = TokenizerState.InsideSelector
         } else if ((next = part.match(RE_PROPERTY_NAME))) {
           token = TokenType.PropertyName
-          state = State.AfterPropertyName
+          state = TokenizerState.AfterPropertyName
         } else if ((next = part.match(RE_CURLY_CLOSE))) {
           token = TokenType.CurlyClose
-          state = State.TopLevelContent
+          state = TokenizerState.TopLevelContent
         } else if ((next = part.match(RE_NEW_LINE))) {
           token = TokenType.NewLine
         } else {
           throw new Error('no')
         }
         break
-      case State.AfterPropertyName:
+      case TokenizerState.AfterPropertyName:
         if ((next = part.match(RE_COLON))) {
           token = TokenType.PropertyColon
-          state = State.AfterPropertyNameAfterColon
+          state = TokenizerState.AfterPropertyNameAfterColon
         } else if ((next = part.match(RE_NEW_LINE))) {
           token = TokenType.NewLine
-          state = State.InsideSelector
+          state = TokenizerState.InsideSelector
         } else if ((next = part.match(RE_CURLY_CLOSE))) {
           token = TokenType.CurlyClose
-          state = State.TopLevelContent
+          state = TokenizerState.TopLevelContent
         } else if ((next = part.match(RE_WHITESPACE))) {
           token = TokenType.Whitespace
-          state = State.AfterPropertyName
+          state = TokenizerState.AfterPropertyName
         } else {
           part // ?
           throw new Error('no')
         }
         break
-      case State.AfterPropertyNameAfterColon:
+      case TokenizerState.AfterPropertyNameAfterColon:
         if ((next = part.match(RE_PROPERTY_VALUE))) {
           token = TokenType.PropertyValue
-          state = State.AfterPropertyValue
+          state = TokenizerState.AfterPropertyValue
         } else if ((next = part.match(RE_NEW_LINE))) {
           token = TokenType.NewLine
-          state = State.InsideSelector
+          state = TokenizerState.InsideSelector
         } else {
           throw new Error('no')
         }
         break
-      case State.AfterPropertyValue:
+      case TokenizerState.AfterPropertyValue:
         if ((next = part.match(RE_SEMICOLON))) {
           token = TokenType.PropertySemicolon
-          state = State.InsideSelector
+          state = TokenizerState.InsideSelector
         } else if ((next = part.match(RE_NEW_LINE))) {
           token = TokenType.NewLine
-          state = State.InsideSelector
+          state = TokenizerState.InsideSelector
         } else {
           throw new Error('no')
         }
