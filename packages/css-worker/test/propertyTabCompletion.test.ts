@@ -1303,7 +1303,7 @@ test('initial-letter-align', () => {
   expect(expandProperty('initial-letter-align')).toBe(
     'initial-letter-align: $0;'
   )
-  expect(expandProperty('ali')).toBe('initial-letter-align: $0;')
+  expect(expandProperty('ila')).toBe('initial-letter-align: $0;')
 })
 
 test('initial-letter-wrap', () => {
