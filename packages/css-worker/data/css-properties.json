@@ -453,7 +453,7 @@
     "ila": "initial-letter-align: $0;"
   },
   "initial-letter-wrap": {
-    "ilw": "initial-letter-wrapp: $0;"
+    "ilw": "initial-letter-wrap: $0;"
   },
   "inline-size": {},
   "inline-sizing": {},
