@@ -1,9 +1,9 @@
-/**
- * @param {any[]} tokens
- * @param {number} offset
- * @returns {any}
- */
-export const getTokenAtOffset = (tokens, offset) => {
+import type { CssToken } from '../CssToken/CssToken.ts'
+
+export const getTokenAtOffset = (
+  tokens: CssToken[],
+  offset: number
+): CssToken => {
   // TODO binary search
   for (let i = 0; i < tokens.length; i++) {
     const token = tokens[i]

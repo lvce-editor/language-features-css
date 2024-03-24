@@ -1,3 +1,4 @@
+import type { CssToken } from '../CssToken/CssToken.ts'
 import * as TokenType from '../CssTokenType/CssTokenType.ts'
 import * as TokenizerState from '../TokenizerState/TokenizerState.ts'
 
@@ -12,15 +13,12 @@ const RE_SEMICOLON = /^;/
 const RE_SELECTOR_ID = /^#[\w\-\_]+/
 const RE_NEW_LINE = /^\n/
 
-/**
- * @param {string} text
- */
-export const tokenizeCss = (text) => {
+export const tokenizeCss = (text: string) => {
   let next
   let index = 0
-  let token
+  let token: number
   let state = TokenizerState.TopLevelContent
-  const tokens: any[] = []
+  const tokens: CssToken[] = []
   while (index < text.length) {
     const part = text.slice(index)
     switch (state) {
