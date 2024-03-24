@@ -446,9 +446,15 @@
     "ir": "image-rendering: $0;"
   },
   "image-resolution": {},
-  "initial-letter": {},
-  "initial-letter-align": {},
-  "initial-letter-wrap": {},
+  "initial-letter": {
+    "il": "initial-letter: $0;"
+  },
+  "initial-letter-align": {
+    "ila": "initial-letter-align: $0;"
+  },
+  "initial-letter-wrap": {
+    "ilw": "initial-letter-wrapp: $0;"
+  },
   "inline-size": {},
   "inline-sizing": {},
   "input-security": {},

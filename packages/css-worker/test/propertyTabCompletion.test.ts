@@ -1296,16 +1296,19 @@ test('image-resolution', () => {
 
 test('initial-letter', () => {
   expect(expandProperty('initial-letter')).toBe('initial-letter: $0;')
+  expect(expandProperty('il')).toBe('initial-letter: $0;')
 })
 
 test('initial-letter-align', () => {
   expect(expandProperty('initial-letter-align')).toBe(
     'initial-letter-align: $0;'
   )
+  expect(expandProperty('ali')).toBe('initial-letter-align: $0;')
 })
 
 test('initial-letter-wrap', () => {
   expect(expandProperty('initial-letter-wrap')).toBe('initial-letter-wrap: $0;')
+  expect(expandProperty('ilw')).toBe('initial-letter-wrap: $0;')
 })
 
 test('inline-size', () => {
