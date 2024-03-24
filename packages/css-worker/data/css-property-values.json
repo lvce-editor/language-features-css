@@ -575,7 +575,48 @@
   "mask-border-width": [],
   "mask-clip": [],
   "mask-composite": [],
-  "masonry-auto-flow": [],
+  "masonry-auto-flow": [
+    {
+      "label": "pack",
+      "snippet": "pack;"
+    },
+    {
+      "label": "next",
+      "snippet": "next;"
+    },
+    {
+      "label": "ordered",
+      "snippet": "ordered;"
+    },
+    {
+      "label": "definite-first",
+      "snippet": "definite-first;"
+    },
+    {
+      "label": "next-ordered",
+      "snippet": "next-ordered;"
+    },
+    {
+      "label": "inherit",
+      "snippet": "inherit;"
+    },
+    {
+      "label": "initial",
+      "snippet": "initial;"
+    },
+    {
+      "label": "revert",
+      "snippet": "revert;"
+    },
+    {
+      "label": "revert-layer",
+      "snippet": "revert-layer;"
+    },
+    {
+      "label": "unset",
+      "snippet": "unset;"
+    }
+  ],
   "math-style": [],
   "max-lines": [],
   "offset": [],
