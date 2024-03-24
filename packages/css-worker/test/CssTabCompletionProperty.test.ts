@@ -1,4 +1,5 @@
 import * as CssTabCompletionProperty from '../src/parts/CssTabCompletionProperty/CssTabCompletionProperty.ts'
+import { test, expect } from '@jest/globals'
 
 test('getTabCompletion - width', () => {
   expect(

@@ -1,4 +1,5 @@
 import * as CssTabCompletion from '../src/parts/CssTabCompletion/CssTabCompletion.ts'
+import { test, expect } from '@jest/globals'
 
 const expectTabCompletion = (text) => ({
   toEqual: (expectedText) => {

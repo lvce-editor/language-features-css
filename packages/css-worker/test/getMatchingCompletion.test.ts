@@ -1,3 +1,5 @@
+import { test, expect } from '@jest/globals'
+
 test('', () => {})
 // const expectSnippet = (partialWord, expected) => {
 //   expect(getMatchingCompletion(partialWord)).toBe(expected)
