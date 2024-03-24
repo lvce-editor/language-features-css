@@ -1,5 +1,6 @@
 import { tokenizeCss } from '../src/parts/TokenizeCss/TokenizeCss.ts'
 import * as TokenType from '../src/parts/CssTokenType/CssTokenType.ts'
+import { test, expect } from '@jest/globals'
 
 const expectTokenize = (text) => ({
   toEqual: (...tokens) => {

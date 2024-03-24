@@ -8,6 +8,7 @@
  */
 
 import { getMatchingCompletion } from '../src/parts/GetMatchingCompletion/GetMatchingCompletion.ts'
+import { test, expect } from '@jest/globals'
 
 const expandProperty = (partialWord) => {
   return getMatchingCompletion(partialWord)
