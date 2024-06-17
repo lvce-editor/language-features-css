@@ -10,10 +10,7 @@
   "keywords": [],
   "author": "",
   "type": "module",
-  "devDependencies": {
-    "@types/jest": "^29.5.12",
-    "jest": "^29.7.0"
-  },
+  "devDependencies": {},
   "jest": {
     "injectGlobals": false,
     "extensionsToTreatAsEsm": [
