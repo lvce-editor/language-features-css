@@ -6,6 +6,7 @@ import { root } from './root.js'
 
 const extension = path.join(root, 'packages', 'extension')
 const cssWorker = path.join(root, 'packages', 'css-worker')
+const cssData = path.join(root, 'packages', 'css-data')
 
 fs.rmSync(join(root, 'dist'), { recursive: true, force: true })
 
@@ -35,7 +36,7 @@ fs.cpSync(join(extension, 'src'), join(root, 'dist', 'src'), {
 fs.cpSync(join(cssWorker, 'src'), join(root, 'dist', 'css-worker', 'src'), {
   recursive: true,
 })
-fs.cpSync(join(cssWorker, 'data'), join(root, 'dist', 'css-worker', 'data'), {
+fs.cpSync(join(cssData, 'src'), join(root, 'dist', 'css-data', 'src'), {
   recursive: true,
 })
 

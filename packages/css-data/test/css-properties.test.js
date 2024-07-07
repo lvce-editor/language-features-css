@@ -1,17 +1,18 @@
-/**
- * Useful resources for CSS properties:
- * - W3C: https://github.com/w3c/csswg-drafts
- * - W3: https://www.w3.org/Style/CSS/all-properties.en.html
- * - Css Tricks: https://css-tricks.com/almanac/properties
- * - Chrome Status: https://www.chromestatus.com/metrics/css/timeline/popularity
- * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference
- */
+import Css from '../src/css-properties.json'
 
-import { getMatchingCompletion } from '../src/parts/GetMatchingCompletion/GetMatchingCompletion.ts'
 import { test, expect } from '@jest/globals'
 
+const keys = new Set(Object.keys(Css))
+const merge = (objectA, objectB) => ({ ...objectA, ...objectB })
+const snippets = Object.values(Css).reduce(merge, Object.create(null))
+
 const expandProperty = (partialWord) => {
-  return getMatchingCompletion(partialWord)
+  if (snippets.hasOwnProperty(partialWord)) {
+    return snippets[partialWord]
+  }
+  if (keys.has(partialWord)) {
+    return `${partialWord}: $0;`
+  }
 }
 
 test('accent-color', () => {
