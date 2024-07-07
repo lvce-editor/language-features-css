@@ -1,4 +1,5 @@
 import * as TokenType from '../CssTokenType/CssTokenType.ts'
+import * as FindNodeAtOffset from '../FindNodeAtOffset/FindNodeAtOffset.ts'
 import * as GetPropertyNameCompletions from '../GetPropertyNameCompletions/GetPropertyNameCompletions.ts'
 import * as GetPropertyValueCompletions from '../GetPropertyValueCompletions/GetPropertyValueCompletions.ts'
 import { tokenizeCss } from '../TokenizeCss/TokenizeCss.ts'
@@ -28,8 +29,8 @@ const NULL_COMPLETIONS = []
  */
 export const cssCompletion = (text, offset) => {
   const parsed = tokenizeCss(text)
-  const nodeIndex = parsed.findIndex((node: any) => node.offset >= offset)
-  const nodeAtOffset: any = parsed[nodeIndex]
+  const nodeAtOffset: any = FindNodeAtOffset.findNodeAtOffset(parsed, offset)
+  const nodeIndex = parsed.indexOf(nodeAtOffset)
   if (!nodeAtOffset) {
     return NULL_COMPLETIONS
   }
