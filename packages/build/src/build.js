@@ -1,7 +1,10 @@
-import { packageExtension, bundleJs } from '@lvce-editor/package-extension'
+import {
+  bundleJs,
+  packageExtension,
+  replace,
+} from '@lvce-editor/package-extension'
 import fs, { readFileSync } from 'fs'
 import path, { join } from 'path'
-import { replace } from './replace.js'
 import { root } from './root.js'
 
 const extension = path.join(root, 'packages', 'extension')
@@ -40,37 +43,7 @@ fs.cpSync(join(cssData, 'src'), join(root, 'dist', 'css-data', 'src'), {
   recursive: true,
 })
 
-const assetDirPath = path.join(
-  root,
-  'dist',
-  'src',
-  'parts',
-  'AssetDir',
-  'AssetDir.ts'
-)
-
-replace({
-  path: assetDirPath,
-  occurrence: '../../../../',
-  replacement: '../',
-})
-
-const workerUrlFilePath = path.join(
-  root,
-  'dist',
-  'src',
-  'parts',
-  'CssWorkerUrl',
-  'CssWorkerUrl.ts'
-)
-
-replace({
-  path: workerUrlFilePath,
-  occurrence: 'src/cssWorkerMain.ts',
-  replacement: 'dist/cssWorkerMain.js',
-})
-
-replace({
+await replace({
   path: join(
     root,
     'dist',
@@ -84,10 +57,16 @@ replace({
   replacement: `../\${path}`,
 })
 
-replace({
+await replace({
   path: join(root, 'dist', 'extension.json'),
   occurrence: 'src/languageFeaturesCssMain.ts',
   replacement: 'dist/languageFeaturesCssMain.js',
+})
+
+await replace({
+  path: join(root, 'dist', 'extension.json'),
+  occurrence: '../css-worker/src/cssWorkerMain.ts',
+  replacement: './css-worker/dist/cssWorkerMain.js',
 })
 
 await bundleJs(
