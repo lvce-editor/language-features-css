@@ -6,6 +6,15 @@
   "browser": "src/languageFeaturesCssMain.ts",
   "icon": "./icon.png",
   "commands": [],
+  "rpc": [
+    {
+      "id": "builtin.language-features-css.css-worker",
+      "type": "web-worker",
+      "name": "Css Worker",
+      "url": "../css-worker/src/cssWorkerMain.ts",
+      "contentSecurityPolicy": ["default-src 'none'", "script-src 'self'"]
+    }
+  ],
   "languages": [
     {
       "id": "css",
