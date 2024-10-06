@@ -43,21 +43,6 @@ fs.cpSync(join(cssData, 'src'), join(root, 'dist', 'css-data', 'src'), {
   recursive: true,
 })
 
-const assetDirPath = path.join(
-  root,
-  'dist',
-  'src',
-  'parts',
-  'AssetDir',
-  'AssetDir.ts'
-)
-
-await replace({
-  path: assetDirPath,
-  occurrence: '../../../../',
-  replacement: '../',
-})
-
 const workerUrlFilePath = path.join(
   root,
   'dist',
