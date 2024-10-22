@@ -1,11 +1,10 @@
-import fs from 'node:fs'
-import assert from 'node:assert'
-import { dirname, join } from 'node:path'
-import { fileURLToPath } from 'node:url'
 import got from 'got'
+import assert from 'node:assert'
+import fs from 'node:fs'
+import { join } from 'node:path'
+import { root } from './root.js'
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
-const extension = join(__dirname, '../packages/extension')
+const extension = join(root, 'packages/extension')
 
 const getChromeData = () => {
   return got('https://chromestatus.com/data/csspopularity').json()
@@ -45,7 +44,7 @@ const getChromeProperties = async () => {
 
 const getIgnoredProperties = async () => {
   const ignoredRaw = await fs.promises.readFile(
-    join(__dirname, './deprecated.json'),
+    join(root, 'packages', 'generate-css-data', 'src', './deprecated.json'),
     'utf-8'
   )
   const ignored = JSON.parse(ignoredRaw).map((value) => value.name)
@@ -54,7 +53,7 @@ const getIgnoredProperties = async () => {
 
 const getTestedProperties = async () => {
   const text = await fs.promises.readFile(
-    join(extension, '..', 'css-worker/test/propertyTabCompletion.test.ts'),
+    join(root, 'packages/css-worker/test/CssTabCompletionProperty.test.ts'),
     'utf-8'
   )
   const strings = [...text.matchAll(/test\('(.*?)'/g)].map((x) => x[1])

@@ -3,10 +3,9 @@ import fs, { existsSync, readFileSync } from 'node:fs'
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { pipeline } from 'node:stream/promises'
-import { fileURLToPath } from 'node:url'
+import { root } from './root.js'
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
-const cssWorker = join(__dirname, '../packages/css-worker')
+const cssWorker = join(root, 'packages/css-worker')
 
 const repo = `w3c/csswg-drafts`
 const commit = 'eaf34b1a629ff3fa6bf557a90f3f1fc01182aa3e'
@@ -111,8 +110,6 @@ const getCode = (error) => {
   return `${error.response.statusCode}`
 }
 
-const root = join(__dirname, '..')
-
 const downloadFile = async ({ url, to }) => {
   const absoluteTo = join(root, to)
   if (existsSync(absoluteTo)) {
@@ -201,14 +198,8 @@ const extractPropertiesFromContent = (content) => {
 }
 
 const extractPropertiesFromFile = async (source) => {
-  const absoluteFrom = join(__dirname, '..', '.tmp', 'w3c', `${source}.txt`)
-  const absoluteTo = join(
-    __dirname,
-    '..',
-    '.tmp',
-    'w3c-properties',
-    `${source}.json`
-  )
+  const absoluteFrom = join(root, '.tmp', 'w3c', `${source}.txt`)
+  const absoluteTo = join(root, '.tmp', 'w3c-properties', `${source}.json`)
   const content = await readFile(absoluteFrom, 'utf-8')
   const properties = extractPropertiesFromContent(content)
   await mkdir(dirname(absoluteTo), { recursive: true })
@@ -224,13 +215,7 @@ const extractPropertiesFromFiles = async () => {
 const combineProperties = async () => {
   const allProperties = []
   for (const source of sources) {
-    const absoluteFrom = join(
-      __dirname,
-      '..',
-      '.tmp',
-      'w3c-properties',
-      `${source}.json`
-    )
+    const absoluteFrom = join(root, '.tmp', 'w3c-properties', `${source}.json`)
     const content = await readFile(absoluteFrom, 'utf-8')
     const json = JSON.parse(content)
     const mappedJson = json.map((property) => ({
@@ -239,13 +224,7 @@ const combineProperties = async () => {
     }))
     allProperties.push(...mappedJson)
   }
-  const absoluteTo = join(
-    __dirname,
-    '..',
-    '.tmp',
-    'w3c-combined',
-    'properties.json'
-  )
+  const absoluteTo = join(root, '.tmp', 'w3c-combined', 'properties.json')
   await mkdir(dirname(absoluteTo), { recursive: true })
   await writeFile(absoluteTo, JSON.stringify(allProperties, null, 2) + '\n')
 }
@@ -260,13 +239,7 @@ const getTestedProperties = async () => {
 }
 
 const getCombinedProperties = async () => {
-  const absoluteFrom = join(
-    __dirname,
-    '..',
-    '.tmp',
-    'w3c-combined',
-    'properties.json'
-  )
+  const absoluteFrom = join(root, '.tmp', 'w3c-combined', 'properties.json')
   const content = await readFile(absoluteFrom, 'utf-8')
   const json = JSON.parse(content)
   return json
