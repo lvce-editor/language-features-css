@@ -26,7 +26,7 @@ const getDeprecatedProperties = async () => {
 
 const getTestedProperties = async () => {
   const text = await readFile(
-    join(root, 'packages/css-worker/test/CssTabCompletionProperty.test.ts'),
+    join(root, 'packages/css-data/test/css-properties.test.js'),
     'utf-8'
   )
   const strings = [...text.matchAll(/test\('(.*?)'/g)].map((x) => x[1])
