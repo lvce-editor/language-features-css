@@ -9,7 +9,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const cssWorker = join(__dirname, '../packages/css-worker')
 
 const repo = `w3c/csswg-drafts`
-const commit = 'eaf34b1a629ff3fa6bf557a90f3f1fc01182aa3e'
+const commit = '78624f51c9483f58e36a12864aa25d25845b1bc4'
 
 const sources = [
   'css-align-3/Overview.bs',
@@ -252,7 +252,7 @@ const combineProperties = async () => {
 
 const getTestedProperties = async () => {
   const text = await readFile(
-    join(cssWorker, 'test/propertyTabCompletion.test.ts'),
+    join(root, 'packages/css-worker/test/CssTabCompletionProperty.test.ts'),
     'utf-8'
   )
   const strings = [...text.matchAll(/test\('(.*?)'/g)].map((x) => x[1])
