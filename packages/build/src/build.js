@@ -58,6 +58,20 @@ await replace({
 })
 
 await replace({
+  path: join(
+    root,
+    'dist',
+    'css-worker',
+    'src',
+    'parts',
+    'ImportJson',
+    'ImportJson.ts'
+  ),
+  occurrence: `../../../\${path}`,
+  replacement: `../\${path}`,
+})
+
+await replace({
   path: join(root, 'dist', 'extension.json'),
   occurrence: 'src/languageFeaturesCssMain.ts',
   replacement: 'dist/languageFeaturesCssMain.js',
