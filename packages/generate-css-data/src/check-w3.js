@@ -47,7 +47,7 @@ const getW3Properties = async () => {
 
 const getTestedProperties = async () => {
   const text = await fs.promises.readFile(
-    join(root, 'packages/css-data/test/css-properties.test.ts'),
+    join(root, 'packages/css-data/test/css-properties.test.js'),
     'utf-8'
   )
   const strings = [...text.matchAll(/test\('(.*?)'/g)].map((x) => x[1])
