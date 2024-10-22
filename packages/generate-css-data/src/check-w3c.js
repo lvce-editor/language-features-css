@@ -5,8 +5,6 @@ import { dirname, join } from 'node:path'
 import { pipeline } from 'node:stream/promises'
 import { root } from './root.js'
 
-const cssWorker = join(root, 'packages/css-worker')
-
 const repo = `w3c/csswg-drafts`
 const commit = '78624f51c9483f58e36a12864aa25d25845b1bc4'
 
