@@ -1,6 +1,5 @@
+import { expect, test } from '@jest/globals'
 import Css from '../src/css-properties.json'
-
-import { test, expect } from '@jest/globals'
 
 const keys = new Set(Object.keys(Css))
 const merge = (objectA, objectB) => ({ ...objectA, ...objectB })
