@@ -1,6 +1,6 @@
 const importJsonNode = async (path) => {
-  const fs = await import('fs/promises')
-  const { fileURLToPath } = await import('url')
+  const fs = await import('node:fs/promises')
+  const { fileURLToPath } = await import('node:url')
   const absoluteUri = new URL(`../../../../${path}`, import.meta.url).toString()
   const absolutePath = fileURLToPath(absoluteUri)
   const data = await fs.readFile(absolutePath, 'utf8')
