@@ -1,15 +1,14 @@
 import { readFile } from 'node:fs/promises'
-import { dirname, join } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { join } from 'node:path'
+import { root } from './root.js'
 
 // TODO could download deprecated data from https://www.cssportal.com/css-properties/
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
-const extension = join(__dirname, '../packages/extension')
+const extension = join(root, 'packages/extension')
 
 const getDataProperties = async () => {
   const content = await readFile(
-    join(extension, 'data/css-properties.json'),
+    join(root, 'packages/css-data/src/css-properties.json'),
     'utf-8'
   )
   const json = JSON.parse(content)
@@ -17,14 +16,17 @@ const getDataProperties = async () => {
 }
 
 const getDeprecatedProperties = async () => {
-  const content = await readFile(join(__dirname, './deprecated.json'), 'utf-8')
+  const content = await readFile(
+    join(root, 'packages', 'generate-css-data', 'src', 'deprecated.json'),
+    'utf-8'
+  )
   const json = JSON.parse(content)
   return json
 }
 
 const getTestedProperties = async () => {
   const text = await readFile(
-    join(extension, 'test/propertyTabCompletion.test.js'),
+    join(root, 'packages/css-worker/test/CssTabCompletionProperty.test.ts'),
     'utf-8'
   )
   const strings = [...text.matchAll(/test\('(.*?)'/g)].map((x) => x[1])
