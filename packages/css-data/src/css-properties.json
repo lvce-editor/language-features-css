@@ -3,6 +3,7 @@
   "align-content": {
     "ac": "align-content: $0;"
   },
+  "anchor-scope": {},
   "align-items": {
     "ai": "align-items: $0;",
     "ali": "align-items: $0;",
@@ -495,6 +496,18 @@
   "justify-self": {},
   "justify-tracks": {},
   "leading-trim": {},
+  "line-fit-edge": {},
+  "masonry-auto-tracks": {},
+  "masonry-template-areas": {},
+  "masonry-template-tracks": {},
+  "masonry": {},
+  "masonry-flow": {},
+  "masonry-fill": {},
+  "masonry-direction": {},
+  "background-repeat-inline": {},
+  "background-repeat-block": {},
+  "position-try-fallbacks": {},
+  "position-visibility": {},
   "layout-order": {},
   "left": {
     "l": "left: $0;"
@@ -730,6 +743,12 @@
     "psf": "position: fixed;",
     "psr": "position: relative;",
     "pss": "position: static;"
+  },
+  "position-anchor": {
+    "pan": "position-anchor: $0;"
+  },
+  "position-area": {
+    "pa": "position-area: $0;"
   },
   "position-fallback": {
     "pf": "position-fallback: $0;"

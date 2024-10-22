@@ -15,6 +15,77 @@ const expandProperty = (partialWord) => {
   }
 }
 
+test('anchor-scope', () => {
+  expect(expandProperty('anchor-scope')).toBe('anchor-scope: $0;')
+})
+
+test('position-anchor', () => {
+  expect(expandProperty('position-anchor')).toBe('position-anchor: $0;')
+  expect(expandProperty('pan')).toBe('position-anchor: $0;')
+})
+
+test('position-area', () => {
+  expect(expandProperty('position-area')).toBe('position-area: $0;')
+})
+
+test('position-visibility', () => {
+  expect(expandProperty('position-visibility')).toBe('position-visibility: $0;')
+})
+
+test('position-try-fallbacks', () => {
+  expect(expandProperty('position-try-fallbacks')).toBe(
+    'position-try-fallbacks: $0;'
+  )
+})
+
+test('background-repeat-block', () => {
+  expect(expandProperty('background-repeat-block')).toBe(
+    'background-repeat-block: $0;'
+  )
+})
+
+test('background-repeat-inline', () => {
+  expect(expandProperty('background-repeat-inline')).toBe(
+    'background-repeat-inline: $0;'
+  )
+})
+
+test('masonry-direction', () => {
+  expect(expandProperty('masonry-direction')).toBe('masonry-direction: $0;')
+})
+
+test('masonry-fill', () => {
+  expect(expandProperty('masonry-fill')).toBe('masonry-fill: $0;')
+})
+
+test('masonry-flow', () => {
+  expect(expandProperty('masonry-flow')).toBe('masonry-flow: $0;')
+})
+
+test('masonry', () => {
+  expect(expandProperty('masonry')).toBe('masonry: $0;')
+})
+
+test('masonry-template-tracks', () => {
+  expect(expandProperty('masonry-template-tracks')).toBe(
+    'masonry-template-tracks: $0;'
+  )
+})
+
+test('masonry-template-areas', () => {
+  expect(expandProperty('masonry-template-areas')).toBe(
+    'masonry-template-areas: $0;'
+  )
+})
+
+test('masonry-auto-tracks', () => {
+  expect(expandProperty('masonry-auto-tracks')).toBe('masonry-auto-tracks: $0;')
+})
+
+test('line-fit-edge', () => {
+  expect(expandProperty('line-fit-edge')).toBe('line-fit-edge: $0;')
+})
+
 test('accent-color', () => {
   expect(expandProperty('accent-color')).toBe('accent-color: $0;')
 })
