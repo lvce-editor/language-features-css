@@ -26,12 +26,13 @@ function updateDependencies {
   fi
 }
 
-                           updateDependencies &&
-cd packages/build       && updateDependencies && cd ../../ &&
-cd packages/css-worker  && updateDependencies && cd ../../ &&
-cd packages/e2e         && updateDependencies && cd ../../ &&
-cd packages/extension   && updateDependencies && cd ../../ &&
-cd packages/integration && updateDependencies && cd ../../ &&
+                                 updateDependencies &&
+cd packages/build             && updateDependencies && cd ../../ &&
+cd packages/css-worker        && updateDependencies && cd ../../ &&
+cd packages/e2e               && updateDependencies && cd ../../ &&
+cd packages/extension         && updateDependencies && cd ../../ &&
+cd packages/integration       && updateDependencies && cd ../../ &&
+cd packages/generate-css-data && updateDependencies && cd ../../ &&
 
 echo "Great Success!"
 
