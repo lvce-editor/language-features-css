@@ -10,6 +10,6 @@
   "license": "MIT",
   "dependencies": {
     "cheerio": "^1.0.0",
-    "got": "^14.4.3"
+    "got": "^14.4.4"
   }
 }
