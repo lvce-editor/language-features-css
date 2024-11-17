@@ -16,7 +16,7 @@
   "type": "module",
   "devDependencies": {
     "@lerna/legacy-package-management": "^8.1.9",
-    "@lvce-editor/server": "0.38.4",
+    "@lvce-editor/server": "0.38.5",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.9.0",
     "jest": "^29.7.0",
