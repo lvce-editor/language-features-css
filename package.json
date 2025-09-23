@@ -16,12 +16,12 @@
   "type": "module",
   "devDependencies": {
     "@lerna/legacy-package-management": "^8.2.4",
-    "@lvce-editor/server": "0.58.2",
+    "@lvce-editor/server": "0.61.6",
     "@types/jest": "^30.0.0",
-    "@types/node": "^24.3.0",
-    "jest": "^30.1.1",
-    "lerna": "^8.2.3",
-    "ts-jest": "^29.4.1",
+    "@types/node": "^24.5.2",
+    "jest": "^30.1.3",
+    "lerna": "^9.0.0",
+    "ts-jest": "^29.4.4",
     "typescript": "^5.9.2"
   },
   "prettier": {
