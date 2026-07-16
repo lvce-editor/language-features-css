@@ -7,7 +7,7 @@
     "onCompletion:css",
     "onTabCompletion:css"
   ],
-  "browser": "src/languageFeaturesCssMain.ts",
+  "browser": "dist/languageFeaturesCssMain.js",
   "isolated": true,
   "workerName": "CSS Language Features Worker",
   "icon": "./icon.png",

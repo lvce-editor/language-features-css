@@ -3,6 +3,7 @@
   "version": "0.0.0-dev",
   "description": "",
   "scripts": {
+    "build:extension": "node packages/build/src/build-extension.js",
     "postinstall": "lerna bootstrap --ci",
     "test": "lerna run test",
     "dev": "node ./node_modules/@lvce-editor/server/bin/server.js --only-extension=packages/extension --test-path=packages/e2e",
