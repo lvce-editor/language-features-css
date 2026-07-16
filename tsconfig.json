@@ -3,10 +3,8 @@
   "include": [],
   "references": [
     { "path": "./packages/build" },
-    { "path": "./packages/css-worker" },
     { "path": "./packages/e2e" },
     { "path": "./packages/extension" },
-    { "path": "./packages/integration" },
     { "path": "./packages/css-data" },
     { "path": "./packages/generate-css-data" }
   ]

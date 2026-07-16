@@ -2,7 +2,7 @@ const trimLines = (string) => {
   return string.split('\n').join('')
 }
 
-export const name = 'css.tab-completion'
+export const name = 'css.tab-completion-height'
 
 export const test = async ({
   FileSystem,
