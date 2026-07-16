@@ -1,7 +1,5 @@
 export const name = 'css.completion'
 
-export const skip = 1
-
 export const test = async ({
   FileSystem,
   Workspace,
@@ -14,7 +12,6 @@ export const test = async ({
   const tmpDir = await FileSystem.getTmpDir()
   await FileSystem.writeFile(`${tmpDir}/test.css`, ` `)
   await Workspace.setPath(tmpDir)
-  // await Extension.addNodeExtension('packages/extension')
 
   // act
   await Main.openUri(`${tmpDir}/test.css`)

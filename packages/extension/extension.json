@@ -8,18 +8,14 @@
     "onTabCompletion:css"
   ],
   "browser": "src/languageFeaturesCssMain.ts",
+  "isolated": true,
+  "workerName": "CSS Language Features Worker",
   "icon": "./icon.png",
   "commands": [],
-  "rpc": [
+  "completionProviders": [
     {
-      "id": "builtin.language-features-css.css-worker",
-      "type": "web-worker",
-      "name": "Css Worker",
-      "url": "../css-worker/src/cssWorkerMain.ts",
-      "contentSecurityPolicy": [
-        "default-src 'none'",
-        "script-src 'self'"
-      ]
+      "id": "css",
+      "languageId": "css"
     }
   ],
   "languages": [

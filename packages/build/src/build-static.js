@@ -34,9 +34,3 @@ await replace({
   occurrence: 'src/languageFeaturesCssMain.ts',
   replacement: 'dist/languageFeaturesCssMain.js',
 })
-
-await replace({
-  path: path.join(root, 'dist', commitHash, 'config', 'webExtensions.json'),
-  occurrence: '../css-worker/src/cssWorkerMain.ts',
-  replacement: './css-worker/dist/cssWorkerMain.js',
-})
