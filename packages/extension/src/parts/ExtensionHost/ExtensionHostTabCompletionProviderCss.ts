@@ -10,7 +10,7 @@ interface TextDocument {
 
 export const provideTabCompletion = (
   textDocument: TextDocument,
-  offset: number
+  offset: number,
 ) => {
   return CssTabCompletion.cssTabCompletion(textDocument.text, offset)
 }

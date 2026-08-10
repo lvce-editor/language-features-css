@@ -2,12 +2,9 @@
   "id": "builtin.language-features-css",
   "name": "Language Features CSS",
   "description": "Provides rich language support for CSS files",
-  "activation": [
-    "onLanguage:css",
-    "onCompletion:css",
-    "onTabCompletion:css"
-  ],
+  "activation": ["onLanguage:css", "onCompletion:css", "onTabCompletion:css"],
   "browser": "dist/languageFeaturesCssMain.js",
+  "contentSecurityPolicy": ["default-src 'none'"],
   "isolated": true,
   "workerName": "CSS Language Features Worker",
   "icon": "./icon.png",
@@ -21,9 +18,7 @@
   "languages": [
     {
       "id": "css",
-      "extensions": [
-        ".css"
-      ]
+      "extensions": [".css"]
     }
   ],
   "repository": "https://github.com/lvce-editor/language-features-css"

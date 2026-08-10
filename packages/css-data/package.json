@@ -7,10 +7,12 @@
     "test": "node --unhandled-rejections=warn --experimental-vm-modules ../../node_modules/jest/bin/jest.js --detectOpenHandles --forceExit",
     "test:watch": "node --unhandled-rejections=warn --experimental-vm-modules ../../node_modules/jest/bin/jest.js --watch"
   },
-  "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Le Vivilet",
+    "email": "levivilet@pm.me"
+  },
   "license": "MIT",
-  "description": "",
+  "description": "CSS property and value data",
   "jest": {
     "injectGlobals": false
   }

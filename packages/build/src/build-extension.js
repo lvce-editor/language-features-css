@@ -11,5 +11,5 @@ fs.mkdirSync(outDir, { recursive: true })
 
 await bundleJs(
   join(extension, 'src', 'languageFeaturesCssMain.ts'),
-  join(outDir, 'languageFeaturesCssMain.js')
+  join(outDir, 'languageFeaturesCssMain.js'),
 )

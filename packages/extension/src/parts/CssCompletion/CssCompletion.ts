@@ -13,9 +13,9 @@ import { tokenizeCss } from '../TokenizeCss/TokenizeCss.ts'
 
 const toSnippet = (propertyName) => {
   return {
+    kind: /* Property */ 1,
     label: propertyName,
     snippet: `${propertyName}: `,
-    kind: /* Property */ 1,
   }
 }
 
@@ -35,14 +35,14 @@ export const cssCompletion = (text, offset) => {
     return NULL_COMPLETIONS
   }
   switch (nodeAtOffset.type) {
-    case TokenType.Whitespace:
     case TokenType.PropertyName:
+    case TokenType.Whitespace:
       return GetPropertyNameCompletions.getPropertyNameCompletions()
     case TokenType.PropertyValue:
       return GetPropertyValueCompletions.getPropertyValueCompletions(
         text,
         parsed,
-        nodeIndex
+        nodeIndex,
       )
     default:
       return NULL_COMPLETIONS

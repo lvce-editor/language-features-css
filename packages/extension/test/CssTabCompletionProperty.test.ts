@@ -1,5 +1,5 @@
-import * as CssTabCompletionProperty from '../src/parts/CssTabCompletionProperty/CssTabCompletionProperty.ts'
 import { test, expect } from '@jest/globals'
+import * as CssTabCompletionProperty from '../src/parts/CssTabCompletionProperty/CssTabCompletionProperty.ts'
 
 test('getTabCompletion - width', () => {
   expect(
@@ -7,8 +7,8 @@ test('getTabCompletion - width', () => {
       `h1 {
   w100
 }`,
-      11
-    )
+      11,
+    ),
   ).toMatchObject({ inserted: 'width: 100px;' })
 })
 
@@ -18,8 +18,8 @@ test('getTabCompletion - height', () => {
       `h1 {
   h100
 }`,
-      11
-    )
+      11,
+    ),
   ).toMatchObject({ inserted: 'height: 100px;' })
 })
 
@@ -29,7 +29,7 @@ test('getTabCompletion - no matching word', () => {
       `h1 {
   q
 }`,
-      8
-    )
+      8,
+    ),
   ).toBeUndefined()
 })

@@ -18,7 +18,7 @@ export const test = async ({
     `${tmpDir}/test.css`,
     `h1 {
   h20
-}`
+}`,
   )
   await Workspace.setPath(tmpDir)
 
@@ -32,6 +32,6 @@ export const test = async ({
   await expect(editor).toHaveText(
     trimLines(`h1 {
   height: 20px;
-}`)
+}`),
   )
 }

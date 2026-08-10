@@ -9,7 +9,7 @@ const extension = join(root, 'packages/extension')
 const getDataProperties = async () => {
   const content = await readFile(
     join(root, 'packages/css-data/src/css-properties.json'),
-    'utf-8'
+    'utf-8',
   )
   const json = JSON.parse(content)
   return json
@@ -18,7 +18,7 @@ const getDataProperties = async () => {
 const getDeprecatedProperties = async () => {
   const content = await readFile(
     join(root, 'packages', 'generate-css-data', 'src', 'deprecated.json'),
-    'utf-8'
+    'utf-8',
   )
   const json = JSON.parse(content)
   return json
@@ -27,9 +27,9 @@ const getDeprecatedProperties = async () => {
 const getTestedProperties = async () => {
   const text = await readFile(
     join(root, 'packages/css-data/test/css-properties.test.js'),
-    'utf-8'
+    'utf-8',
   )
-  const strings = [...text.matchAll(/test\('(.*?)'/g)].map((x) => x[1])
+  const strings = Array.from(text.matchAll(/test\('(.*?)'/g), (x) => x[1])
   return new Set(strings)
 }
 
@@ -38,7 +38,7 @@ const checkDeprecated = async () => {
   const deprecatedProperties = await getDeprecatedProperties()
   const testedProperties = await getTestedProperties()
   const deprecatedPropertySet = new Set(
-    deprecatedProperties.map((property) => property.name)
+    deprecatedProperties.map((property) => property.name),
   )
   for (const testedProperty of testedProperties) {
     if (deprecatedPropertySet.has(testedProperty)) {

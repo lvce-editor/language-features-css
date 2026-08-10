@@ -129,7 +129,7 @@ const downloadData = async () => {
   if (existsSync(join(root, '.tmp', 'w3c-commitHash'))) {
     const existingCommitHash = readFileSync(
       join(root, '.tmp', 'w3c-commitHash'),
-      'utf8'
+      'utf8',
     )
     if (existingCommitHash !== commit) {
       await rm(join(root, '.tmp'), { recursive: true })
@@ -230,9 +230,9 @@ const combineProperties = async () => {
 const getTestedProperties = async () => {
   const text = await readFile(
     join(root, 'packages/css-data/test/css-properties.test.js'),
-    'utf-8'
+    'utf-8',
   )
-  const strings = [...text.matchAll(/test\('(.*?)'/g)].map((x) => x[1])
+  const strings = Array.from(text.matchAll(/test\('(.*?)'/g), (x) => x[1])
   return new Set(strings)
 }
 
@@ -253,12 +253,12 @@ const checkProperties = async () => {
   for (const property of combinedProperties) {
     if (!testedProperties.has(property.name) && !isWebkit(property.name)) {
       console.warn(
-        `missing property: ${property.name}, defined in spec ${property.source}`
+        `missing property: ${property.name}, defined in spec ${property.source}`,
       )
     }
   }
   const combinedPropertySet = new Set(
-    combinedProperties.map((property) => property.name)
+    combinedProperties.map((property) => property.name),
   )
   for (const testedProperty of testedProperties) {
     if (!combinedPropertySet.has(testedProperty)) {

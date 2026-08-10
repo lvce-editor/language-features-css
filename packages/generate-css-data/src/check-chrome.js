@@ -45,7 +45,7 @@ const getChromeProperties = async () => {
 const getIgnoredProperties = async () => {
   const ignoredRaw = await fs.promises.readFile(
     join(root, 'packages', 'generate-css-data', 'src', './deprecated.json'),
-    'utf-8'
+    'utf-8',
   )
   const ignored = JSON.parse(ignoredRaw).map((value) => value.name)
   return new Set(ignored)
@@ -54,9 +54,9 @@ const getIgnoredProperties = async () => {
 const getTestedProperties = async () => {
   const text = await fs.promises.readFile(
     join(root, 'packages/css-data/test/css-properties.test.js'),
-    'utf-8'
+    'utf-8',
   )
-  const strings = [...text.matchAll(/test\('(.*?)'/g)].map((x) => x[1])
+  const strings = Array.from(text.matchAll(/test\('(.*?)'/g), (x) => x[1])
   return new Set(strings)
 }
 
@@ -78,7 +78,7 @@ const checkNormalProperties = async () => {
     }
   }
   const chromePropertySet = new Set(
-    chromeProperties.map((property) => property.name)
+    chromeProperties.map((property) => property.name),
   )
   for (const testedProperty of testedProperties) {
     if (!chromePropertySet.has(testedProperty)) {

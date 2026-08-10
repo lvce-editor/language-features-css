@@ -6,7 +6,7 @@ const merge = (objectA, objectB) => ({ ...objectA, ...objectB })
 const snippets = Object.values(Css).reduce(merge, Object.create(null))
 
 const expandProperty = (partialWord) => {
-  if (snippets.hasOwnProperty(partialWord)) {
+  if (Object.hasOwn(snippets, partialWord)) {
     return snippets[partialWord]
   }
   if (keys.has(partialWord)) {
@@ -33,19 +33,19 @@ test('position-visibility', () => {
 
 test('position-try-fallbacks', () => {
   expect(expandProperty('position-try-fallbacks')).toBe(
-    'position-try-fallbacks: $0;'
+    'position-try-fallbacks: $0;',
   )
 })
 
 test('background-repeat-block', () => {
   expect(expandProperty('background-repeat-block')).toBe(
-    'background-repeat-block: $0;'
+    'background-repeat-block: $0;',
   )
 })
 
 test('background-repeat-inline', () => {
   expect(expandProperty('background-repeat-inline')).toBe(
-    'background-repeat-inline: $0;'
+    'background-repeat-inline: $0;',
   )
 })
 
@@ -67,13 +67,13 @@ test('masonry', () => {
 
 test('masonry-template-tracks', () => {
   expect(expandProperty('masonry-template-tracks')).toBe(
-    'masonry-template-tracks: $0;'
+    'masonry-template-tracks: $0;',
   )
 })
 
 test('masonry-template-areas', () => {
   expect(expandProperty('masonry-template-areas')).toBe(
-    'masonry-template-areas: $0;'
+    'masonry-template-areas: $0;',
   )
 })
 
@@ -123,7 +123,7 @@ test('animation', () => {
 
 test('animation-composition', () => {
   expect(expandProperty('animation-composition')).toBe(
-    'animation-composition: $0;'
+    'animation-composition: $0;',
   )
 })
 
@@ -154,7 +154,7 @@ test('animation-fill-mode', () => {
 
 test('animation-iteration-count', () => {
   expect(expandProperty('animation-iteration-count')).toBe(
-    'animation-iteration-count: $0;'
+    'animation-iteration-count: $0;',
   )
 })
 
@@ -164,13 +164,13 @@ test('animation-name', () => {
 
 test('animation-play-state', () => {
   expect(expandProperty('animation-play-state')).toBe(
-    'animation-play-state: $0;'
+    'animation-play-state: $0;',
   )
 })
 
 test('animation-timing-function', () => {
   expect(expandProperty('animation-timing-function')).toBe(
-    'animation-timing-function: $0;'
+    'animation-timing-function: $0;',
   )
 })
 
@@ -208,13 +208,13 @@ test('background', () => {
 test('background-attachment', () => {
   expect(expandProperty('baf')).toBe('background-attachment: fixed;')
   expect(expandProperty('background-attachment')).toBe(
-    'background-attachment: $0;'
+    'background-attachment: $0;',
   )
 })
 
 test('background-blend-mode', () => {
   expect(expandProperty('background-blend-mode')).toBe(
-    'background-blend-mode: $0;'
+    'background-blend-mode: $0;',
   )
 })
 
@@ -240,25 +240,25 @@ test('background-position', () => {
 
 test('background-position-block', () => {
   expect(expandProperty('background-position-block')).toBe(
-    'background-position-block: $0;'
+    'background-position-block: $0;',
   )
 })
 
 test('background-position-inline', () => {
   expect(expandProperty('background-position-inline')).toBe(
-    'background-position-inline: $0;'
+    'background-position-inline: $0;',
   )
 })
 
 test('background-position-x', () => {
   expect(expandProperty('background-position-x')).toBe(
-    'background-position-x: $0;'
+    'background-position-x: $0;',
   )
 })
 
 test('background-position-y', () => {
   expect(expandProperty('background-position-y')).toBe(
-    'background-position-y: $0;'
+    'background-position-y: $0;',
   )
 })
 
@@ -349,19 +349,19 @@ test('border-block-end', () => {
 
 test('border-block-end-color', () => {
   expect(expandProperty('border-block-end-color')).toBe(
-    'border-block-end-color: $0;'
+    'border-block-end-color: $0;',
   )
 })
 
 test('border-block-end-style', () => {
   expect(expandProperty('border-block-end-style')).toBe(
-    'border-block-end-style: $0;'
+    'border-block-end-style: $0;',
   )
 })
 
 test('border-block-end-width', () => {
   expect(expandProperty('border-block-end-width')).toBe(
-    'border-block-end-width: $0;'
+    'border-block-end-width: $0;',
   )
 })
 
@@ -371,19 +371,19 @@ test('border-block-start', () => {
 
 test('border-block-start-color', () => {
   expect(expandProperty('border-block-start-color')).toBe(
-    'border-block-start-color: $0;'
+    'border-block-start-color: $0;',
   )
 })
 
 test('border-block-start-style', () => {
   expect(expandProperty('border-block-start-style')).toBe(
-    'border-block-start-style: $0;'
+    'border-block-start-style: $0;',
   )
 })
 
 test('border-block-start-width', () => {
   expect(expandProperty('border-block-start-width')).toBe(
-    'border-block-start-width: $0;'
+    'border-block-start-width: $0;',
   )
 })
 
@@ -405,13 +405,13 @@ test('border-bottom-color', () => {
 
 test('border-bottom-left-radius', () => {
   expect(expandProperty('border-bottom-left-radius')).toBe(
-    'border-bottom-left-radius: $0;'
+    'border-bottom-left-radius: $0;',
   )
 })
 
 test('border-bottom-right-radius', () => {
   expect(expandProperty('border-bottom-right-radius')).toBe(
-    'border-bottom-right-radius: $0;'
+    'border-bottom-right-radius: $0;',
   )
 })
 
@@ -458,13 +458,13 @@ test('border-collapse', () => {
 
 test('border-end-end-radius', () => {
   expect(expandProperty('border-end-end-radius')).toBe(
-    'border-end-end-radius: $0;'
+    'border-end-end-radius: $0;',
   )
 })
 
 test('border-end-start-radius', () => {
   expect(expandProperty('border-end-start-radius')).toBe(
-    'border-end-start-radius: $0;'
+    'border-end-start-radius: $0;',
   )
 })
 
@@ -506,19 +506,19 @@ test('border-inline-end', () => {
 
 test('border-inline-end-color', () => {
   expect(expandProperty('border-inline-end-color')).toBe(
-    'border-inline-end-color: $0;'
+    'border-inline-end-color: $0;',
   )
 })
 
 test('border-inline-end-style', () => {
   expect(expandProperty('border-inline-end-style')).toBe(
-    'border-inline-end-style: $0;'
+    'border-inline-end-style: $0;',
   )
 })
 
 test('border-inline-end-width', () => {
   expect(expandProperty('border-inline-end-width')).toBe(
-    'border-inline-end-width: $0;'
+    'border-inline-end-width: $0;',
   )
 })
 
@@ -528,19 +528,19 @@ test('border-inline-start', () => {
 
 test('border-inline-start-color', () => {
   expect(expandProperty('border-inline-start-color')).toBe(
-    'border-inline-start-color: $0;'
+    'border-inline-start-color: $0;',
   )
 })
 
 test('border-inline-start-style', () => {
   expect(expandProperty('border-inline-start-style')).toBe(
-    'border-inline-start-style: $0;'
+    'border-inline-start-style: $0;',
   )
 })
 
 test('border-inline-start-width', () => {
   expect(expandProperty('border-inline-start-width')).toBe(
-    'border-inline-start-width: $0;'
+    'border-inline-start-width: $0;',
   )
 })
 
@@ -598,13 +598,13 @@ test('border-spacing', () => {
 
 test('border-start-end-radius', () => {
   expect(expandProperty('border-start-end-radius')).toBe(
-    'border-start-end-radius: $0;'
+    'border-start-end-radius: $0;',
   )
 })
 
 test('border-start-start-radius', () => {
   expect(expandProperty('border-start-start-radius')).toBe(
-    'border-start-start-radius: $0;'
+    'border-start-start-radius: $0;',
   )
 })
 
@@ -621,7 +621,7 @@ test('border-top-radius', () => {
 })
 test('border-bottom-radius', () => {
   expect(expandProperty('border-bottom-radius')).toBe(
-    'border-bottom-radius: $0;'
+    'border-bottom-radius: $0;',
   )
 })
 test('border-right-radius', () => {
@@ -637,13 +637,13 @@ test('border-top-color', () => {
 
 test('border-top-left-radius', () => {
   expect(expandProperty('border-top-left-radius')).toBe(
-    'border-top-left-radius: $0;'
+    'border-top-left-radius: $0;',
   )
 })
 
 test('border-top-right-radius', () => {
   expect(expandProperty('border-top-right-radius')).toBe(
-    'border-top-right-radius: $0;'
+    'border-top-right-radius: $0;',
   )
 })
 
@@ -665,7 +665,7 @@ test('bottom', () => {
 
 test('box-decoration-break', () => {
   expect(expandProperty('box-decoration-break')).toBe(
-    'box-decoration-break: $0;'
+    'box-decoration-break: $0;',
   )
 })
 
@@ -761,7 +761,7 @@ test('color-count', () => {
 
 test('color-interpolation-filters', () => {
   expect(expandProperty('color-interpolation-filters')).toBe(
-    'color-interpolation-filters: $0;'
+    'color-interpolation-filters: $0;',
   )
 })
 
@@ -818,31 +818,31 @@ test('contain', () => {
 
 test('contain-intrinsic-block-size', () => {
   expect(expandProperty('contain-intrinsic-block-size')).toBe(
-    'contain-intrinsic-block-size: $0;'
+    'contain-intrinsic-block-size: $0;',
   )
 })
 
 test('contain-intrinsic-height', () => {
   expect(expandProperty('contain-intrinsic-height')).toBe(
-    'contain-intrinsic-height: $0;'
+    'contain-intrinsic-height: $0;',
   )
 })
 
 test('contain-intrinsic-inline-size', () => {
   expect(expandProperty('contain-intrinsic-inline-size')).toBe(
-    'contain-intrinsic-inline-size: $0;'
+    'contain-intrinsic-inline-size: $0;',
   )
 })
 
 test('contain-intrinsic-size', () => {
   expect(expandProperty('contain-intrinsic-size')).toBe(
-    'contain-intrinsic-size: $0;'
+    'contain-intrinsic-size: $0;',
   )
 })
 
 test('contain-intrinsic-width', () => {
   expect(expandProperty('contain-intrinsic-width')).toBe(
-    'contain-intrinsic-width: $0;'
+    'contain-intrinsic-width: $0;',
   )
 })
 
@@ -1091,7 +1091,7 @@ test('font-family', () => {
 
 test('font-feature-settings', () => {
   expect(expandProperty('font-feature-settings')).toBe(
-    'font-feature-settings: $0;'
+    'font-feature-settings: $0;',
   )
 })
 
@@ -1103,7 +1103,7 @@ test('font-kerning', () => {
 test('font-language-override', () => {
   expect(expandProperty('flo')).toBe('font-language-override: $0;')
   expect(expandProperty('font-language-override')).toBe(
-    'font-language-override: $0;'
+    'font-language-override: $0;',
   )
 })
 
@@ -1144,25 +1144,25 @@ test('font-synthesis', () => {
 test('font-synthesis-position', () => {
   expect(expandProperty('fsp')).toBe('font-synthesis-position: $0;')
   expect(expandProperty('font-synthesis-position')).toBe(
-    'font-synthesis-position: $0;'
+    'font-synthesis-position: $0;',
   )
 })
 
 test('font-synthesis-small-caps', () => {
   expect(expandProperty('font-synthesis-small-caps')).toBe(
-    'font-synthesis-small-caps: $0;'
+    'font-synthesis-small-caps: $0;',
   )
 })
 
 test('font-synthesis-style', () => {
   expect(expandProperty('font-synthesis-style')).toBe(
-    'font-synthesis-style: $0;'
+    'font-synthesis-style: $0;',
   )
 })
 
 test('font-synthesis-weight', () => {
   expect(expandProperty('font-synthesis-weight')).toBe(
-    'font-synthesis-weight: $0;'
+    'font-synthesis-weight: $0;',
   )
 })
 
@@ -1172,7 +1172,7 @@ test('font-variant', () => {
 
 test('font-variant-alternates', () => {
   expect(expandProperty('font-variant-alternates')).toBe(
-    'font-variant-alternates: $0;'
+    'font-variant-alternates: $0;',
   )
 })
 
@@ -1182,7 +1182,7 @@ test('font-variant-caps', () => {
 
 test('font-variant-east-asian', () => {
   expect(expandProperty('font-variant-east-asian')).toBe(
-    'font-variant-east-asian: $0;'
+    'font-variant-east-asian: $0;',
   )
 })
 
@@ -1192,25 +1192,25 @@ test('font-variant-emoji', () => {
 
 test('font-variant-ligatures', () => {
   expect(expandProperty('font-variant-ligatures')).toBe(
-    'font-variant-ligatures: $0;'
+    'font-variant-ligatures: $0;',
   )
 })
 
 test('font-variant-numeric', () => {
   expect(expandProperty('font-variant-numeric')).toBe(
-    'font-variant-numeric: $0;'
+    'font-variant-numeric: $0;',
   )
 })
 
 test('font-variant-position', () => {
   expect(expandProperty('font-variant-position')).toBe(
-    'font-variant-position: $0;'
+    'font-variant-position: $0;',
   )
 })
 
 test('font-variation-settings', () => {
   expect(expandProperty('font-variation-settings')).toBe(
-    'font-variation-settings: $0;'
+    'font-variation-settings: $0;',
   )
 })
 
@@ -1242,7 +1242,7 @@ test('gap', () => {
 
 test('glyph-orientation-vertical', () => {
   expect(expandProperty('glyph-orientation-vertical')).toBe(
-    'glyph-orientation-vertical: $0;'
+    'glyph-orientation-vertical: $0;',
   )
 })
 
@@ -1303,7 +1303,7 @@ test('grid-template-areas', () => {
 test('grid-template-columns', () => {
   expect(expandProperty('gtc')).toBe('grid-template-columns: $0;')
   expect(expandProperty('grid-template-columns')).toBe(
-    'grid-template-columns: $0;'
+    'grid-template-columns: $0;',
   )
 })
 
@@ -1328,25 +1328,25 @@ test('hyphenate-character', () => {
 
 test('hyphenate-limit-chars', () => {
   expect(expandProperty('hyphenate-limit-chars')).toBe(
-    'hyphenate-limit-chars: $0;'
+    'hyphenate-limit-chars: $0;',
   )
 })
 
 test('hyphenate-limit-last', () => {
   expect(expandProperty('hyphenate-limit-last')).toBe(
-    'hyphenate-limit-last: $0;'
+    'hyphenate-limit-last: $0;',
   )
 })
 
 test('hyphenate-limit-lines', () => {
   expect(expandProperty('hyphenate-limit-lines')).toBe(
-    'hyphenate-limit-lines: $0;'
+    'hyphenate-limit-lines: $0;',
   )
 })
 
 test('hyphenate-limit-zone', () => {
   expect(expandProperty('hyphenate-limit-zone')).toBe(
-    'hyphenate-limit-zone: $0;'
+    'hyphenate-limit-zone: $0;',
   )
 })
 
@@ -1373,7 +1373,7 @@ test('initial-letter', () => {
 
 test('initial-letter-align', () => {
   expect(expandProperty('initial-letter-align')).toBe(
-    'initial-letter-align: $0;'
+    'initial-letter-align: $0;',
   )
   expect(expandProperty('ila')).toBe('initial-letter-align: $0;')
 })
@@ -1607,13 +1607,13 @@ test('marker-end', () => {
 
 test('marker-knockout-left', () => {
   expect(expandProperty('marker-knockout-left')).toBe(
-    'marker-knockout-left: $0;'
+    'marker-knockout-left: $0;',
   )
 })
 
 test('marker-knockout-right', () => {
   expect(expandProperty('marker-knockout-right')).toBe(
-    'marker-knockout-right: $0;'
+    'marker-knockout-right: $0;',
   )
 })
 
@@ -1742,7 +1742,7 @@ test('min-inline-size', () => {
 
 test('min-intrinsic-sizing', () => {
   expect(expandProperty('min-intrinsic-sizing')).toBe(
-    'min-intrinsic-sizing: $0;'
+    'min-intrinsic-sizing: $0;',
   )
 })
 
@@ -1863,57 +1863,57 @@ test('overflow-block', () => {
 
 test('overflow-clip-margin', () => {
   expect(expandProperty('overflow-clip-margin')).toBe(
-    'overflow-clip-margin: $0;'
+    'overflow-clip-margin: $0;',
   )
 })
 test('overflow-clip-margin-top', () => {
   expect(expandProperty('overflow-clip-margin-top')).toBe(
-    'overflow-clip-margin-top: $0;'
+    'overflow-clip-margin-top: $0;',
   )
 })
 test('overflow-clip-margin-right', () => {
   expect(expandProperty('overflow-clip-margin-right')).toBe(
-    'overflow-clip-margin-right: $0;'
+    'overflow-clip-margin-right: $0;',
   )
 })
 test('overflow-clip-margin-bottom', () => {
   expect(expandProperty('overflow-clip-margin-bottom')).toBe(
-    'overflow-clip-margin-bottom: $0;'
+    'overflow-clip-margin-bottom: $0;',
   )
 })
 test('overflow-clip-margin-left', () => {
   expect(expandProperty('overflow-clip-margin-left')).toBe(
-    'overflow-clip-margin-left: $0;'
+    'overflow-clip-margin-left: $0;',
   )
 })
 test('overflow-clip-margin-block', () => {
   expect(expandProperty('overflow-clip-margin-block')).toBe(
-    'overflow-clip-margin-block: $0;'
+    'overflow-clip-margin-block: $0;',
   )
 })
 test('overflow-clip-margin-block-start', () => {
   expect(expandProperty('overflow-clip-margin-block-start')).toBe(
-    'overflow-clip-margin-block-start: $0;'
+    'overflow-clip-margin-block-start: $0;',
   )
 })
 test('overflow-clip-margin-block-end', () => {
   expect(expandProperty('overflow-clip-margin-block-end')).toBe(
-    'overflow-clip-margin-block-end: $0;'
+    'overflow-clip-margin-block-end: $0;',
   )
 })
 test('overflow-clip-margin-inline-start', () => {
   expect(expandProperty('overflow-clip-margin-inline-start')).toBe(
-    'overflow-clip-margin-inline-start: $0;'
+    'overflow-clip-margin-inline-start: $0;',
   )
 })
 test('overflow-clip-margin-inline-end', () => {
   expect(expandProperty('overflow-clip-margin-inline-end')).toBe(
-    'overflow-clip-margin-inline-end: $0;'
+    'overflow-clip-margin-inline-end: $0;',
   )
 })
 test('overflow-clip-margin-inline', () => {
   expect(expandProperty('overflow-clip-margin-inline')).toBe(
-    'overflow-clip-margin-inline: $0;'
+    'overflow-clip-margin-inline: $0;',
   )
 })
 
@@ -1946,25 +1946,25 @@ test('overscroll-behavior', () => {
 
 test('overscroll-behavior-block', () => {
   expect(expandProperty('overscroll-behavior-block')).toBe(
-    'overscroll-behavior-block: $0;'
+    'overscroll-behavior-block: $0;',
   )
 })
 
 test('overscroll-behavior-inline', () => {
   expect(expandProperty('overscroll-behavior-inline')).toBe(
-    'overscroll-behavior-inline: $0;'
+    'overscroll-behavior-inline: $0;',
   )
 })
 
 test('overscroll-behavior-x', () => {
   expect(expandProperty('overscroll-behavior-x')).toBe(
-    'overscroll-behavior-x: $0;'
+    'overscroll-behavior-x: $0;',
   )
 })
 
 test('overscroll-behavior-y', () => {
   expect(expandProperty('overscroll-behavior-y')).toBe(
-    'overscroll-behavior-y: $0;'
+    'overscroll-behavior-y: $0;',
   )
 })
 
@@ -1999,7 +1999,7 @@ test('padding-inline-end', () => {
 
 test('padding-inline-start', () => {
   expect(expandProperty('padding-inline-start')).toBe(
-    'padding-inline-start: $0;'
+    'padding-inline-start: $0;',
   )
 })
 
@@ -2092,7 +2092,7 @@ test('position-fallback', () => {
 
 test('position-fallback-bounds', () => {
   expect(expandProperty('position-fallback-bounds')).toBe(
-    'position-fallback-bounds: $0;'
+    'position-fallback-bounds: $0;',
   )
 })
 
@@ -2106,7 +2106,7 @@ test('position-try', () => {
 
 test('position-try-options', () => {
   expect(expandProperty('position-try-options')).toBe(
-    'position-try-options: $0;'
+    'position-try-options: $0;',
   )
 })
 
@@ -2233,25 +2233,25 @@ test('scroll-start-block', () => {
 
 test('scroll-start-target-block', () => {
   expect(expandProperty('scroll-start-target-block')).toBe(
-    'scroll-start-target-block: $0;'
+    'scroll-start-target-block: $0;',
   )
 })
 
 test('scroll-start-target-inline', () => {
   expect(expandProperty('scroll-start-target-inline')).toBe(
-    'scroll-start-target-inline: $0;'
+    'scroll-start-target-inline: $0;',
   )
 })
 
 test('scroll-start-target-x', () => {
   expect(expandProperty('scroll-start-target-x')).toBe(
-    'scroll-start-target-x: $0;'
+    'scroll-start-target-x: $0;',
   )
 })
 
 test('scroll-start-target-y', () => {
   expect(expandProperty('scroll-start-target-y')).toBe(
-    'scroll-start-target-y: $0;'
+    'scroll-start-target-y: $0;',
   )
 })
 
@@ -2266,37 +2266,37 @@ test('scroll-margin-block', () => {
 
 test('scroll-margin-block-end', () => {
   expect(expandProperty('scroll-margin-block-end')).toBe(
-    'scroll-margin-block-end: $0;'
+    'scroll-margin-block-end: $0;',
   )
 })
 
 test('scroll-margin-block-start', () => {
   expect(expandProperty('scroll-margin-block-start')).toBe(
-    'scroll-margin-block-start: $0;'
+    'scroll-margin-block-start: $0;',
   )
 })
 
 test('scroll-margin-bottom', () => {
   expect(expandProperty('scroll-margin-bottom')).toBe(
-    'scroll-margin-bottom: $0;'
+    'scroll-margin-bottom: $0;',
   )
 })
 
 test('scroll-margin-inline', () => {
   expect(expandProperty('scroll-margin-inline')).toBe(
-    'scroll-margin-inline: $0;'
+    'scroll-margin-inline: $0;',
   )
 })
 
 test('scroll-margin-inline-end', () => {
   expect(expandProperty('scroll-margin-inline-end')).toBe(
-    'scroll-margin-inline-end: $0;'
+    'scroll-margin-inline-end: $0;',
   )
 })
 
 test('scroll-margin-inline-start', () => {
   expect(expandProperty('scroll-margin-inline-start')).toBe(
-    'scroll-margin-inline-start: $0;'
+    'scroll-margin-inline-start: $0;',
   )
 })
 
@@ -2318,43 +2318,43 @@ test('scroll-padding', () => {
 
 test('scroll-padding-block', () => {
   expect(expandProperty('scroll-padding-block')).toBe(
-    'scroll-padding-block: $0;'
+    'scroll-padding-block: $0;',
   )
 })
 
 test('scroll-padding-block-end', () => {
   expect(expandProperty('scroll-padding-block-end')).toBe(
-    'scroll-padding-block-end: $0;'
+    'scroll-padding-block-end: $0;',
   )
 })
 
 test('scroll-padding-block-start', () => {
   expect(expandProperty('scroll-padding-block-start')).toBe(
-    'scroll-padding-block-start: $0;'
+    'scroll-padding-block-start: $0;',
   )
 })
 
 test('scroll-padding-bottom', () => {
   expect(expandProperty('scroll-padding-bottom')).toBe(
-    'scroll-padding-bottom: $0;'
+    'scroll-padding-bottom: $0;',
   )
 })
 
 test('scroll-padding-inline', () => {
   expect(expandProperty('scroll-padding-inline')).toBe(
-    'scroll-padding-inline: $0;'
+    'scroll-padding-inline: $0;',
   )
 })
 
 test('scroll-padding-inline-end', () => {
   expect(expandProperty('scroll-padding-inline-end')).toBe(
-    'scroll-padding-inline-end: $0;'
+    'scroll-padding-inline-end: $0;',
   )
 })
 
 test('scroll-padding-inline-start', () => {
   expect(expandProperty('scroll-padding-inline-start')).toBe(
-    'scroll-padding-inline-start: $0;'
+    'scroll-padding-inline-start: $0;',
   )
 })
 
@@ -2364,7 +2364,7 @@ test('scroll-padding-left', () => {
 
 test('scroll-padding-right', () => {
   expect(expandProperty('scroll-padding-right')).toBe(
-    'scroll-padding-right: $0;'
+    'scroll-padding-right: $0;',
   )
 })
 
@@ -2386,13 +2386,13 @@ test('scroll-snap-type', () => {
 
 test('scroll-timeline-axis', () => {
   expect(expandProperty('scroll-timeline-axis')).toBe(
-    'scroll-timeline-axis: $0;'
+    'scroll-timeline-axis: $0;',
   )
 })
 
 test('scroll-timeline-name', () => {
   expect(expandProperty('scroll-timeline-name')).toBe(
-    'scroll-timeline-name: $0;'
+    'scroll-timeline-name: $0;',
   )
 })
 
@@ -2414,7 +2414,7 @@ test('scrollbar-width', () => {
 
 test('shape-image-threshold', () => {
   expect(expandProperty('shape-image-threshold')).toBe(
-    'shape-image-threshold: $0;'
+    'shape-image-threshold: $0;',
   )
 })
 
@@ -2440,19 +2440,19 @@ test('size-adjust', () => {
 
 test('spatial-navigation-action', () => {
   expect(expandProperty('spatial-navigation-action')).toBe(
-    'spatial-navigation-action: $0;'
+    'spatial-navigation-action: $0;',
   )
 })
 
 test('spatial-navigation-contain', () => {
   expect(expandProperty('spatial-navigation-contain')).toBe(
-    'spatial-navigation-contain: $0;'
+    'spatial-navigation-contain: $0;',
   )
 })
 
 test('spatial-navigation-function', () => {
   expect(expandProperty('spatial-navigation-function')).toBe(
-    'spatial-navigation-function: $0;'
+    'spatial-navigation-function: $0;',
   )
 })
 
@@ -2574,24 +2574,24 @@ test('stroke-width', () => {
 
 test('superscript-position-override', () => {
   expect(expandProperty('superscript-position-override')).toBe(
-    'superscript-position-override: $0;'
+    'superscript-position-override: $0;',
   )
 })
 test('superscript-size-override', () => {
   expect(expandProperty('superscript-size-override')).toBe(
-    'superscript-size-override: $0;'
+    'superscript-size-override: $0;',
   )
 })
 
 test('subscript-position-override', () => {
   expect(expandProperty('subscript-position-override')).toBe(
-    'subscript-position-override: $0;'
+    'subscript-position-override: $0;',
   )
 })
 
 test('subscript-size-override', () => {
   expect(expandProperty('subscript-size-override')).toBe(
-    'subscript-size-override: $0;'
+    'subscript-size-override: $0;',
   )
 })
 
@@ -2633,7 +2633,7 @@ test('text-box-trim', () => {
 
 test('text-combine-upright', () => {
   expect(expandProperty('text-combine-upright')).toBe(
-    'text-combine-upright: $0;'
+    'text-combine-upright: $0;',
   )
 })
 
@@ -2646,66 +2646,66 @@ test('text-decoration', () => {
 
 test('text-decoration-color', () => {
   expect(expandProperty('text-decoration-color')).toBe(
-    'text-decoration-color: $0;'
+    'text-decoration-color: $0;',
   )
 })
 
 test('text-decoration-line', () => {
   expect(expandProperty('text-decoration-line')).toBe(
-    'text-decoration-line: $0;'
+    'text-decoration-line: $0;',
   )
 })
 
 test('text-decoration-skip', () => {
   expect(expandProperty('text-decoration-skip')).toBe(
-    'text-decoration-skip: $0;'
+    'text-decoration-skip: $0;',
   )
 })
 test('text-decoration-trim', () => {
   expect(expandProperty('text-decoration-trim')).toBe(
-    'text-decoration-trim: $0;'
+    'text-decoration-trim: $0;',
   )
 })
 
 test('text-decoration-skip-box', () => {
   expect(expandProperty('text-decoration-skip-box')).toBe(
-    'text-decoration-skip-box: $0;'
+    'text-decoration-skip-box: $0;',
   )
 })
 
 test('text-decoration-skip-ink', () => {
   expect(expandProperty('text-decoration-skip-ink')).toBe(
-    'text-decoration-skip-ink: $0;'
+    'text-decoration-skip-ink: $0;',
   )
 })
 
 test('text-decoration-skip-inset', () => {
   expect(expandProperty('text-decoration-skip-inset')).toBe(
-    'text-decoration-skip-inset: $0;'
+    'text-decoration-skip-inset: $0;',
   )
 })
 
 test('text-decoration-skip-self', () => {
   expect(expandProperty('text-decoration-skip-self')).toBe(
-    'text-decoration-skip-self: $0;'
+    'text-decoration-skip-self: $0;',
   )
 })
 
 test('text-decoration-skip-spaces', () => {
   expect(expandProperty('text-decoration-skip-spaces')).toBe(
-    'text-decoration-skip-spaces: $0;'
+    'text-decoration-skip-spaces: $0;',
   )
 })
 
 test('text-decoration-style', () => {
   expect(expandProperty('text-decoration-style')).toBe(
-    'text-decoration-style: $0;'
+    'text-decoration-style: $0;',
   )
 })
 
 test('text-decoration-thickness', () => {
   expect(expandProperty('text-decoration-thickness')).toBe(
-    'text-decoration-thickness: $0;'
+    'text-decoration-thickness: $0;',
   )
 })
 
@@ -2723,7 +2723,7 @@ test('text-emphasis-color', () => {
 
 test('text-emphasis-position', () => {
   expect(expandProperty('text-emphasis-position')).toBe(
-    'text-emphasis-position: $0;'
+    'text-emphasis-position: $0;',
   )
 })
 
@@ -2796,13 +2796,13 @@ test('text-transform', () => {
 
 test('text-underline-offset', () => {
   expect(expandProperty('text-underline-offset')).toBe(
-    'text-underline-offset: $0;'
+    'text-underline-offset: $0;',
   )
 })
 
 test('text-underline-position', () => {
   expect(expandProperty('text-underline-position')).toBe(
-    'text-underline-position: $0;'
+    'text-underline-position: $0;',
   )
 })
 
@@ -2872,7 +2872,7 @@ test('transition-property', () => {
 
 test('transition-timing-function', () => {
   expect(expandProperty('transition-timing-function')).toBe(
-    'transition-timing-function: $0;'
+    'transition-timing-function: $0;',
   )
   expect(expandProperty('ttf')).toBe('transition-timing-function: $0;')
 })
@@ -2942,7 +2942,7 @@ test('white-space-trim', () => {
 
 test('white-space-collapse', () => {
   expect(expandProperty('white-space-collapse')).toBe(
-    'white-space-collapse: $0;'
+    'white-space-collapse: $0;',
   )
 })
 
@@ -2963,13 +2963,13 @@ test('width', () => {
 
 test('word-boundary-detection', () => {
   expect(expandProperty('word-boundary-detection')).toBe(
-    'word-boundary-detection: $0;'
+    'word-boundary-detection: $0;',
   )
 })
 
 test('word-boundary-expansion', () => {
   expect(expandProperty('word-boundary-expansion')).toBe(
-    'word-boundary-expansion: $0;'
+    'word-boundary-expansion: $0;',
   )
 })
 
@@ -2984,7 +2984,7 @@ test('word-spacing', () => {
 
 test('word-space-transform', () => {
   expect(expandProperty('word-space-transform')).toBe(
-    'word-space-transform: $0;'
+    'word-space-transform: $0;',
   )
 })
 

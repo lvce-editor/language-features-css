@@ -18,7 +18,7 @@ export const test = async ({
     `${tmpDir}/test.css`,
     `h1 {
   dn
-}`
+}`,
   )
   await Workspace.setPath(tmpDir)
   // await Extension.addNodeExtension('packages/extension')
@@ -33,6 +33,6 @@ export const test = async ({
   await expect(editor).toHaveText(
     trimLines(`h1 {
   display: none;
-}`)
+}`),
   )
 }
