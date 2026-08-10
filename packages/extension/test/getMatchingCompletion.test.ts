@@ -1,6 +1,3 @@
-import { test, expect } from '@jest/globals'
-
-test('', () => {})
 // const expectSnippet = (partialWord, expected) => {
 //   expect(getMatchingCompletion(partialWord)).toBe(expected)
 // }
@@ -291,3 +288,6 @@ test('', () => {})
 //   expectNoSnippet(`grid-row-gap`)
 //   expectNoSnippet(`grid-column-gap`)
 // })
+import { test } from '@jest/globals'
+
+test.todo('get matching completion')

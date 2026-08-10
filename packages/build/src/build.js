@@ -13,7 +13,7 @@ fs.mkdirSync(path.join(root, 'dist'))
 fs.mkdirSync(path.join(root, 'dist', 'dist'))
 
 const packageJson = JSON.parse(
-  readFileSync(join(extension, 'package.json')).toString()
+  readFileSync(join(extension, 'package.json')).toString(),
 )
 delete packageJson.xo
 delete packageJson.jest
@@ -22,17 +22,17 @@ delete packageJson.devDependencies
 
 fs.writeFileSync(
   join(root, 'dist', 'package.json'),
-  JSON.stringify(packageJson, null, 2) + '\n'
+  JSON.stringify(packageJson, null, 2) + '\n',
 )
 fs.copyFileSync(join(root, 'README.md'), join(root, 'dist', 'README.md'))
 fs.copyFileSync(join(extension, 'icon.png'), join(root, 'dist', 'icon.png'))
 fs.copyFileSync(
   join(extension, 'extension.json'),
-  join(root, 'dist', 'extension.json')
+  join(root, 'dist', 'extension.json'),
 )
 fs.copyFileSync(
   join(extension, 'dist', 'languageFeaturesCssMain.js'),
-  join(root, 'dist', 'dist', 'languageFeaturesCssMain.js')
+  join(root, 'dist', 'dist', 'languageFeaturesCssMain.js'),
 )
 
 await packageExtension({

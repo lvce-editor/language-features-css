@@ -85,5 +85,5 @@ declare const Locator: (selector: string) => any
 
 declare const test: {
   (name: string, fn: () => Promise<void>): void
-  readonly skip: (name: string, fn: () => Promise<void>) => {}
+  readonly skip: (name: string, fn: () => Promise<void>) => void
 }

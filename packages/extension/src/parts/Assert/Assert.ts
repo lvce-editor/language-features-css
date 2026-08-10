@@ -4,12 +4,12 @@ import { AssertionError } from '../AssertionError/AssertionError.ts'
 
 const getType = (value) => {
   switch (typeof value) {
-    case 'number':
-      return 'number'
+    case 'boolean':
+      return 'boolean'
     case 'function':
       return 'function'
-    case 'string':
-      return 'string'
+    case 'number':
+      return 'number'
     case 'object':
       if (value === null) {
         return 'null'
@@ -21,8 +21,8 @@ const getType = (value) => {
         return 'uint32array'
       }
       return 'object'
-    case 'boolean':
-      return 'boolean'
+    case 'string':
+      return 'string'
     default:
       return 'unknown'
   }
@@ -40,7 +40,7 @@ export const number = (value) => {
   if (type !== 'number') {
     throw new AssertionError('expected value to be of type number')
   }
-  if (isNaN(value)) {
+  if (Number.isNaN(value)) {
     throw new AssertionError('value is NaN')
   }
 }

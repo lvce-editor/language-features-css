@@ -1,18 +1,16 @@
 import { cssProperties } from '../CssProperties/CssProperties.ts'
 
-const merge = (objectA, objectB) => ({ ...objectA, ...objectB })
-
 const keys = new Set(Object.keys(cssProperties))
-const snippets: any = Object.values(cssProperties).reduce(
-  merge,
-  Object.create(null)
-)
+const snippets: any = Object.create(null)
+for (const value of Object.values(cssProperties)) {
+  Object.assign(snippets, value)
+}
 
 /**
  * @param {string} partialWord
  */
 export const getMatchingCompletion = (partialWord) => {
-  if (snippets.hasOwnProperty(partialWord)) {
+  if (Object.hasOwn(snippets, partialWord)) {
     return snippets[partialWord]
   }
   if (keys.has(partialWord)) {

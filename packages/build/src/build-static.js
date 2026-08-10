@@ -23,7 +23,7 @@ await cp(
     'dist',
     commitHash,
     'extensions',
-    'builtin.language-features-css'
+    'builtin.language-features-css',
   ),
-  { recursive: true, force: true }
+  { recursive: true, force: true },
 )

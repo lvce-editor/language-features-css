@@ -48,16 +48,16 @@ const getW3Properties = async () => {
 const getTestedProperties = async () => {
   const text = await fs.promises.readFile(
     join(root, 'packages/css-data/test/css-properties.test.js'),
-    'utf-8'
+    'utf-8',
   )
-  const strings = [...text.matchAll(/test\('(.*?)'/g)].map((x) => x[1])
+  const strings = Array.from(text.matchAll(/test\('(.*?)'/g), (x) => x[1])
   return new Set(strings)
 }
 
 const getJsonProperties = async () => {
   const text = await fs.promises.readFile(
     join(root, 'packages/css-data/src/css-properties.json'),
-    'utf-8'
+    'utf-8',
   )
   const strings = Object.keys(JSON.parse(text))
   return new Set(strings)

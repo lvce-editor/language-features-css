@@ -1,6 +1,6 @@
-import { tokenizeCss } from '../src/parts/TokenizeCss/TokenizeCss.ts'
-import * as TokenType from '../src/parts/CssTokenType/CssTokenType.ts'
 import { test, expect } from '@jest/globals'
+import * as TokenType from '../src/parts/CssTokenType/CssTokenType.ts'
+import { tokenizeCss } from '../src/parts/TokenizeCss/TokenizeCss.ts'
 
 const expectTokenize = (text) => ({
   toEqual: (...tokens) => {
@@ -23,7 +23,7 @@ test('selector and single property', () => {
     TokenType.PropertyValue,
     TokenType.PropertySemicolon,
     TokenType.NewLine,
-    TokenType.CurlyClose
+    TokenType.CurlyClose,
   )
 })
 
@@ -38,7 +38,7 @@ test('unfinished property name', () => {
     TokenType.Whitespace,
     TokenType.PropertyName,
     TokenType.NewLine,
-    TokenType.CurlyClose
+    TokenType.CurlyClose,
   )
 })
 
@@ -47,7 +47,7 @@ test('multiple class selectors', () => {
     TokenType.Selector,
     TokenType.Whitespace,
     TokenType.CurlyOpen,
-    TokenType.CurlyClose
+    TokenType.CurlyClose,
   )
 })
 
@@ -69,7 +69,7 @@ test('unfinished second property name', () => {
     TokenType.Whitespace,
     TokenType.PropertyName,
     TokenType.NewLine,
-    TokenType.CurlyClose
+    TokenType.CurlyClose,
   )
 })
 
@@ -92,7 +92,7 @@ test('partial', () => {
     TokenType.Whitespace,
     TokenType.PropertyName,
     TokenType.NewLine,
-    TokenType.CurlyClose
+    TokenType.CurlyClose,
   )
 })
 
@@ -101,7 +101,7 @@ test('class selector', () => {
     TokenType.Selector,
     TokenType.Whitespace,
     TokenType.CurlyOpen,
-    TokenType.CurlyClose
+    TokenType.CurlyClose,
   )
 })
 
@@ -116,7 +116,7 @@ test('class selector and abbreviation', () => {
     TokenType.Whitespace,
     TokenType.PropertyName,
     TokenType.NewLine,
-    TokenType.CurlyClose
+    TokenType.CurlyClose,
   )
 })
 
@@ -125,7 +125,7 @@ test('id selector', () => {
     TokenType.Selector,
     TokenType.Whitespace,
     TokenType.CurlyOpen,
-    TokenType.CurlyClose
+    TokenType.CurlyClose,
   )
 })
 
@@ -155,7 +155,7 @@ test('unfinished property', () => {
     TokenType.PropertyValue,
     TokenType.PropertySemicolon,
     TokenType.NewLine,
-    TokenType.CurlyClose
+    TokenType.CurlyClose,
   )
 })
 
@@ -178,7 +178,7 @@ test('unfinished property with colon', () => {
     TokenType.PropertyValue,
     TokenType.PropertySemicolon,
     TokenType.NewLine,
-    TokenType.CurlyClose
+    TokenType.CurlyClose,
   )
 })
 
@@ -186,6 +186,6 @@ test('stray closing curly bracket', () => {
   expectTokenize(`h1 }`).toEqual(
     TokenType.Selector,
     TokenType.Whitespace,
-    TokenType.Text
+    TokenType.Text,
   )
 })

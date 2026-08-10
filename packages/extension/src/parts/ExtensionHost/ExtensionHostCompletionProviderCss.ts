@@ -9,7 +9,7 @@ export const triggerCharacters = []
 
 export const provideCompletions: CompletionProvider['provideCompletions'] = (
   textDocument,
-  offset
+  offset,
 ) => {
   return CssCompletion.cssCompletion(textDocument.text, offset)
 }

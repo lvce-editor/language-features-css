@@ -1,5 +1,5 @@
-import { cssPropertyValues } from '../CssPropertyValues/CssPropertyValues.ts'
 import * as CompletionType from '../CompletionType/CompletionType.ts'
+import { cssPropertyValues } from '../CssPropertyValues/CssPropertyValues.ts'
 
 // {
 //   none: {},
@@ -10,9 +10,9 @@ import * as CompletionType from '../CompletionType/CompletionType.ts'
 
 const toSnippet = (propertyName) => {
   return {
+    kind: CompletionType.Property,
     label: propertyName,
     snippet: `${propertyName}: `,
-    kind: CompletionType.Property,
   }
 }
 

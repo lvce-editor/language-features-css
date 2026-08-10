@@ -2,7 +2,7 @@ import type { CssToken } from '../CssToken/CssToken.ts'
 
 export const getTokenAtOffset = (
   tokens: CssToken[],
-  offset: number
+  offset: number,
 ): CssToken => {
   // TODO binary search
   for (let i = 0; i < tokens.length; i++) {
@@ -14,5 +14,5 @@ export const getTokenAtOffset = (
       return tokens[i - 1]
     }
   }
-  return tokens[tokens.length - 1]
+  return tokens.at(-1)!
 }
