@@ -2,6 +2,9 @@ import type { CssToken } from '../CssToken/CssToken.ts'
 import * as TokenType from '../CssTokenType/CssTokenType.ts'
 import * as TokenizerState from '../TokenizerState/TokenizerState.ts'
 
+// Recover at a newline while an import's semicolon is still being typed.
+const RE_IMPORT =
+  /^@import\b(?:"(?:\\.|[^"\\\n])*"|'(?:\\.|[^'\\\n])*'|[^;\n'"{}])*;?/i
 const RE_SELECTOR = /^(?:#[\w-]+|[.a-zA-Z\d]+)/
 const RE_WHITESPACE = /^[ \t]+/
 const RE_CURLY_OPEN = /^{/
@@ -94,7 +97,9 @@ export const tokenizeCss = (text: string) => {
         }
         break
       case TokenizerState.TopLevelContent:
-        if ((next = part.match(RE_SELECTOR))) {
+        if ((next = part.match(RE_IMPORT))) {
+          token = TokenType.Text
+        } else if ((next = part.match(RE_SELECTOR))) {
           token = TokenType.Selector
           state = TokenizerState.AfterSelector
         } else if ((next = part.match(RE_WHITESPACE))) {
