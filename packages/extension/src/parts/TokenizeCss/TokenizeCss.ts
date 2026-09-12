@@ -3,8 +3,7 @@ import * as TokenType from '../CssTokenType/CssTokenType.ts'
 import * as TokenizerState from '../TokenizerState/TokenizerState.ts'
 
 // Recover at a newline while an import's semicolon is still being typed.
-const RE_IMPORT =
-  /^@import\b(?:"(?:\\.|[^"\\\n])*"|'(?:\\.|[^'\\\n])*'|[^;\n'"{}])*;?/i
+const RE_IMPORT = /^@import\b(?:"[^"\n]*"|'[^'\n]*'|[^;\n'"{}])*;?/i
 const RE_SELECTOR = /^(?:#[\w-]+|[.a-zA-Z\d]+)/
 const RE_WHITESPACE = /^[ \t]+/
 const RE_CURLY_OPEN = /^{/
