@@ -5,6 +5,7 @@ declare const ContextMenu: {
 declare const Editor: {
   readonly setCursor: (rowIndex: number, columnIndex: number) => Promise<void>
   readonly openCompletion: () => Promise<void>
+  readonly shouldHaveText: (text: string) => Promise<void>
   readonly executeTabCompletion: () => Promise<void>
   readonly openEditorContextMenu: () => Promise<void>
   readonly executeBraceCompletion: (brace: string) => Promise<void>
