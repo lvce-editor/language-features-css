@@ -24,18 +24,19 @@ export const test = async ({
   await expect(completionItems.nth(0)).toHaveText('gap')
   await expect(completionItems.nth(0)).toHaveClass('EditorCompletionItemFocused')
   await KeyBoard.press('Enter')
-  await Editor.shouldHaveText('div {\n  gap: \n}')
+  await Editor.shouldHaveText('div {\n  gap\n}')
 
   await Main.openUri(`${tmpDir}/filtered.css`)
   await Editor.setCursor(1, 3)
   await Editor.openCompletion()
-  await KeyBoard.press('a')
+  await Editor.type('a')
+  await Editor.shouldHaveText('div {\n  ga\n}')
 
   await expect(completions).toBeVisible()
   await expect(completionItems.nth(0)).toHaveText('gap')
   await expect(completionItems.nth(0)).toHaveClass('EditorCompletionItemFocused')
   await KeyBoard.press('Enter')
-  await Editor.shouldHaveText('div {\n  gap: \n}')
+  await Editor.shouldHaveText('div {\n  gap\n}')
 
   for (const property of ['gap', 'column-gap', 'row-gap']) {
     const filename = `${property}.css`
@@ -48,6 +49,6 @@ export const test = async ({
     await expect(completionItems.nth(0)).toHaveText(property)
     await expect(completionItems.nth(0)).toHaveClass('EditorCompletionItemFocused')
     await KeyBoard.press('Enter')
-    await Editor.shouldHaveText(`div {\n  ${property}: \n}`)
+    await Editor.shouldHaveText(`div {\n  ${property}\n}`)
   }
 }
