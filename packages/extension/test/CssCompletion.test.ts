@@ -30,3 +30,55 @@ test('completion', () => {
     snippet: 'display: ',
   })
 })
+
+test('display value completions', () => {
+  const text = `h1 {\n  display: \n}`
+  const completions = cssCompletion(text, text.indexOf('\n}'))
+  const labels = completions.map((item) => item.label)
+
+  expect(labels).toEqual([
+    'none',
+    'contents',
+    'inline',
+    'inline-block',
+    'flex',
+    'inline-flex',
+    'grid',
+    'inline-grid',
+    'block',
+    'flow-root',
+    'list-item',
+    'table',
+    'inline-table',
+    'table-row-group',
+    'table-header-group',
+    'table-footer-group',
+    'table-row',
+    'table-cell',
+    'table-column-group',
+    'table-column',
+    'table-caption',
+    'ruby',
+    'ruby-base',
+    'ruby-text',
+    'ruby-base-container',
+    'ruby-text-container',
+    'run-in',
+  ])
+  expect(new Set(labels).size).toBe(labels.length)
+  expect(completions.every((item) => item.kind === 2)).toBe(true)
+  expect(completions.map((item) => item.snippet)).toEqual(
+    labels.map((label) => `${label};`),
+  )
+})
+
+test('partial display value completions', () => {
+  const text = `h1 {\n  display: in\n}`
+  const completions = cssCompletion(text, text.indexOf('\n}'))
+  const labels = completions.map((item) => item.label)
+
+  expect(labels).toContain('inline-block')
+  expect(labels).toContain('inline-flex')
+  expect(labels).toContain('inline-grid')
+  expect(labels).not.toContain('display')
+})
