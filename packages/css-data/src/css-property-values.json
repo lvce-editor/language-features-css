@@ -29,16 +29,112 @@
   ],
   "display": [
     {
+      "label": "none",
+      "snippet": "none;"
+    },
+    {
+      "label": "contents",
+      "snippet": "contents;"
+    },
+    {
+      "label": "inline",
+      "snippet": "inline;"
+    },
+    {
+      "label": "inline-block",
+      "snippet": "inline-block;"
+    },
+    {
       "label": "flex",
       "snippet": "flex;"
+    },
+    {
+      "label": "inline-flex",
+      "snippet": "inline-flex;"
     },
     {
       "label": "grid",
       "snippet": "grid;"
     },
     {
+      "label": "inline-grid",
+      "snippet": "inline-grid;"
+    },
+    {
       "label": "block",
       "snippet": "block;"
+    },
+    {
+      "label": "flow-root",
+      "snippet": "flow-root;"
+    },
+    {
+      "label": "list-item",
+      "snippet": "list-item;"
+    },
+    {
+      "label": "table",
+      "snippet": "table;"
+    },
+    {
+      "label": "inline-table",
+      "snippet": "inline-table;"
+    },
+    {
+      "label": "table-row-group",
+      "snippet": "table-row-group;"
+    },
+    {
+      "label": "table-header-group",
+      "snippet": "table-header-group;"
+    },
+    {
+      "label": "table-footer-group",
+      "snippet": "table-footer-group;"
+    },
+    {
+      "label": "table-row",
+      "snippet": "table-row;"
+    },
+    {
+      "label": "table-cell",
+      "snippet": "table-cell;"
+    },
+    {
+      "label": "table-column-group",
+      "snippet": "table-column-group;"
+    },
+    {
+      "label": "table-column",
+      "snippet": "table-column;"
+    },
+    {
+      "label": "table-caption",
+      "snippet": "table-caption;"
+    },
+    {
+      "label": "ruby",
+      "snippet": "ruby;"
+    },
+    {
+      "label": "ruby-base",
+      "snippet": "ruby-base;"
+    },
+    {
+      "label": "ruby-text",
+      "snippet": "ruby-text;"
+    },
+    {
+      "label": "ruby-base-container",
+      "snippet": "ruby-base-container;"
+    },
+    {
+      "label": "ruby-text-container",
+      "snippet": "ruby-text-container;"
+    },
+    {
+      "label": "run-in",
+      "snippet": "run-in;"
     }
   ],
   "position": [
