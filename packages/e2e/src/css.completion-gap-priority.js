@@ -26,7 +26,7 @@ export const test = async ({
     'EditorCompletionItemFocused',
   )
   await KeyBoard.press('Enter')
-  await Editor.shouldHaveText('div {\n  gap\n}')
+  await Editor.shouldHaveText('div {\n  gap: \n}')
 
   await Main.openUri(`${tmpDir}/filtered.css`)
   await Editor.setCursor(1, 3)
@@ -40,7 +40,7 @@ export const test = async ({
     'EditorCompletionItemFocused',
   )
   await KeyBoard.press('Enter')
-  await Editor.shouldHaveText('div {\n  gap\n}')
+  await Editor.shouldHaveText('div {\n  gap: \n}')
 
   for (const property of ['gap', 'column-gap', 'row-gap']) {
     const filename = `${property}.css`
@@ -58,6 +58,6 @@ export const test = async ({
       'EditorCompletionItemFocused',
     )
     await KeyBoard.press('Enter')
-    await Editor.shouldHaveText(`div {\n  ${property}\n}`)
+    await Editor.shouldHaveText(`div {\n  ${property}: \n}`)
   }
 }
