@@ -11,10 +11,7 @@ export const test = async ({
 }) => {
   // arrange
   const tmpDir = await FileSystem.getTmpDir()
-  await FileSystem.writeFile(
-    `${tmpDir}/test.css`,
-    `h1 {\n  display: no\n}`,
-  )
+  await FileSystem.writeFile(`${tmpDir}/test.css`, `h1 {\n  display: no\n}`)
   await Workspace.setPath(tmpDir)
 
   // act
