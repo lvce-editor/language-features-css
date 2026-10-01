@@ -24,5 +24,5 @@ export const test = async ({
   await expect(completions).toBeVisible()
   await expect(completions).toContainText('none')
   await KeyBoard.press('Enter')
-  await Editor.shouldHaveText('h1 {\n  display: none;\n}')
+  await Editor.shouldHaveText('h1 {\n  display: none\n}')
 }
