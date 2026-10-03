@@ -2,7 +2,7 @@
   "id": "builtin.language-features-css",
   "name": "Language Features CSS",
   "description": "Provides rich language support for CSS files",
-  "activation": ["onLanguage:css", "onCompletion:css", "onTabCompletion:css"],
+  "activation": ["onLanguage:css", "onCompletion:css", "onTabCompletion:css", "onDefinition:css"],
   "browser": "dist/languageFeaturesCssMain.js",
   "contentSecurityPolicy": ["default-src 'none'"],
   "isolated": true,
