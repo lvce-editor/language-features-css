@@ -23,3 +23,30 @@ test('basic', () => {
   margin: |;
 }`)
 })
+
+test('important declaration value', () => {
+  expectTabCompletion(`h1 {
+  color: red !|
+}`).toEqual(`h1 {
+  color: red !important|
+}`)
+})
+
+test('important declaration value preserves semicolon', () => {
+  expectTabCompletion(`h1 {
+  color: red !|;
+}`).toEqual(`h1 {
+  color: red !important|;
+}`)
+})
+
+test('does not duplicate an existing important keyword', () => {
+  expectTabCompletion(`h1 {
+  color: red !|important;
+}`).toEqual(undefined)
+})
+
+test('does not complete an exclamation mark outside a declaration value', () => {
+  expectTabCompletion(`h1| {
+}`).toEqual(undefined)
+})
