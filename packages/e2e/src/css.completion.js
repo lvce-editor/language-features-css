@@ -25,4 +25,26 @@ export const test = async ({
   await expect(completions).toContainText('none')
   await KeyBoard.press('Enter')
   await Editor.shouldHaveText('h1 {\n  display: none;\n}')
+
+  const blankIndent = '  '
+  const declarationCss = `:root {
+  --red: red;
+}
+h1 {
+  color: var(--red);
+${blankIndent}
+}`
+  await FileSystem.writeFile(`${tmpDir}/declaration.css`, declarationCss)
+  await Main.openUri(`${tmpDir}/declaration.css`)
+  await Editor.setCursor(5, 2)
+  await Editor.openCompletion()
+
+  await expect(completions).toBeVisible()
+  await expect(completions).toContainText('display')
+  await Editor.type('display')
+  await KeyBoard.press('Enter')
+  const insertedDeclaration = 'display: '
+  await Editor.shouldHaveText(
+    `:root {\n  --red: red;\n}\nh1 {\n  color: var(--red);\n  ${insertedDeclaration}\n}`,
+  )
 }

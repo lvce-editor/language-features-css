@@ -1,6 +1,19 @@
 import { expect, test } from '@jest/globals'
 import { cssCompletion } from '../src/parts/CssCompletion/CssCompletion.ts'
 import { cssTabCompletion } from '../src/parts/CssTabCompletion/CssTabCompletion.ts'
+import * as ExtensionHostCompletionProviderCss from '../src/parts/ExtensionHost/ExtensionHostCompletionProviderCss.ts'
+
+const blankIndent = '  '
+const screenshotCss = `:root {
+  --red: red;
+}
+h1 {
+  color: var(--red);
+${blankIndent}
+}
+.test {
+  grid-template-columns: 1fr min(1024px, 100%) 1fr;
+}`
 
 test.each([
   "@import 'tailwindcss'",
@@ -30,6 +43,41 @@ test('completion', () => {
     snippet: 'display: ',
   })
 })
+
+test('property completions in screenshot declaration context', () => {
+  const offset = screenshotCss.indexOf('\n  \n') + 3
+  const labels = cssCompletion(screenshotCss, offset).map((item) => item.label)
+  expect(labels).toContain('display')
+  expect(labels).toContain('background-color')
+})
+
+test.each([
+  ['after opening brace', 'h1 {', 4],
+  ['after completed declaration', 'h1 {\n  color: red;', 18],
+  ['after property prefix', 'h1 {\n  displ', 13],
+])('%s offers property names', (_name, text, offset) => {
+  expect(cssCompletion(text, offset).map((item) => item.label)).toContain(
+    'display',
+  )
+})
+
+test('extension completion provider forwards the document and offset', async () => {
+  const text = 'h1 {\n  displ'
+  const completions =
+    await ExtensionHostCompletionProviderCss.provideCompletions(
+      { text } as any,
+      text.length,
+    )
+  expect(completions.map((item) => item.label)).toContain('display')
+})
+
+test.each(['h1', 'h1 {\n  color: red'])(
+  '%s does not suggest properties outside declarations',
+  (text) => {
+    const labels = cssCompletion(text, text.length).map((item) => item.label)
+    expect(labels).not.toContain('display')
+  },
+)
 
 test('display value completions', () => {
   const text = `h1 {\n  display: \n}`
