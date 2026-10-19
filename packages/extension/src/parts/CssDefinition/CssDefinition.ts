@@ -29,7 +29,7 @@ const maskString = (
       }
     } else if (char === quote) {
       chars[index] = ' '
-      return index
+      return index + 1
     } else if (char !== '\n' && char !== '\r') {
       chars[index] = ' '
     }
@@ -78,37 +78,142 @@ export const getDefinition = (uri: string, text: string, offset: number) => {
   }
 
   const source = maskCommentsAndStrings(text)
-  const referencePattern = /\bvar\s*\(\s*(--[\w-]+)/gi
-  let reference: RegExpExecArray | null
-  let name: string | undefined
-
-  while ((reference = referencePattern.exec(source))) {
-    const nameStart = reference.index + reference[0].lastIndexOf(reference[1])
-    const nameEnd = nameStart + reference[1].length
-    if (offset >= nameStart && offset <= nameEnd) {
-      name = reference[1]
-      break
-    }
-  }
-
+  const name = getCustomPropertyAtOffset(source, offset)
   if (!name) {
     return undefined
   }
 
   const braceDepths = getBraceDepths(source)
-  const declarationPattern = /(?:^|[;{])\s*(--[\w-]+)\s*:/g
-  let declaration: RegExpExecArray | null
-  while ((declaration = declarationPattern.exec(source))) {
-    const nameStart =
-      declaration.index + declaration[0].lastIndexOf(declaration[1])
-    if (braceDepths[nameStart] > 0 && declaration[1] === name) {
-      return {
-        endOffset: nameStart + name.length,
-        startOffset: nameStart,
-        uri,
+  const declaration = getDeclarations(source, braceDepths).find(
+    (item) => item.name === name,
+  )
+  if (declaration) {
+    return {
+      endOffset: declaration.endOffset,
+      startOffset: declaration.startOffset,
+      uri,
+    }
+  }
+  return undefined
+}
+
+interface CustomPropertyOccurrence {
+  readonly endOffset: number
+  readonly name: string
+  readonly startOffset: number
+}
+
+export interface ReferenceLocation {
+  readonly endColumnIndex: number
+  readonly endOffset: number
+  readonly endRowIndex: number
+  readonly lineText: string
+  readonly startColumnIndex: number
+  readonly startOffset: number
+  readonly startRowIndex: number
+  readonly uri: string
+}
+
+const getCustomPropertyAtOffset = (
+  source: string,
+  offset: number,
+): string | undefined => {
+  const patterns = [/\bvar\s*\(\s*(--[\w-]+)/gi, /(?:^|[;{])\s*(--[\w-]+)\s*:/g]
+  for (const pattern of patterns) {
+    let match: RegExpExecArray | null
+    while ((match = pattern.exec(source))) {
+      const nameStart = match.index + match[0].lastIndexOf(match[1])
+      const nameEnd = nameStart + match[1].length
+      if (offset >= nameStart && offset <= nameEnd) {
+        return match[1]
       }
     }
   }
-
   return undefined
+}
+
+const getDeclarations = (
+  source: string,
+  braceDepths: Uint32Array,
+): readonly CustomPropertyOccurrence[] => {
+  const declarations: CustomPropertyOccurrence[] = []
+  const pattern = /(?:^|[;{])\s*(--[\w-]+)\s*:/g
+  let match: RegExpExecArray | null
+  while ((match = pattern.exec(source))) {
+    const startOffset = match.index + match[0].lastIndexOf(match[1])
+    if (braceDepths[startOffset] > 0) {
+      declarations.push({
+        endOffset: startOffset + match[1].length,
+        name: match[1],
+        startOffset,
+      })
+    }
+  }
+  return declarations
+}
+
+const getVariableReferences = (
+  source: string,
+): readonly CustomPropertyOccurrence[] => {
+  const references: CustomPropertyOccurrence[] = []
+  const pattern = /\bvar\s*\(\s*(--[\w-]+)/gi
+  let match: RegExpExecArray | null
+  while ((match = pattern.exec(source))) {
+    const startOffset = match.index + match[0].lastIndexOf(match[1])
+    references.push({
+      endOffset: startOffset + match[1].length,
+      name: match[1],
+      startOffset,
+    })
+  }
+  return references
+}
+
+export const getReferences = (uri: string, text: string, offset: number) => {
+  if (!Number.isSafeInteger(offset) || offset < 0 || offset > text.length) {
+    return []
+  }
+  const source = maskCommentsAndStrings(text)
+  const name = getCustomPropertyAtOffset(source, offset)
+  if (!name) {
+    return []
+  }
+  const braceDepths = getBraceDepths(source)
+  const occurrences = [
+    ...getDeclarations(source, braceDepths),
+    ...getVariableReferences(source),
+  ]
+    .filter((occurrence) => occurrence.name === name)
+    .toSorted((left, right) => left.startOffset - right.startOffset)
+  const lines = text.split('\n')
+  const references: ReferenceLocation[] = []
+  let rowIndex = 0
+  let lineStart = 0
+  for (const occurrence of occurrences) {
+    while (
+      rowIndex < lines.length - 1 &&
+      occurrence.startOffset >= lineStart + lines[rowIndex].length + 1
+    ) {
+      lineStart += lines[rowIndex].length + 1
+      rowIndex++
+    }
+    const lineText = lines[rowIndex]
+    const lineEnd = lineStart + lineText.length
+    if (
+      occurrence.startOffset >= lineStart &&
+      occurrence.endOffset <= lineEnd
+    ) {
+      references.push({
+        endColumnIndex: occurrence.endOffset - lineStart,
+        endOffset: occurrence.endOffset,
+        endRowIndex: rowIndex,
+        lineText,
+        startColumnIndex: occurrence.startOffset - lineStart,
+        startOffset: occurrence.startOffset,
+        startRowIndex: rowIndex,
+        uri,
+      })
+    }
+  }
+  return references
 }
