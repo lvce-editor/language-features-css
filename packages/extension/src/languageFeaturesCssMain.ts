@@ -4,9 +4,11 @@ import {
   registerDefinitionProvider,
   registerReferenceProvider,
   registerTabCompletionProvider,
+  registerHoverProvider,
 } from '@lvce-editor/api'
 import * as ExtensionHostCompletionProviderCss from './parts/ExtensionHost/ExtensionHostCompletionProviderCss.ts'
 import * as ExtensionHostDefinitionProviderCss from './parts/ExtensionHost/ExtensionHostDefinitionProviderCss.ts'
+import * as ExtensionHostHoverProviderCss from './parts/ExtensionHost/ExtensionHostHoverProviderCss.ts'
 import * as ExtensionHostReferenceProviderCss from './parts/ExtensionHost/ExtensionHostReferenceProviderCss.ts'
 import * as ExtensionHostTabCompletionProviderCss from './parts/ExtensionHost/ExtensionHostTabCompletionProviderCss.ts'
 
@@ -22,6 +24,11 @@ export const activate = async (): Promise<void> => {
   registerDefinitionProvider(ExtensionHostDefinitionProviderCss)
   registerReferenceProvider(ExtensionHostReferenceProviderCss)
   registerTabCompletionProvider(ExtensionHostTabCompletionProviderCss)
+  registerHoverProvider({
+    id: 'css',
+    languageId: 'css',
+    provideHover: ExtensionHostHoverProviderCss.provideHover,
+  })
 }
 
 export const deactivate = (): void => {}
