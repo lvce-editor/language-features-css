@@ -17,6 +17,20 @@ export const cssTabCompletion = (text, offset) => {
   switch (tokenAtOffset.type) {
     case TokenType.PropertyName:
       return CssTabCompletionProperty.getTabCompletion(text, offset)
+    case TokenType.PropertyValue: {
+      if (text[offset - 1] !== '!') {
+        return undefined
+      }
+      if (/^important\b/i.test(text.slice(offset))) {
+        return undefined
+      }
+      return {
+        deleted: 1,
+        inserted: '!important$0',
+        offset: offset - 1,
+        type: /* Snippet */ 2,
+      }
+    }
     default:
       return undefined
   }
