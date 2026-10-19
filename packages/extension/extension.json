@@ -6,7 +6,8 @@
     "onLanguage:css",
     "onCompletion:css",
     "onTabCompletion:css",
-    "onDefinition:css"
+    "onDefinition:css",
+    "onReferences:css"
   ],
   "browser": "dist/languageFeaturesCssMain.js",
   "contentSecurityPolicy": ["default-src 'none'"],
