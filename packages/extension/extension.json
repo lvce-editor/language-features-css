@@ -7,7 +7,8 @@
     "onCompletion:css",
     "onTabCompletion:css",
     "onDefinition:css",
-    "onReferences:css"
+    "onReferences:css",
+    "onHover:css"
   ],
   "browser": "dist/languageFeaturesCssMain.js",
   "contentSecurityPolicy": ["default-src 'none'"],
@@ -16,6 +17,12 @@
   "icon": "./icon.png",
   "commands": [],
   "completionProviders": [
+    {
+      "id": "css",
+      "languageId": "css"
+    }
+  ],
+  "hoverProviders": [
     {
       "id": "css",
       "languageId": "css"
