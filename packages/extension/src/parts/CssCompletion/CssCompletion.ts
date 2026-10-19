@@ -34,9 +34,27 @@ export const cssCompletion = (text, offset) => {
   if (!nodeAtOffset) {
     return NULL_COMPLETIONS
   }
+  let blockDepth = 0
+  for (const node of parsed) {
+    if (node.offset > offset) {
+      break
+    }
+    if (node.type === TokenType.CurlyOpen) {
+      blockDepth++
+    } else if (node.type === TokenType.CurlyClose) {
+      blockDepth--
+    }
+  }
   switch (nodeAtOffset.type) {
-    case TokenType.PropertyName:
+    case TokenType.CurlyOpen:
+    case TokenType.NewLine:
+    case TokenType.PropertySemicolon:
     case TokenType.Whitespace:
+      if (blockDepth > 0) {
+        return GetPropertyNameCompletions.getPropertyNameCompletions()
+      }
+      return NULL_COMPLETIONS
+    case TokenType.PropertyName:
       return GetPropertyNameCompletions.getPropertyNameCompletions()
     case TokenType.PropertyValue:
       return GetPropertyValueCompletions.getPropertyValueCompletions(
